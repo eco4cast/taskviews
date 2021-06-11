@@ -1,4 +1,4 @@
-# Modeling & Statistical Resources, including Uncertainty Quantification & Propagation
+# Uncertainty quantification, Data assimilation, Modeling & Statistics
 ## Overview
 *Curators: Abby Lewis^1, Ben Toh^2, Jake Zwart^3, Alexey Shiklomanov^4, Leah Johnson^1, Ethan White^2, Hassan Moustahfid^5, Kelly Heilman^6, Ash Griffin^7, Jody Peters^8, Quinn Thomas^1, Mike Dietze^9*
 ^1Virginia Tech, ^2University of Florida, ^3USGS, ^4NASA, ^5NOAA, ^6University of Arizona, ^7MailChimp, ^8University of Notre Dame, ^9Boston University
