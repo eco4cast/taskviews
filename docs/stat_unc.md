@@ -70,6 +70,7 @@ Instead of working directly with MCMC samplers, a model can be specified in the 
 ####Readily available “native” functions  
 
 By trading flexibility and customizability for some convenience, some packages allow us to fit Bayesian models with “native” functions. 
+
 * **R**
     + [brms](https://cran.r-project.org/web/packages/brms/index.html) lets us fit the ARMA model with syntax and formula familiar to every R user: e.g., fit <- brm(y ~ x + arma(p = 1, q = 1), data = data). Uses Stan under the hood.
     + [rstanarm](https://cran.r-project.org/web/packages/rstanarm/index.html) documentations provide [a number of examples](https://mc-stan.org/rstanarm/articles/) of fitting GLMM using native R syntax with Stan under the hood.
@@ -119,6 +120,7 @@ The simplicity of these is both a strength and weakness in a forecasting framewo
 Deterministic models are typically designed using custom code, and there are very few off-the-shelf tools to help create deterministic models. That being said, a few packages (listed below) are useful to help with parameter fitting and manipulating differential equations. For more information on (frequentist) parameter fitting in R, see this [tutorial](https://www.r-bloggers.com/learning-r-parameter-fitting-for-models-involving-differential-equations/) from R-bloggers. Bayesian inference for a limited variety of ordinary differential equations (ODEs) are available in the beta version of BUGS, or in R through the [deBInfer](https://cran.r-project.org/web/packages/deBInfer/index.html) package. 
 
 **Packages to note:**
+
 1. Packages to fit ODEs
     + [deSolve](https://cran.r-project.org/web/packages/deSolve/index.html) in R
     + [ODEINT](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html) and [GEKKO](https://gekko.readthedocs.io/en/latest/) in Python
@@ -199,6 +201,7 @@ Uncertainty Propagation YouTube Tutorials ([EFI/NEON series](https://www.youtube
 Updating model predictions to incorporate new data is a central component of near-term ecological forecasting (Figure 1). One way of doing this would be to repeat the entire model-fitting procedure above any time new observations are added to a dataset. However, that may be very computationally expensive, especially for large complex models. Instead, one might prefer to update existing model predictions using just the new observations (and their uncertainties) and then re-generate new predictions starting from the updated model state. We describe this process as **data assimilation**.
 
 **A Note on Vocabulary**
+
 The term “Data assimilation” (or sometimes, “model-data fusion”) is often used to describe a variety of modeling activities. Some people use “batch data assimilation” or “parameter data assimilation” to describe fitting models to data (see earlier sections). Others use “data assimilation” to broadly refer to any activity that combines information from data and models in any way, such as initializing a model with observed conditions or using observations as model drivers or boundary conditions. For the purposes of this document, we use “data assimilation” to mean the specific approach we describe above; namely, iteratively updating model states using observations (sometimes called “state” data assimilation or “sequential” data assimilation; Figure 2).
 
 ![Figure 2. In a sequential data assimilation framework, estimates of model states (and optionally parameters) are updated as new observations are assimilated into the model. The updated states take into account state observations and modeled state estimates as well as the relative confidence in each (shown as distributions). The updated states are then used as initial conditions for the model to make predictions at the next time step (t+1) using the model’s equations. Figure from Ellen Bechtel and Jake Zwart.

@@ -25,7 +25,7 @@ header-includes:
 </center>
 
 
-The EFI Methods and Cyberinfrastructure EFI Working Groups are compiling common tasks in ecological forecasting and methods and tools to help with tasks commonly used in ecological forecasting for the following categories. 
+The EFI [Methods](https://ecoforecast.org/methods-tools/) and [Cyberinfrastructure](https://ecoforecast.org/cyberinfrastructure/) EFI Working Groups are compiling common tasks in ecological forecasting and methods and tools to help with tasks commonly used in ecological forecasting for the following categories. 
 
 * Reproducible Forecasting Workflows
 * Modeling & Statistical resources, including Uncertainty Quantification & Propagation 
