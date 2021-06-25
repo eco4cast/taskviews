@@ -45,7 +45,7 @@ In a Bayesian framework, all fitted parameters have a probability distribution. 
 4. Laplace approximation. 
 These methods are all described in more detail below.
 
-####Work directly with Markov chain Monte Carlo (MCMC)   
+#### Work directly with Markov chain Monte Carlo (MCMC)   
 
 * **R**  
     + The [mcmc](https://cran.r-project.org/web/packages/mcmc/index.html) package facilitates sampling from a posterior distribution using the Metropolis algorithm and provides other useful helper functions  
@@ -54,7 +54,7 @@ These methods are all described in more detail below.
 * **Python** 
     + The [pymc3](https://docs.pymc.io/) module allows models to be written using the Python language, and fits the model using various sampling algorithms.
 
-####Interface with JAGS/BUGS/Stan  
+#### Interface with JAGS/BUGS/Stan  
 
 Instead of working directly with MCMC samplers, a model can be specified in the [JAGS](https://mcmc-jags.sourceforge.io/) (Just Another Gibbs Sampler), [BUGS](https://www.mrc-bsu.cam.ac.uk/software/bugs/) (Bayesian Inference Using Gibbs Sampling), [nimble](https://cran.r-project.org/web/packages/nimble/index.html), or [Stan](https://mc-stan.org/) syntax. Stan can be faster for complex, hierarchical models without conjugacy. For simple models, ones that have conjugate relationships, or models with a lot of latent variables, JAGS/BUGS/NIMBLE are usually faster.These languages select samplers based on the model, and provide posterior samples. Differences in these programs are primarily in the backend algorithms.  
 
@@ -67,7 +67,7 @@ Instead of working directly with MCMC samplers, a model can be specified in the 
 * **Python** 
     + The [pyjags](https://pypi.org/project/pyjags/) and [pystan](https://pypi.org/project/pystan/2.2.0.0/) modules are used to interface with JAGS and Stan.
 
-####Readily available “native” functions  
+#### Readily available “native” functions  
 
 By trading flexibility and customizability for some convenience, some packages allow us to fit Bayesian models with “native” functions. 
 
@@ -79,7 +79,7 @@ By trading flexibility and customizability for some convenience, some packages a
     + [spBayes](https://cran.r-project.org/web/packages/spBayes/index.html) fits spatiotemporal GLMM using native R language
     + The [BMS](http://bms.zeugner.eu/) package enables Bayesian model averaging, sampling data according to different g-priors and model priors and can work with a wide variety of samples
 
-####Laplace Approximation  
+#### Laplace Approximation  
 
 The Bayesian approach is generally much more time consuming than frequentist and machine learning. Fitting time for MCMC is slow and due to the iterative nature of MCMC, parallelization of individual chains is not possible. One of the most common and well supported ways is to approximate the posterior distributions using Laplace approximation. The [R-INLA package](http://www.r-inla.org/) (inla) provides ways to fit a wide variety of statistical models via the integrated nested Laplace approximation approach. It is now heavily used in temporal, spatial and spatiotemporal GLMM. 
 
@@ -93,7 +93,7 @@ Unlike statistical models, Machine Learning (ML) models make few assumptions abo
 
 Methods that are generally considered ML include decision tree based methods (e.g. Classification And Regression Tree ([CART](https://en.wikipedia.org/wiki/Decision_tree_learning), [random forest](https://en.wikipedia.org/wiki/Random_forest), [gradient boosted trees](https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting)), support vector machines (SVM), and artificial neural networks (ANN). More complicated deep learning models are a form of ANNs  and are increasingly utilized in ecological forecasting. Empirical Dynamic Modeling is a time-series specific machine learning approach that is often used in ecological forecasting.
 
-####Tools used for ML models  
+#### Tools used for ML models  
 
 * **R**
     + [gbm](https://cran.r-project.org/web/packages/gbm/index.html) and [xgboost](https://cran.r-project.org/web/packages/xgboost/index.html) for Gradient boosted trees
@@ -105,7 +105,7 @@ Methods that are generally considered ML include decision tree based methods (e.
     + [scikit-learn](https://scikit-learn.org/stable/) (also known as sklearn) is the widely used ML library
     + [pyEDM](https://pypi.org/project/pyEDM/) is used for Empirical Dynamic Modeling (based on cppEDM C++ library)
 
-####Interface with machine learning platform/libraries  
+#### Interface with machine learning platform/libraries  
 
 For neural networks and deep learning, (e.g. the Long Short-Term Memory (LSTM) recurrent neural networks, which are popular in fitting time series), it is extremely common and popular to use a number of libraries that are based on or interface primarily with Python, e.g., [Tensorflow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/) and [keras](https://keras.io/). Thanks to Rstudio, there are now packages that interface R with these libraries ([tensorflow](https://tensorflow.rstudio.com/), [keras](https://keras.rstudio.com/) and [torch](https://blogs.rstudio.com/ai/posts/2020-09-29-introducing-torch-for-r/)).
 
@@ -172,7 +172,7 @@ Most mechanistic models do not inherently include analytical uncertainty estimat
 
 One of the unique challenges related to uncertainty for forecasting is incorporating uncertainty in the value of future covariates. For example, a model that relies on climate covariates should include uncertainty in future climate conditions in forecasts. In Bayesian approaches this uncertainty can be incorporated directly into the model to make predictions. In other approaches it can be incorporated by running the model repeatedly using ensembles of covariates based on uncertainty in the covariate forecast. The different sets of predictions can then be incorporated using ensemble approaches (see *Mechanistic Models: Monte Carlo propagation and partitioning*). 
 
-###Propagating uncertainty
+### Propagating uncertainty   
 There are currently not many “off the shelf” tools for propagating uncertainty in forecasts, as many forecasting practitioners develop their own pipelines for analyzing and propagating uncertainty into their forecasts. However, a few tools do exist:
 
 * **R** 
@@ -196,7 +196,7 @@ Uncertainty Propagation YouTube Tutorials ([EFI/NEON series](https://www.youtube
 * [Linear Tangent](https://youtu.be/-PZrKjSEuiw)
 * [Monte Carlo](https://youtu.be/Wdob95zfqe8)
 
-##Data assimilation  
+## Data assimilation  
 
 Updating model predictions to incorporate new data is a central component of near-term ecological forecasting (Figure 1). One way of doing this would be to repeat the entire model-fitting procedure above any time new observations are added to a dataset. However, that may be very computationally expensive, especially for large complex models. Instead, one might prefer to update existing model predictions using just the new observations (and their uncertainties) and then re-generate new predictions starting from the updated model state. We describe this process as **data assimilation**.
 
@@ -209,7 +209,7 @@ The term “Data assimilation” (or sometimes, “model-data fusion”) is ofte
 
 For a given time step, a data assimilation algorithm takes two things as inputs: a joint probability distribution of model predictions for all model variables, and distributions of observations of a subset of those model variables. The data assimilation algorithm then synthesizes this information from both the model and the data and produces as output a new joint posterior distribution of all model variables (taking into account covariance between model variables). This new joint posterior distribution is used as the new model initial condition to generate updated predictions into the future (Figure 2).
 
-###Data assimilation approaches   
+### Data assimilation approaches   
 
 Different data assimilation approaches (Table 1) differ in their assumptions about the distributions of the model and data predictions. Below we highlight some of the most commonly used data assimilation approaches.
 
@@ -224,7 +224,7 @@ Data assimilation is an active area of research, particularly in atmospheric sci
 
 In theory, data assimilation effectively and elegantly links uncertainties in parameters (see previous sections) and states. In practice, using data assimilation to track uncertainties in parameters and states simultaneously can be challenging (e.g., avoiding rapid convergence of all ensemble members to a single point) and often requires careful algorithm tuning. For example, Kalman Filter implementations sometimes artificially inflate the variance of the distributions to avoid convergence (e.g., filter inflation), but figuring out the right amount of inflation typically requires a lot of problem-specific trial and error (or methods that solve for the process error dynamically, e.g. TWEnF).
 
-###Tools for data assimilation  
+### Tools for data assimilation  
 
 Numerous tools exist for data assimilation , though a majority of these tools are targeted to large-scale models and big data and may be more complicated than needed for smaller ecological forecasting applications. Table 1 provides a sampling of the data assimilation tools available, but is by no means a comprehensive list.  
 
