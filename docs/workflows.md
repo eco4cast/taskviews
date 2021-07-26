@@ -1,5 +1,7 @@
 # Reproducible Forecasting Workflows  
 
+updated: 2021-07-26 
+
 ## Overview  
 
 Curators: Jake Zwart^1^, Alexey Shiklomanov^2^, Kenton McHenry^3^, Daniel S. Katz^3^, Rob Kooper^3^, Carl Boettiger^4^, Bryce Mecum^5^, Mike Dietze^6^, Quinn Thomas^7^
