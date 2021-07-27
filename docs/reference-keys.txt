@@ -1,6 +1,7 @@
 reproducible-forecasting-workflows
 overview
 scripted-analysis
+tools-for-scripted-analysis
 project-structure
 tools-for-organized-project-structures
 version-control
@@ -8,9 +9,11 @@ tools-for-version-control
 literate-programming
 tools-for-literate-programming
 workflows-and-dependency-management
+tools-for-workflows-and-dependency-management
 unit-testing
 tools-for-unit-testing
 continuous-integration-and-automation
+tools-for-continuous-integration-and-automation
 containerization
 tools-for-containerization
 metadata
