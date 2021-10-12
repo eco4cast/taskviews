@@ -1,6 +1,6 @@
 --- 
 title: "EFI Task Views"
-author: "Ecological Forecasting Initative"
+author: "Ecological Forecasting Initiative"
 date: "Last modified: `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
