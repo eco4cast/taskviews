@@ -1,7 +1,7 @@
 --- 
 title: "EFI Task Views"
-author: "Ecological Forecasting Initative"
-date: "Last modified: 2021-07-27"
+author: "Ecological Forecasting Initiative"
+date: "Last modified: 2021-10-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
