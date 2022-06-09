@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Visualization | EFI Task Views</title>
+  <meta name="description" content="A compilation of common tasks in ecological forecasting and methods and tools to help with those tasks" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Visualization | EFI Task Views" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A compilation of common tasks in ecological forecasting and methods and tools to help with those tasks" />
+  <meta name="github-repo" content="eco4cast/neon4cast-taskviews" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Visualization | EFI Task Views" />
+  
+  <meta name="twitter:description" content="A compilation of common tasks in ecological forecasting and methods and tools to help with those tasks" />
+  
+
+<meta name="author" content="Ecological Forecasting Initiative" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="uncertainty-quantification-data-assimilation-modeling-statistics.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EFI Task Views</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html"><i class="fa fa-check"></i><b>1</b> Reproducible Forecasting Workflows</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#scripted-analysis"><i class="fa fa-check"></i><b>1.2</b> Scripted Analysis</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-scripted-analysis"><i class="fa fa-check"></i><b>1.2.1</b> Tools for scripted analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#project-structure"><i class="fa fa-check"></i><b>1.3</b> Project Structure</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-organized-project-structures"><i class="fa fa-check"></i><b>1.3.1</b> Tools for organized project structures</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#version-control"><i class="fa fa-check"></i><b>1.4</b> Version Control</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-version-control"><i class="fa fa-check"></i><b>1.4.1</b> Tools for version control</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#literate-programming"><i class="fa fa-check"></i><b>1.5</b> Literate Programming</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-literate-programming"><i class="fa fa-check"></i><b>1.5.1</b> Tools for literate programming</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#workflows-and-dependency-management"><i class="fa fa-check"></i><b>1.6</b> Workflows and Dependency Management</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-workflows-and-dependency-management"><i class="fa fa-check"></i><b>1.6.1</b> Tools for workflows and dependency management</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#unit-testing"><i class="fa fa-check"></i><b>1.7</b> Unit Testing</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-unit-testing"><i class="fa fa-check"></i><b>1.7.1</b> Tools for unit testing</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#continuous-integration-and-automation"><i class="fa fa-check"></i><b>1.8</b> Continuous Integration and Automation</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-continuous-integration-and-automation"><i class="fa fa-check"></i><b>1.8.1</b> Tools for continuous integration and automation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#containerization"><i class="fa fa-check"></i><b>1.9</b> Containerization</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-containerization"><i class="fa fa-check"></i><b>1.9.1</b> Tools for containerization</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#metadata"><i class="fa fa-check"></i><b>1.10</b> Metadata</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-metadata"><i class="fa fa-check"></i><b>1.10.1</b> Tools for metadata</a></li>
+</ul></li>
+<li class="chapter" data-level="1.11" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#data-and-code-release"><i class="fa fa-check"></i><b>1.11</b> Data and Code Release</a>
+<ul>
+<li class="chapter" data-level="1.11.1" data-path="reproducible-forecasting-workflows.html"><a href="reproducible-forecasting-workflows.html#tools-for-data-and-code-release"><i class="fa fa-check"></i><b>1.11.1</b> Tools for data and code release</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html"><i class="fa fa-check"></i><b>2</b> Uncertainty quantification, Data assimilation, Modeling &amp; Statistics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+<li class="chapter" data-level="2.2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#empirical-models"><i class="fa fa-check"></i><b>2.2</b> Empirical models</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-frequentist"><i class="fa fa-check"></i><b>2.2.1</b> Statistical model (frequentist)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-bayesian"><i class="fa fa-check"></i><b>2.2.2</b> Statistical model (Bayesian)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#spatio-temporal-statistical-models"><i class="fa fa-check"></i><b>2.2.3</b> Spatio-temporal statistical models</a></li>
+<li class="chapter" data-level="2.2.4" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#machine-learning"><i class="fa fa-check"></i><b>2.2.4</b> Machine learning</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#mechanistic-models"><i class="fa fa-check"></i><b>2.3</b> Mechanistic models</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#simple-deterministic-model"><i class="fa fa-check"></i><b>2.3.1</b> Simple deterministic model</a></li>
+<li class="chapter" data-level="2.3.2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#black-box-models"><i class="fa fa-check"></i><b>2.3.2</b> Black box models</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#uncertainty"><i class="fa fa-check"></i><b>2.4</b> Uncertainty</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-frequentist-1"><i class="fa fa-check"></i><b>2.4.1</b> Statistical model (frequentist)</a></li>
+<li class="chapter" data-level="2.4.2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-bayesian-1"><i class="fa fa-check"></i><b>2.4.2</b> Statistical model (Bayesian)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#machine-learning-models"><i class="fa fa-check"></i><b>2.4.3</b> Machine learning models</a></li>
+<li class="chapter" data-level="2.4.4" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#mechanistic-models-monte-carlo-propagation-and-partitioning"><i class="fa fa-check"></i><b>2.4.4</b> Mechanistic Models: Monte Carlo propagation and partitioning</a></li>
+<li class="chapter" data-level="2.4.5" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#uncertainty-in-covariates"><i class="fa fa-check"></i><b>2.4.5</b> Uncertainty in covariates</a></li>
+<li class="chapter" data-level="2.4.6" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#propagating-uncertainty"><i class="fa fa-check"></i><b>2.4.6</b> Propagating uncertainty</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#data-assimilation"><i class="fa fa-check"></i><b>2.5</b> Data assimilation</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#data-assimilation-approaches"><i class="fa fa-check"></i><b>2.5.1</b> Data assimilation approaches</a></li>
+<li class="chapter" data-level="2.5.2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#tools-for-data-assimilation"><i class="fa fa-check"></i><b>2.5.2</b> Tools for data assimilation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>3</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualization.html"><a href="visualization.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="visualization.html"><a href="visualization.html#guiding-principles"><i class="fa fa-check"></i><b>3.2</b> Guiding Principles</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="visualization.html"><a href="visualization.html#overview-3"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="visualization.html"><a href="visualization.html#design"><i class="fa fa-check"></i><b>3.2.2</b> Design</a></li>
+<li class="chapter" data-level="3.2.3" data-path="visualization.html"><a href="visualization.html#co-development"><i class="fa fa-check"></i><b>3.2.3</b> Co-development</a></li>
+<li class="chapter" data-level="3.2.4" data-path="visualization.html"><a href="visualization.html#product-sustainability"><i class="fa fa-check"></i><b>3.2.4</b> Product Sustainability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="visualization.html"><a href="visualization.html#how-we-make-visuals"><i class="fa fa-check"></i><b>3.3</b> How We Make Visuals</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="visualization.html"><a href="visualization.html#digital-accessibility-a11y"><i class="fa fa-check"></i><b>3.3.1</b> Digital Accessibility (a11y)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualization.html"><a href="visualization.html#static-visuals"><i class="fa fa-check"></i><b>3.3.2</b> Static Visuals</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visualization.html"><a href="visualization.html#animated-visuals"><i class="fa fa-check"></i><b>3.3.3</b> Animated Visuals</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization.html"><a href="visualization.html#interactive-and-reactive-features"><i class="fa fa-check"></i><b>3.3.4</b> Interactive and Reactive Features</a></li>
+<li class="chapter" data-level="3.3.5" data-path="visualization.html"><a href="visualization.html#geospatial-visuals"><i class="fa fa-check"></i><b>3.3.5</b> Geospatial Visuals</a></li>
+<li class="chapter" data-level="3.3.6" data-path="visualization.html"><a href="visualization.html#uncertainty-visualization"><i class="fa fa-check"></i><b>3.3.6</b> Uncertainty Visualization</a></li>
+<li class="chapter" data-level="3.3.7" data-path="visualization.html"><a href="visualization.html#table-1"><i class="fa fa-check"></i><b>3.3.7</b> Table 1</a></li>
+<li class="chapter" data-level="3.3.8" data-path="visualization.html"><a href="visualization.html#table-2"><i class="fa fa-check"></i><b>3.3.8</b> Table 2</a></li>
+<li class="chapter" data-level="3.3.9" data-path="visualization.html"><a href="visualization.html#table-3"><i class="fa fa-check"></i><b>3.3.9</b> Table 3</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EFI Task Views</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualization" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Visualization<a href="visualization.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Overview<a href="visualization.html#overview-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Curators: Libby Mohr<sup>1</sup>, Matthew Brousil<sup>2</sup>, Kelly Heilman<sup>3</sup>, Hassan Moustahfid<sup>4</sup>, Leah Johnson<sup>5</sup>, David LeBauer<sup>3</sup>, Rob Kooper<sup>6</sup>, Cee Nell<sup>7</sup>, Josh Cullen<sup>8</sup>, Jake Zwart<sup>7</sup>, Jody Peters<sup>9</sup>, Quinn Thomas<sup>5</sup>, Mike Dietze<sup>10</sup></p>
+<p><em><sup>1</sup>University of Montana, <sup>2</sup>Washington State University, <sup>3</sup>University of Arizona, <sup>4</sup>NOAA, <sup>5</sup>Virginia Tech, <sup>6</sup>National Center for Supercomputing Applications, <sup>7</sup>USGS, <sup>8</sup>Florida State University, <sup>9</sup>University of Notre Dame, <sup>10</sup>Boston University</em></p>
+<p>As the old adage goes</p>
+<blockquote>
+<p>“A picture is worth a thousand words.”</p>
+</blockquote>
+<p>At the end of any data gathering endeavor, one is faced with the task of dissemination. This step determines how the end-user consumes the information buried within the data. Often these data sets are complex and require creative strategies to communicate information accurately and effectively. Science, policy and planning rely on reliable and unbiased communications. Data visualizations and graphics are a powerful means to communicate. They have great impact on how we perceive environmental problems, their solutions, and if we consider policies legitimate. Over the last two decades, more and more studies have demonstrated that visualization plays a role in data-communication, influences decision making, public perception, public participation, and knowledge cocreation (<a href="https://doi.org/10.1080/1523908X.2020.1798751">Metze 2020</a>).
+A famous example of a great data visualization is Charles Joseph Minard’s <a href="https://www.edwardtufte.com/tufte/posters">diagram of Napoleon’s march</a> to Moscow, which clearly shows the disastrous number of lives lost in this military campaign. Such an image readily conveys a message “at a glance” that sticks to memory and is difficult to forget. Another example of influential visualizations is the diagram of the ‘Burning Embers’ from the IPCC report in 2001 (updated in 2009; Figure 1). This diagram visualizes the risks coming from the heating up of the earth. Studies show how these embers have been adapted and contested over time (<a href="https://doi.org/10.1007/s10584-019-02522-6">Wardekker &amp; Lorenz 2019</a>).</p>
+<div class="figure">
+<img src="images/burning-embers.png" alt="" />
+<p class="caption">Burning Embers Figure 1 from <a href="https://doi.org/10.1073/pnas.0812355106">Smith et al 2009</a>, shared with permission from lead author Joel Smith.</p>
+</div>
+<p>Data visualization has a long history in scientific communication. Simple forms include pie charts, line graphs and more complex network diagrams. Newer techniques use larger datasets and allow users to interact with data to create their own visualizations “on demand”. For example, the large dataset that pertains to COVID-19 and its impact on various populations across the globe clearly demonstrates the impact of data visualization on science on policy (<a href="coronavirus.jhu.edu">Johns Hopkins COVID-19 Dashboard</a>).</p>
+<p>Data visualization requires an appreciation for how to convey relationships, categories, and magnitude through the creative use of lines, colors, symbols, position and size. Data visuals help tell a story, starting with a compelling problem or question, using data to provide perspective, and giving the reader some insight or solution. Yet creators must respect the limits in datasets. For example, maps of climate change (see figure SPM.1 in www.ipcc.ch) show bands of color with projected changes in temperature or precipitation, but they are limited by the scarcity of weather observation stations across the developing world.</p>
+<p>To inform policy, data visualization is beginning to enrich our understanding of the challenges facing society. Evidence-based illustrations, or infographics, help convey complex policy issues and the potential trade-offs in greater depth than long reports or other media (<a href="https://doi.org/10.1016/j.tree.2014.01.003">Mclnerny et al. 2014</a>). Finally, when subject matter is intangible (e.g., due to scale, complexity, or abstraction), visualizations have a fundamental role in exploring information and generating understanding. In addition to an open scientific infrastructure, visualization and graphics should be among the main priorities for developing modern science and science policy.</p>
+<p>The following Visualiztion Task View first provides guiding principles for creating visualizations and applications with static or interactive features, then provides examples and tools to create static, animated, interactive, and spatial visuals as well as resources for visualizing uncertainty.</p>
+</div>
+<div id="guiding-principles" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Guiding Principles<a href="visualization.html#guiding-principles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="overview-3" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Overview<a href="visualization.html#overview-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Project <a href="#Design">design</a>, <a href="#Co-development">co-development</a>, and <a href="#Product%20Sustainability">sustainability</a>, are all important aspects to consider when creating visualizations. The following principles can apply to a range of visualizations and applications ranging from scientific publications to user interface and decision support applications. Although often unseen by users, how one generates the information and visualizations used to convey that information is just as important as the science behind the information being shared. Here is an <a href="https://www.zotero.org/groups/2545778/ecological_forecasting_initiative_bibliography/library">EFI Bibliography Zotero Library</a> with books and papers on visualization best practices. In Zotero, use the Filter Tags section in the lower left-hand corner to select “EFI Visualization Paper” to bring up the references. Additional resources, specifically for web applications for visualizing scientific data can be found in this <a href="http://zotero.org/groups/2845330/scientificwebapps">scientificwebapps Zotero Bibliography</a>.</p>
+</div>
+<div id="design" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Design<a href="visualization.html#design" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When developing visualizations, determine the intended purpose, use case, and motivation for the resources being developed. Will you be using the resource to conduct exploratory data analysis, to be used in a publication, or to allow an audience that is internal or external to the project to interact with the output? Think about who wants the information, what information is important, how important is that information, and what outcome or takeaways do you want the audience to grasp. Your target audience and intended outcomes will shape the development process and the design of the visualization tool.
+One way to brainstorm visualizations is to think about user stories, a concept from computer science. User stories are informal, general explanations of a software feature (but apply to visualizations as well) written from the perspective of the end-user. See <a href="https://www.atlassian.com/agile/project-management/user-stories">Max Rehkopf’s 2022 user story template and examples</a> to further consider how a visualization, app, or tool provides value to the end-user.</p>
+<p><a href="#Table-1">Table 1 (below)</a> provides suggestions and considerations when working with end-users, thinking about the life expectancy and sustainability of a visualization or application, using interfaces, communicating with end-users through visualization or application, and what kind of maintenance is needed. Table 1 comes from the <a href="https://github.com/trashbirdecology/sciwebapps/tree/main/learning-resources">sciwebapps project</a> that is creating an open source and community-driven repository for resources, information, discussions, and suggested practices for creating, communicating, and improving Scientific Web Applications.</p>
+</div>
+<div id="co-development" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Co-development<a href="visualization.html#co-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Depending on the type of visualization product you are creating and your audience, you may be collaborating with other users or parties on project development. If so, it is important to consider the co-development process. Co-development or co-production of a visualization or application takes place when Information Users and Information Providers collaborate in the generation of scientific resources. Ideally the co-development process aims to build and sustain partnerships, acknowledging differences in what each party needs out of the partnership and the project, and what the partners’ strengths and limitations are regarding their contributions. Co-production can take different forms depending on the project or funding ranging from projects with limited to no community participation (e.g., contractual) to community members having authority over the research process (e.g., Indigenous) (<a href="https://iopscience.iop.org/article/10.1088/1748-9326/aaf300/meta">David-Chavez and Gavin, 2018</a>).
+Additional information about co-production definitions, papers, info sheets, and frameworks and assessment tools that was shared by three panelists from a seminar on co-production hosted by the EFI Partners &amp; Knowledge Transfer Working Group in May 2021 can be <a href="https://ecoforecast.org/knowledge-transfer-partners/co-production-actionable-science-panel/#co-productionresources">found here</a>.</p>
+</div>
+<div id="product-sustainability" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Product Sustainability<a href="visualization.html#product-sustainability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Best practices include identifying the intended lifespan of the product and the available resources (e.g. time, funding, computing resources) for maintaining and hosting the product. An important consideration for public-facing tools is how much traffic they can handle and what resources are needed to maintain or increase their scale or user base.</p>
+</div>
+</div>
+<div id="how-we-make-visuals" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> How We Make Visuals<a href="visualization.html#how-we-make-visuals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="digital-accessibility-a11y" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Digital Accessibility (a11y)<a href="visualization.html#digital-accessibility-a11y" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Digital accessibility, also referred to as ‘a11y’, is used in Web development to enable as many people as possible to use Web sites no matter an individual’s physical and cognitive abilities. See <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009574">Burnett et al. 2021</a> for a brief discussion of a11y with respect to scientific web applications.
+<a href="#Table-2">Table 2 (below)</a> provides a list of a11y resources with general information, standards and evaluation, assessment tools, and communities of practice that are useful to explore when creating web applications or other user interfaces.</p>
+<div id="color-vision-evaluation-and-accessibility-tools" class="section level4 hasAnchor" number="3.3.1.1">
+<h4><span class="header-section-number">3.3.1.1</span> Color Vision Evaluation and Accessibility Tools<a href="visualization.html#color-vision-evaluation-and-accessibility-tools" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Tools for evaluating graphics with color vision simulators:
+<ul>
+<li><a href="https://colororacle.org/">Color Oracle</a> standalone software</li>
+<li><a href="https://chrome.google.com/webstore/detail/colorblindly/floniaahmccleoclneebhhmnjgdfijgg?hl=en">Colorblindly</a> browser tool</li>
+<li><a href="https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html">Colorspace</a> R package</li>
+</ul></li>
+<li>Tools for creating colorblind friendly graphics include:
+<ul>
+<li><a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3">Color Brewer</a> provides color options for making maps in R with a range of data classes in multiple color schemes and with colorblind, printer and photocopy safe options</li>
+<li><a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">Viridis</a>is an R package that provide a series of color maps that are designed to improve graph readability for readers with common forms of color blindness and/or color vision deficiency
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">Tutorial</a></li>
+<li><a href="https://cran.r-project.org/web/packages/viridis/viridis.pdf">Package</a></li>
+</ul></li>
+<li><a href="https://cran.r-project.org/web/packages/colorspace/vignettes/colorspace.html">Colorspace</a> is an R package provides a broad toolbox for selecting individual colors or color palettes, manipulating these colors, and employing them in various kinds of visualizations</li>
+</ul></li>
+</ul>
+</div>
+<div id="alternative-text" class="section level4 hasAnchor" number="3.3.1.2">
+<h4><span class="header-section-number">3.3.1.2</span> Alternative Text<a href="visualization.html#alternative-text" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Alternative text are written descriptions of images and videos that can be read out loud so that the visual is not required. Captions or transcripts may be necessary for video animations with sound. See <a href="https://nightingaledvs.com/writing-alt-text-for-data-visualization/">Writing Alt Text for Data Visualization</a> for suggestions on how to write alt text for different types of data visualization, how to add alt text in a number of applications, and links to other resources</p>
+</div>
+<div id="motion-sensitivity" class="section level4 hasAnchor" number="3.3.1.3">
+<h4><span class="header-section-number">3.3.1.3</span> Motion Sensitivity<a href="visualization.html#motion-sensitivity" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>To accommodate motion sensitivity, the <a href="https://www.digitala11y.com/understanding-sc-2-2-2-pause-stop-hide/">WCAG</a> advises:</li>
+</ul>
+<blockquote>
+<p>“For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential.”</p>
+</blockquote>
+<ul>
+<li>Video animations are preferred over GIFs for more complex animations because it gives playback control to users, it does not autoplay or loop infinitely, and it can be easily opted out of. Avoiding flashes, bouncing, and slower animations with short durations helps make motion more accessible.</li>
+</ul>
+</div>
+<div id="accessibility-considerations-for-interactive-visualizations" class="section level4 hasAnchor" number="3.3.1.4">
+<h4><span class="header-section-number">3.3.1.4</span> Accessibility Considerations for Interactive Visualizations<a href="visualization.html#accessibility-considerations-for-interactive-visualizations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Some interactive features can be difficult to navigate for people navigating with a keyboard or using magnification software.</li>
+<li>Avoid making important information only available on hover</li>
+<li>Display pop-up content upon both hovering with a pointer and focusing with a keyboard</li>
+<li>More tips about pop-up content displayed by mouse hovers and keyboard focus <a href="https://accessuse.eu/en/Content-hover-focus.html">here</a></li>
+</ul>
+</div>
+</div>
+<div id="static-visuals" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Static Visuals<a href="visualization.html#static-visuals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Static visuals are those that don’t change with time or user-input. Such plots are useful for exploratory data analysis (e.g. deciding if and how to include variables in a forecast model), visualizing forecasts and associated uncertainty (see the <a href="#Uncertainty-Visualization">Uncertainty Visualization Section</a>), and assessing model performance. Whereas animated and interactive graphics allow for additional complexity and exploration, static visuals are well-suited for clearly conveying simple messages.</p>
+<p>In this section, we briefly describe common types of static plots used in forecasting. For each plot type, we list the tools that can be used to make them. <strong>We focus on tools in R, specifically those within base R and the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> ecosystem.</strong>
+Additional references for R, Python, and Julia are provided at the end of this section.</p>
+<p>For visualizing data in <strong>Python</strong>, we recommend checking out the commonly-used <a href="https://matplotlib.org/stable/index.html">Matplotlib</a>, <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#">Pandas</a>, and <a href="https://seaborn.pydata.org/">Seaborn</a> libraries.</p>
+<p>In <strong>Julia</strong>, the <a href="https://docs.juliaplots.org/stable/">Plots.jl</a> metapackage provides a common interface to several plotting <a href="https://docs.juliaplots.org/stable/backends/">backends</a> and the <a href="https://github.com/JuliaPlots/StatsPlots.jl">StatsPlots</a> package provides additional functionality needed to produce many of the plots described below.</p>
+<p>Spreadsheet platforms (e.g. <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a> and <a href="https://www.google.com/sheets/about/">Google sheets</a>) also provide interactive tools for making simple static plots.</p>
+<div id="distributions" class="section level4 hasAnchor" number="3.3.2.1">
+<h4><span class="header-section-number">3.3.2.1</span> Distributions<a href="visualization.html#distributions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>When developing forecasts it is often useful to examine the <strong>distribution</strong> of a single variable or parameter. Such visualizations can be used to examine 1) how data are distributed and 2) uncertainty in parameter estimates or other estimated quantities. There are a few different “flavors” of distribution plots, depending on the application.</p>
+<p><strong>Histograms</strong> are generated by breaking the data up into several bins and then counting the number of data points that fall into each bin.</p>
+<ul>
+<li><code>hist</code> function in base R</li>
+<li><code>geom_histogram</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><code>geom_bar() + scale_x_binned()</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><code>stat_histinterval</code> from the <a href="https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-">ggdist</a> package</li>
+<li><code>geom_bin_2d</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - creates a 2D histogram showing joint distribution of two variables by binning observations into squares in a Cartesian plane</li>
+<li><code>geom_hex</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - creates a 2D histogram showing joint distribution of two variables by binning observations into hexagons in a Cartesian plane</li>
+<li><code>ggMarginal</code> from the ggMarginal package can add marginal histograms to existing ggplots.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualization.html#cb1-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="visualization.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(nee) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="visualization.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(siteID <span class="sc">==</span> <span class="st">&quot;KONZ&quot;</span>,</span>
+<span id="cb1-4"><a href="visualization.html#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="visualization.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nee)) <span class="sc">+</span> </span>
+<span id="cb1-6"><a href="visualization.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">fill =</span> <span class="st">&quot;#588B8E&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1-7"><a href="visualization.html#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>()<span class="sc">+</span></span>
+<span id="cb1-8"><a href="visualization.html#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
+<span id="cb1-9"><a href="visualization.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;net ecosystem exchange (g C m&lt;sup&gt;-2&lt;/sup&gt; day&lt;sup&gt;-1&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1-10"><a href="visualization.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;number of days&quot;</span>)<span class="sc">+</span></span>
+<span id="cb1-11"><a href="visualization.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:histogram"></span>
+<img src="visualization_files/figure-html/histogram-1.png" alt="Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in February at the Konza Prairie Biological Station NEON site, 2019-2022" width="672" />
+<p class="caption">
+Figure 3.1: Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in February at the Konza Prairie Biological Station NEON site, 2019-2022
+</p>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="visualization.html#cb2-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pheno_targets, <span class="fu">aes</span>(<span class="at">x =</span> gcc_90, <span class="at">y =</span> rcc_90)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="visualization.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">30</span>)<span class="sc">+</span></span>
+<span id="cb2-3"><a href="visualization.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>)<span class="sc">+</span></span>
+<span id="cb2-4"><a href="visualization.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;greenness index&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb2-5"><a href="visualization.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;redness index&quot;</span>)<span class="sc">+</span></span>
+<span id="cb2-6"><a href="visualization.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>()<span class="sc">+</span></span>
+<span id="cb2-7"><a href="visualization.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous_sequential</span>(<span class="at">palette =</span> <span class="st">&quot;BurgYl&quot;</span>)<span class="sc">+</span></span>
+<span id="cb2-8"><a href="visualization.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.8</span>))</span>
+<span id="cb2-9"><a href="visualization.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(p,<span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">bins =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:histogram2D"></span>
+<img src="visualization_files/figure-html/histogram2D-1.png" alt="Hexagonal heatmap showing the joint distribution of greenness chromatic coordinate and redness chromatic coordinate at the six NEON sites in the phenology forecast challenge." width="672" />
+<p class="caption">
+Figure 3.2: Hexagonal heatmap showing the joint distribution of greenness chromatic coordinate and redness chromatic coordinate at the six NEON sites in the phenology forecast challenge.
+</p>
+</div>
+<p>A <strong>Density Plot</strong> is a smoothed, continuous version of a histogram that displays the estimated probability distribution of a variable or parameter. Density plots are often used to visualize Bayesian prior and posterior distributions. When data or MCMC samples are involved, probability density is typically estimated using the “kernel density estimation” method, where the smoothness and shape of the density curve are controlled by the choice of bandwidth parameter and kernel, respectively (see <a href="https://clauswilke.com/dataviz/">Wilke, 2019: Visualizing distributions: Histograms and density plots</a>).</p>
+<ul>
+<li><code>geom_density</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - plots density estimates for a single variable</li>
+<li><code>geom_density_2d</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - plots contours resulting from a 2D kernel density estimation</li>
+<li><code>geom_function</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - plots a function (e.g. dnorm)</li>
+<li><code>geom_area</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - can be used for a filled density plot</li>
+<li><code>slab</code> and <code>halfeye</code> stats from the ggdist package</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="visualization.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-2"><a href="visualization.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="fl">0.01</span>), <span class="at">y =</span> <span class="fu">dlnorm</span>(<span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="fl">0.01</span>))), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey40&quot;</span>)<span class="sc">+</span></span>
+<span id="cb3-3"><a href="visualization.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">4</span>))<span class="sc">+</span></span>
+<span id="cb3-4"><a href="visualization.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
+<span id="cb3-5"><a href="visualization.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;probability density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb3-6"><a href="visualization.html#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:density"></span>
+<img src="visualization_files/figure-html/density-1.png" alt="Density plot for a log-normal distribution with mean = 0 and standard deviation = 1" width="672" />
+<p class="caption">
+Figure 3.3: Density plot for a log-normal distribution with mean = 0 and standard deviation = 1
+</p>
+</div>
+<p><strong>Dotplots</strong> show the individual observations of a distribution, either as continuous values or as part of binned intervals (similar to histograms). This type of visualization provides the finest scale of visualization for distributions that may be lost when using other common methods (i.e., histograms, density plots, boxplots). <strong>Quantile Dotplots</strong> are similar, except that the data are broken into quantiles, which are then binned and plotted such that each dot represents a single quantile rather than a single observation. Quantile dotplots are a way of visualizing distributions and uncertainty with a “frequency frame”, and have been shown to aid people in making decisions in the face of uncertainty (<a href="https://dl.acm.org/doi/10.1145/2858036.2858558">Kay et al, 2016</a>).</p>
+<ul>
+<li><code>geom_jitter</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - adds small amounts of variation to the location of each point to avoid overplotting when visualizing observations of a quantitative variable.</li>
+<li><code>geom_dotplot</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - bins up observations and plots a single point for each observation.</li>
+<li><code>stat_dots</code> from the <a href="https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-">ggdist</a> package - plots a single point for each binned observation by default, or produces a quantile dotplot if the quantiles argument is specified.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="visualization.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-2"><a href="visualization.html#cb4-2" aria-hidden="true" tabindex="-1"></a>tempSample <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">temp =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="fl">17.7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb4-3"><a href="visualization.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tempSample, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">fill =</span> <span class="fu">stat</span>(x <span class="sc">&gt;</span> <span class="dv">19</span>), <span class="at">color =</span> <span class="fu">stat</span>(x <span class="sc">&gt;</span> <span class="dv">19</span>))) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="visualization.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_dots</span>(<span class="at">quantiles =</span> <span class="dv">30</span>)<span class="sc">+</span></span>
+<span id="cb4-5"><a href="visualization.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">19</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">&quot;gray50&quot;</span>)<span class="sc">+</span></span>
+<span id="cb4-6"><a href="visualization.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>() <span class="sc">+</span></span>
+<span id="cb4-7"><a href="visualization.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Temperature (°C)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb4-8"><a href="visualization.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#517AC9&quot;</span>, <span class="st">&quot;#C05D5D&quot;</span>))<span class="sc">+</span></span>
+<span id="cb4-9"><a href="visualization.html#cb4-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#517AC9&quot;</span>, <span class="st">&quot;#C05D5D&quot;</span>))<span class="sc">+</span></span>
+<span id="cb4-10"><a href="visualization.html#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>,</span>
+<span id="cb4-11"><a href="visualization.html#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-12"><a href="visualization.html#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-13"><a href="visualization.html#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb4-14"><a href="visualization.html#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:qdotplot"></span>
+<img src="visualization_files/figure-html/qdotplot-1.png" alt="Quantile dotplot showing the probability of temperature exceeding 19 °C for a theoretical, normally-distributed temperature forecast with mean = 17.7 °C and sd = 1" width="672" />
+<p class="caption">
+Figure 3.4: Quantile dotplot showing the probability of temperature exceeding 19 °C for a theoretical, normally-distributed temperature forecast with mean = 17.7 °C and sd = 1
+</p>
+</div>
+<p><strong>Boxplots</strong> display common summary statistics for a distribution, which include the minimum, first quartile, median, third quartile, and maximum values. The ‘box’ displays the middle 50% of the distribution while the ‘whiskers’ display the remaining 50% in the tails of the distribution. Any values that fall outside of 1.5 times the length of the ‘box’ are typically drawn as points beyond the whiskers and are typically referred to as outliers. Similarly, <strong>interval plots</strong> typically show the median as a point and one or more lines or boxes whose widths represent quantiles of the distribution. Whereas the plots described above are useful for visualizing single distributions, boxplots, interval plots, violin plots, and ridgeline plots can display multiple distributions in the same plot (<a href="https://clauswilke.com/dataviz/">Wilke, 2019</a>).</p>
+<ul>
+<li><code>boxplot</code> in base R</li>
+<li><code>geom_boxplot</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><code>interval</code> and <code>pointinterval</code> from the <a href="https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-">ggdist</a> package create stand-alone interval plots, whereas several other stats from the stat_slabinterval family allow one to add intervals to other plot types, including density plots, violin plots, histograms, and dotplots.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualization.html#cb5-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="visualization.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="visualization.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>,</span>
+<span id="cb5-4"><a href="visualization.html#cb5-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="visualization.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> le))<span class="sc">+</span></span>
+<span id="cb5-6"><a href="visualization.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="visualization.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-8"><a href="visualization.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="visualization.html#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb5-10"><a href="visualization.html#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:boxplot"></span>
+<img src="visualization_files/figure-html/boxplot-1.png" alt="Distributions of daily latent heat flux during May at 5 NEON sites shown as boxplots." width="672" />
+<p class="caption">
+Figure 3.5: Distributions of daily latent heat flux during May at 5 NEON sites shown as boxplots.
+</p>
+</div>
+<p><strong>Violin plots</strong> are an extension of a density plot where the density plot is mirrored and shows the minimum and maximum values, as well as the maximum point density region(s). Since they can show greater detail of a distribution, violin plots have often been used as a replacement for boxplots more recently.</p>
+<ul>
+<li><code>geom_violin</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><code>pirateplot</code> from the <a href="https://bookdown.org/ndphillips/YaRrr/pirateplot.html">yarrr</a> package</li>
+<li><code>stat_eye</code> from the <a href="https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-">ggdist</a> package</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="visualization.html#cb6-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="visualization.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="visualization.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>, </span>
+<span id="cb6-4"><a href="visualization.html#cb6-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="visualization.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> le))<span class="sc">+</span></span>
+<span id="cb6-6"><a href="visualization.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="visualization.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-8"><a href="visualization.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="visualization.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb6-10"><a href="visualization.html#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:violin"></span>
+<img src="visualization_files/figure-html/violin-1.png" alt="Distributions of daily latent heat flux during May at 5 NEON sites shown violin plots." width="672" />
+<p class="caption">
+Figure 3.6: Distributions of daily latent heat flux during May at 5 NEON sites shown violin plots.
+</p>
+</div>
+<p><strong>Ridgeline plots</strong> show offset density plots for multiple variables. This can be useful for making comparisons of a given variable over space or time, as well as for comparing among a number of groups. However, it is not possible to directly compare the values on the y axis among density plots due to the three dimensional effect of this type of plot. Therefore, this method may be more useful when interested in relative (rather than absolute) densities.</p>
+<ul>
+<li><code>geom_density_ridges</code> from the <a href="https://wilkelab.org/ggridges/">ggridges</a> package</li>
+<li><code>stat_halfeye</code> from the <a href="https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-">ggdist</a> package</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="visualization.html#cb7-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="visualization.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="visualization.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>, </span>
+<span id="cb7-4"><a href="visualization.html#cb7-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="visualization.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> le, <span class="at">y =</span> siteID))<span class="sc">+</span></span>
+<span id="cb7-6"><a href="visualization.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="visualization.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-8"><a href="visualization.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="visualization.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb7-10"><a href="visualization.html#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:ridgeline"></span>
+<img src="visualization_files/figure-html/ridgeline-1.png" alt="Distributions of daily latent heat flux during May at 10 NEON sites shown as staggered density plots or 'ridgeline' plots." width="672" />
+<p class="caption">
+Figure 3.7: Distributions of daily latent heat flux during May at 10 NEON sites shown as staggered density plots or ‘ridgeline’ plots.
+</p>
+</div>
+</div>
+<div id="point-and-line-plots" class="section level4 hasAnchor" number="3.3.2.2">
+<h4><span class="header-section-number">3.3.2.2</span> Point and line plots<a href="visualization.html#point-and-line-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Scatterplots</strong> are handy for visualizing relationships between two continuous variables. This includes <strong>time series</strong>, where the variable on the x-axis is time. The following tools are commonly used for making scatterplots:</p>
+<ul>
+<li>The <code>plot</code> function from the base package in R defaults to producing a scatter plot</li>
+<li>With <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, the geometric object <code>geom_point</code> can be used</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="visualization.html#cb8-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="visualization.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2020</span>, </span>
+<span id="cb8-3"><a href="visualization.html#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb8-4"><a href="visualization.html#cb8-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="visualization.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
+<span id="cb8-6"><a href="visualization.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.2</span>)<span class="sc">+</span></span>
+<span id="cb8-7"><a href="visualization.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">13.0</span>))<span class="sc">+</span></span>
+<span id="cb8-8"><a href="visualization.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb8-9"><a href="visualization.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb8-10"><a href="visualization.html#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb8-11"><a href="visualization.html#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Temperature (°C)&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:scatterplot"></span>
+<img src="visualization_files/figure-html/scatterplot-1.png" alt="Scatterplot of dissolved oxygen concentrations vs. temperature at the Posey Creek NEON site, 2019-2020" width="672" />
+<p class="caption">
+Figure 3.8: Scatterplot of dissolved oxygen concentrations vs. temperature at the Posey Creek NEON site, 2019-2020
+</p>
+</div>
+<p><strong>Line Graphs</strong> connect data points sequentially and are also commonly used for visualizing <strong>time series</strong>. It’s also possible to add lines to existing scatter plots to emphasize connections between the data while emphasizing the data themselves with points. The tools below are often used to create line graphs or add lines to existing plots:</p>
+<ul>
+<li>The <code>plot</code> function from the base package in R generates a line plot with the argument <code>type = “l”</code></li>
+<li>The <code>lines</code> function in base R adds a line to an existing plot.</li>
+<li>With <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, the geometric object <code>geom_line</code> (or <code>geom_path</code>) can be used to add lines.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="visualization.html#cb9-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="visualization.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2020</span>, </span>
+<span id="cb9-3"><a href="visualization.html#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb9-4"><a href="visualization.html#cb9-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="visualization.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
+<span id="cb9-6"><a href="visualization.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb9-7"><a href="visualization.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb9-8"><a href="visualization.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb9-9"><a href="visualization.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:line"></span>
+<img src="visualization_files/figure-html/line-1.png" alt="Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020" width="672" />
+<p class="caption">
+Figure 3.9: Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020
+</p>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualization.html#cb10-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="visualization.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2021</span>, </span>
+<span id="cb10-3"><a href="visualization.html#cb10-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">6</span>,</span>
+<span id="cb10-4"><a href="visualization.html#cb10-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="visualization.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
+<span id="cb10-6"><a href="visualization.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb10-7"><a href="visualization.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb10-8"><a href="visualization.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb10-9"><a href="visualization.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb10-10"><a href="visualization.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:pointline"></span>
+<img src="visualization_files/figure-html/pointline-1.png" alt="Line graph with dots showing dissolved oxygen concentrations at the Posey Creek NEON site, June 2021" width="672" />
+<p class="caption">
+Figure 3.10: Line graph with dots showing dissolved oxygen concentrations at the Posey Creek NEON site, June 2021
+</p>
+</div>
+<p><strong>Pairs Plots</strong> and <strong>correlograms</strong> are useful for quickly visualizing relationships and correlations between several variables at once. These plots are typically used for exploratory data analysis.</p>
+<ul>
+<li><code>pairs</code> function from base R - creates scatterplot for each combination of variables</li>
+<li><code>ggpairs</code> from the GGally package - by default, displays the correlation between each combination of variables in the top right corner, a scatter plot for each combination of variables in the lower left corner, and a density plot for each variable on the diagonal. Several customization options are available.</li>
+<li><code>corPlot</code> from the psych package - displays the correlation between each combination of variables in a box, where the color hue of the box indicates whether the correlation is positive or negative and the color value indicates the strength of the correlation.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualization.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#drivers &lt;- neon4cast::stack_noaa(dir = here(&quot;drivers&quot;), model = &quot;NOAAGEFS_1hr_stacked&quot;)</span></span>
+<span id="cb11-2"><a href="visualization.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#drivers %&gt;% </span></span>
+<span id="cb11-3"><a href="visualization.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(date = as_date(time)) %&gt;% </span></span>
+<span id="cb11-4"><a href="visualization.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  group_by(date) %&gt;% </span></span>
+<span id="cb11-5"><a href="visualization.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  summarize(air_temperature = mean(air_temperature, na.rm = TRUE),</span></span>
+<span id="cb11-6"><a href="visualization.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#            &quot;air pressure&quot; = mean(air_pressure, na.rm = TRUE),</span></span>
+<span id="cb11-7"><a href="visualization.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#            &quot;longwave flux&quot; = mean(surface_downwelling_longwave_flux_in_air, na.rm = TRUE),</span></span>
+<span id="cb11-8"><a href="visualization.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#            &quot;shortwave flux&quot; = mean(surface_downwelling_shortwave_flux_in_air, na.rm = TRUE),</span></span>
+<span id="cb11-9"><a href="visualization.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#            &quot;relative humidity&quot; = mean(relative_humidity, na.rm = TRUE),</span></span>
+<span id="cb11-10"><a href="visualization.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#            &quot;wind speed&quot; = mean(wind_speed, na.rm = TRUE),</span></span>
+<span id="cb11-11"><a href="visualization.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#            .groups = &quot;drop&quot;) %&gt;% </span></span>
+<span id="cb11-12"><a href="visualization.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(&quot;air temperature&quot; = air_temperature - 273.15) %&gt;%</span></span>
+<span id="cb11-13"><a href="visualization.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  filter(`air temperature`&lt; 40) %&gt;%</span></span>
+<span id="cb11-14"><a href="visualization.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  select(&quot;air temperature&quot;, &quot;air pressure&quot;, &quot;relative humidity&quot;, &quot;wind speed&quot;, &quot;longwave flux&quot;) %&gt;%</span></span>
+<span id="cb11-15"><a href="visualization.html#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  ggpairs()+</span></span>
+<span id="cb11-16"><a href="visualization.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  theme_minimal_grid(font_size = 10)</span></span></code></pre></div>
+</div>
+<div id="barplots-and-heatmaps" class="section level4 hasAnchor" number="3.3.2.3">
+<h4><span class="header-section-number">3.3.2.3</span> Barplots and Heatmaps<a href="visualization.html#barplots-and-heatmaps" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Barplots and Heatmaps are both used to visualize and compare quantities among one or more grouping variables.</p>
+<p><strong>Barplots</strong> encode quantities using bar length, where each bar represents a group. Stacked and grouped barplots allow for comparison among two different categorical variables.</p>
+<ul>
+<li><code>barplot</code> from base R</li>
+<li><code>geom_bar</code> and <code>geom_col</code> from <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="visualization.html#cb12-1" aria-hidden="true" tabindex="-1"></a>tick_targets <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="visualization.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2019</span>, <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">6</span>, siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;UKFS&quot;</span>, <span class="st">&quot;TALL&quot;</span>, <span class="st">&quot;SERC&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;KONZ&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="visualization.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(siteID) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="visualization.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="visualization.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="visualization.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">siteID =</span> <span class="fu">factor</span>(siteID, <span class="at">levels =</span> siteID)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="visualization.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> <span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>))<span class="sc">+</span></span>
+<span id="cb12-8"><a href="visualization.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span>  <span class="st">&quot;#7C7BB2&quot;</span> )<span class="sc">+</span></span>
+<span id="cb12-9"><a href="visualization.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;*Amblyomma americanum* density (ticks per 1600 m&lt;sup&gt;2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb12-10"><a href="visualization.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="visualization.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
+<span id="cb12-12"><a href="visualization.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:barplot"></span>
+<img src="visualization_files/figure-html/barplot-1.png" alt="Barplot showing the mean density of *amblyomma americanum* larvae observed in June 2019 at 5 NEON sites" width="672" />
+<p class="caption">
+Figure 3.11: Barplot showing the mean density of <em>amblyomma americanum</em> larvae observed in June 2019 at 5 NEON sites
+</p>
+</div>
+<p><strong>Heatmaps</strong> encode quantities using color, where the x and y position of each block in the heatmap correspond to the first and second categorical variables, respectively.</p>
+<ul>
+<li><code>heatmap</code> from base R</li>
+<li><code>geom_tile</code> from <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="visualization.html#cb13-1" aria-hidden="true" tabindex="-1"></a>siteIDLevels <span class="ot">&lt;-</span> beetle_targets <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="visualization.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2017</span>,</span>
+<span id="cb13-3"><a href="visualization.html#cb13-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="visualization.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(siteID) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="visualization.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">meanRichness =</span> <span class="fu">mean</span>(richness, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="visualization.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(meanRichness) <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a href="visualization.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(siteID)</span>
+<span id="cb13-8"><a href="visualization.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_grid</span>(<span class="at">year =</span> <span class="dv">2017</span><span class="sc">:</span><span class="dv">2019</span>,</span>
+<span id="cb13-9"><a href="visualization.html#cb13-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">month =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, </span>
+<span id="cb13-10"><a href="visualization.html#cb13-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">siteID =</span> <span class="fu">unique</span>(beetle_targets<span class="sc">$</span>siteID)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a href="visualization.html#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">monthYear =</span> <span class="fu">paste0</span>(year, <span class="st">&quot;-&quot;</span>, <span class="fu">if_else</span>(<span class="fu">nchar</span>(month) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, month), <span class="fu">as.character</span>(month)))) <span class="sc">%&gt;%</span></span>
+<span id="cb13-12"><a href="visualization.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(beetle_targets <span class="sc">%&gt;%</span></span>
+<span id="cb13-13"><a href="visualization.html#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(time),</span>
+<span id="cb13-14"><a href="visualization.html#cb13-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(time), </span>
+<span id="cb13-15"><a href="visualization.html#cb13-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">monthYear =</span> <span class="fu">paste0</span>(year, <span class="st">&quot;-&quot;</span>, <span class="fu">if_else</span>(<span class="fu">nchar</span>(month) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, month), <span class="fu">as.character</span>(month)))) <span class="sc">%&gt;%</span></span>
+<span id="cb13-16"><a href="visualization.html#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2017</span>, year <span class="sc">&lt;=</span> <span class="dv">2019</span>),</span>
+<span id="cb13-17"><a href="visualization.html#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;siteID&quot;</span>, <span class="st">&quot;monthYear&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-18"><a href="visualization.html#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">siteID =</span> <span class="fu">factor</span>(siteID, <span class="at">levels =</span> siteIDLevels)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a href="visualization.html#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> monthYear, <span class="at">y =</span> siteID)) <span class="sc">+</span></span>
+<span id="cb13-20"><a href="visualization.html#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">height =</span> <span class="fl">0.9</span>, <span class="fu">aes</span>(<span class="at">fill =</span> richness)) <span class="sc">+</span> </span>
+<span id="cb13-21"><a href="visualization.html#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">12</span>)<span class="sc">+</span></span>
+<span id="cb13-22"><a href="visualization.html#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">&quot;B&quot;</span>, <span class="at">na.value =</span> <span class="st">&quot;#BBBBBB&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">end =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb13-23"><a href="visualization.html#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;site&quot;</span>)<span class="sc">+</span></span>
+<span id="cb13-24"><a href="visualization.html#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-25"><a href="visualization.html#cb13-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb13-26"><a href="visualization.html#cb13-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-27"><a href="visualization.html#cb13-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb13-28"><a href="visualization.html#cb13-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb13-29"><a href="visualization.html#cb13-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)) <span class="sc">+</span></span>
+<span id="cb13-30"><a href="visualization.html#cb13-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">&#39;off&#39;</span>) <span class="sc">+</span></span>
+<span id="cb13-31"><a href="visualization.html#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, </span>
+<span id="cb13-32"><a href="visualization.html#cb13-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">18</span>, <span class="dv">30</span>), </span>
+<span id="cb13-33"><a href="visualization.html#cb13-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">3.7</span>, <span class="sc">-</span><span class="fl">3.7</span>, <span class="sc">-</span><span class="fl">3.7</span>), </span>
+<span id="cb13-34"><a href="visualization.html#cb13-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;2017&quot;</span>, <span class="st">&quot;2018&quot;</span>, <span class="st">&quot;2019&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb13-35"><a href="visualization.html#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
+<span id="cb13-36"><a href="visualization.html#cb13-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">12</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
+<span id="cb13-37"><a href="visualization.html#cb13-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
+<span id="cb13-38"><a href="visualization.html#cb13-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">13</span>, <span class="at">xend =</span> <span class="dv">24</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
+<span id="cb13-39"><a href="visualization.html#cb13-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
+<span id="cb13-40"><a href="visualization.html#cb13-40" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">25</span>, <span class="at">xend =</span> <span class="dv">37</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
+<span id="cb13-41"><a href="visualization.html#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,</span>
+<span id="cb13-42"><a href="visualization.html#cb13-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>,</span>
+<span id="cb13-43"><a href="visualization.html#cb13-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="at">times =</span> <span class="dv">36</span>),</span>
+<span id="cb13-44"><a href="visualization.html#cb13-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;Aug&quot;</span>, <span class="st">&quot;Sept&quot;</span>, <span class="st">&quot;Oct&quot;</span>, <span class="st">&quot;Nov&quot;</span>, <span class="st">&quot;Dec&quot;</span>), <span class="at">times =</span> <span class="dv">3</span>),</span>
+<span id="cb13-45"><a href="visualization.html#cb13-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">angle =</span> <span class="st">&#39;90&#39;</span>, </span>
+<span id="cb13-46"><a href="visualization.html#cb13-46" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:heatmap"></span>
+<img src="visualization_files/figure-html/heatmap-1.png" alt="Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019." width="480" />
+<p class="caption">
+Figure 3.12: Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019.
+</p>
+</div>
+<p><strong>Composite plots</strong> are created by combining multiple plots into the same graphic.</p>
+<ul>
+<li><code>facet_wrap</code> and <code>facet_grid</code> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - breaks the data into groups based on one or more grouping variables and displays a plot for each group</li>
+<li><code>plot_grid</code> from the <a href="https://wilkelab.org/cowplot/articles/plot_grid.html">cowplot</a> package</li>
+<li>The <a href="https://patchwork.data-imaginist.com/">patchwork</a> package</li>
+<li><code>grid.arrange</code> from the <a href="https://cran.r-project.org/web/packages/gridExtra/index.html">gridExtra</a> package</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="visualization.html#cb14-1" aria-hidden="true" tabindex="-1"></a>filteredData <span class="ot">&lt;-</span> pheno_targets <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="visualization.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(siteID <span class="sc">==</span> <span class="st">&quot;HARV&quot;</span>, </span>
+<span id="cb14-3"><a href="visualization.html#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2021</span>) </span>
+<span id="cb14-4"><a href="visualization.html#cb14-4" aria-hidden="true" tabindex="-1"></a>red <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filteredData, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> rcc_90))<span class="sc">+</span></span>
+<span id="cb14-5"><a href="visualization.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#841859&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb14-6"><a href="visualization.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;redness index&quot;</span>)<span class="sc">+</span></span>
+<span id="cb14-7"><a href="visualization.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb14-8"><a href="visualization.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb14-9"><a href="visualization.html#cb14-9" aria-hidden="true" tabindex="-1"></a>green <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filteredData, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> gcc_90))<span class="sc">+</span></span>
+<span id="cb14-10"><a href="visualization.html#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#005600&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb14-11"><a href="visualization.html#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;greenness index&quot;</span>)<span class="sc">+</span></span>
+<span id="cb14-12"><a href="visualization.html#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb14-13"><a href="visualization.html#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb14-14"><a href="visualization.html#cb14-14" aria-hidden="true" tabindex="-1"></a>red <span class="sc">+</span> green<span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:facet"></span>
+<img src="visualization_files/figure-html/facet-1.png" alt="Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021." width="672" />
+<p class="caption">
+Figure 3.13: Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021.
+</p>
+</div>
+</div>
+<div id="references" class="section level4 hasAnchor" number="3.3.2.4">
+<h4><span class="header-section-number">3.3.2.4</span> References<a href="visualization.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>R</strong></p>
+<ul>
+<li><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a></li>
+<li><a href="https://www.data-to-viz.com/">From data to Viz | Find the graphic you need</a></li>
+<li><a href="https://ggplot2.tidyverse.org/">Welcome | ggplot2</a></li>
+<li><a href="https://r-graphics.org/">R Graphics Cookbook, 2nd edition</a></li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html">3 Data visualisation | R for Data Science</a></li>
+<li><a href="https://r4ds.had.co.nz/graphics-for-communication.html">28 Graphics for communication | R for Data Science</a></li>
+</ul>
+<p><strong>Python</strong></p>
+<ul>
+<li><a href="https://towardsdatascience.com/introduction-to-data-visualization-in-python-89a54c97fbed">Introduction to Data Visualization in Python | by Gilbert Tanner</a></li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#">Chart Visualization — pandas 1.3.4 documentation</a></li>
+<li><a href="https://matplotlib.org/stable/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py">Usage Guide — Matplotlib 3.4.3 documentation</a></li>
+<li><a href="https://seaborn.pydata.org/">seaborn: statistical data visualization — seaborn 0.11.2 documentation</a></li>
+</ul>
+<p><strong>Julia</strong></p>
+<ul>
+<li><a href="https://docs.juliaplots.org/latest/backends/#backends">Plotting backends</a></li>
+<li><a href="https://github.com/JuliaPlots/StatsPlots.jl">StatsPlots</a></li>
+</ul>
+</div>
+</div>
+<div id="animated-visuals" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Animated Visuals<a href="visualization.html#animated-visuals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Gif, video, and other animations are a powerful way to communicate complexity and patterns where static visualizations may fall short. Animations provide an additional dimension that can allow an audience to <a href="https://ebird.org/science/status-and-trends/abundance-animations">see progression in data over time</a> or depth, <a href="https://observablehq.com/@d3/bar-chart-race">track changes</a>, or <a href="https://labs.waterdata.usgs.gov/visualizations/snow-to-flow/index.html#/">layer in additional information to support narration</a>. This may be useful to avoid overwhelming a viewer and guide the audience’s attention to specific data points. Further, whereas static, 2D representations of 3D objects <a href="https://clauswilke.com/dataviz/no-3d.html">are difficult to interpret</a>, animated representations where the object is rotated and displayed at different angles allow viewers to create <a href="https://www.tylermw.com/3d-maps-with-rayshader/">a mental reconstruction</a> of the 3D object. Finally, animation can be used to convey uncertainty using hypothetical outcome plots (HOPs), which are animated sequences of plots where each plot represents a random draw from an underlying distribution. Research suggests that HOPs lead to better understanding of uncertainty and more accurate judgments about differences between multiple random variables (<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142444">Hullman et al., 2015</a>; <a href="https://ieeexplore.ieee.org/document/8440816">Kale et al., 2019</a>). See more details about HOPs in the <a href="#Uncertainty-Visualization">Uncertainty Visualization section</a>.</p>
+<div id="animation-tools" class="section level4 hasAnchor" number="3.3.3.1">
+<h4><span class="header-section-number">3.3.3.1</span> Animation tools<a href="visualization.html#animation-tools" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><a href="https://gganimate.com/">gganimate package</a>
+<ul>
+<li>Transitions define how animations are mapped to data</li>
+<li><code>transition_time</code> transitions data through time, with the duration of each frame relative to the distance in time</li>
+<li><code>transition_reveal</code> gradually reveals data</li>
+<li><code>transition_states</code> animates between distinct stages or groups</li>
+</ul></li>
+<li><a href="https://www.rayshader.com/">rayshader package</a>
+<ul>
+<li>Create movies of camera moving around 3D maps and ggplots with <code>render_movie</code>. Camera path around visualization can be custom defined.</li>
+</ul></li>
+<li>ImageMagick (CLI) / <a href="https://github.com/ropensci/magick">Magick (R)</a>
+<ul>
+<li>Manipulate images (rotate, scale, crop, trim, flip, blur, etc) and stitch into animation (<code>image_animate</code> in R).</li>
+</ul></li>
+<li><a href="https://cran.r-project.org/web/packages/gifski/index.html">gifski package</a>
+<ul>
+<li>Sequence any series of frames into a gif using <code>gifski</code></li>
+</ul></li>
+<li>Convert gifs to video
+<ul>
+<li><a href="https://docs.juliaplots.org/latest/animations/">‘gif and animate’</a> macros in Julia
+<ul>
+<li>gif creates an animated gif file. Use this for simple, one-off animations.</li>
+<li>animate returns and Animation object for later processing. Use this for anything complex or when you need full control of the life-cycle of the animation</li>
+</ul></li>
+<li><a href="https://pypi.org/project/imageio/">ImageIO</a> - Python package</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="interactive-and-reactive-features" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Interactive and Reactive Features<a href="visualization.html#interactive-and-reactive-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Interactive data visualizations</strong> are particularly useful when you find yourself with more information than can realistically be included in a single visualization. Interactive features give control to the end-user, allowing them to access details associated with a particular plot feature or even customize the data being plotted. Common interactive features include those that allow users to zoom and pan over an image, hover or click on features to access tooltips with additional information, and hover over a single object to highlight the entire group to which it belongs. <strong>Reactive visualizations</strong> are a special type of interactive visualization where user input changes the information or data being displayed. Reactivity can allow users to do things like filter data to visualize subsets of interest, modify which variables are plotted, and customize how the data is plotted (e.g. histogram bin size, color palette).</p>
+<p>Here are some principles to consider when developing interactive research products.</p>
+<ol style="list-style-type: decimal">
+<li>Scientists developing interactives should understand their users, uses, and usage (impact).</li>
+<li>Interactives should be developed and disseminated in the open whenever possible.</li>
+<li>Funders should develop and enforce standards for interactives as scholarly products.</li>
+<li>Organizations and communities of practice should enable discovery by improving findability.</li>
+<li>Organizations should reward researchers for creating useful interactives through existing incentivization structures.</li>
+<li>Publishers and funding agencies should create and enact publication standards.</li>
+</ol>
+<div id="interactive-tools" class="section level4 hasAnchor" number="3.3.4.1">
+<h4><span class="header-section-number">3.3.4.1</span> Interactive tools<a href="visualization.html#interactive-tools" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><a href="https://plotly.com/">Plotly</a> (standard types of plots, 3D plots, etc) is a javascript visualization library with wrappers for R, Python, Julia, Matlab.
+<ul>
+<li><a href="https://plotly.com/ggplot2/">ggplotly</a> is a function within the <a href="https://plotly.com/r/">plotly</a> R package for making ggplot graphics interactive</li>
+<li>Resource for working with plotly in R - <a href="https://plotly-r.com/">Interactive web-based data visualization with R, plotly, and shiny</a></li>
+</ul></li>
+<li><a href="https://jkunst.com/highcharter/">Highcharter</a> is an R wrapper for the Highcharts javascript library and its modules. Highcharts is a flexible and customizable javascript charting library and it has a great and powerful API.
+<ul>
+<li>Examples and details about highcharter can be found <a href="https://jkunst.com/highcharter/">here</a></li>
+</ul></li>
+<li><a href="https://github.com/JohnCoene/charter">Charter</a> is an R wrapper for the <a href="https://www.chartjs.org/">Charts</a> javascript library</li>
+<li><a href="https://echarts4r.john-coene.com/index.html">echarts4r</a> is an R wrapper for the <a href="https://echarts.apache.org/en/index.html">Apache eCharts</a> javascript library</li>
+<li><a href="https://davidgohel.github.io/ggiraph/index.html">ggiraph</a> is an R package for making ggplot graphics interactive</li>
+<li><a href="https://dygraphs.com/">Dygraphs</a> is an open source JavaScript charting library. It can handle large data sets (plots millions of points without getting bogged down), provides strong support for error bars and confidence intervals, and is highly customizable.</li>
+<li>The <a href="https://dmurdoch.github.io/rgl/">rgl</a> and <a href="https://www.rayshader.com/">rayshader</a> packages in R allow the creation of interactive 3D plots.</li>
+</ul>
+</div>
+<div id="high-level-reactive-tools" class="section level4 hasAnchor" number="3.3.4.2">
+<h4><span class="header-section-number">3.3.4.2</span> High-level Reactive tools<a href="visualization.html#high-level-reactive-tools" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>High-level reactive tools provide figures or graphs that change as a function of user input.</p>
+<ul>
+<li><a href="https://www.tableau.com/">Tableau</a> is a subscription-based visualization tool that’s popular in the data viz community. Students and instructors may obtain free licenses to use it. Making visually compelling figures and plots is relatively easy with the powerful graphical user interface. Basically, you create a visualization using drag and drop. Dashboard and interactive visualization can be created and shared. With public data, one can share them via <a href="https://public.tableau.com">Tableau Public</a>. <a href="https://covid19florida.mystrikingly.com/">COVID-19 in Florida</a> is one example that uses the Tableau Public platform, which has been well utilized over the COVID-19 pandemic to disseminate information due to its ease in creating great visualizations.</li>
+<li><a href="https://powerbi.microsoft.com/en-us/">PowerBI</a> is in many cases similar to Tableau, featuring an easy to use graphical user interface that allows us to create visualizations. Power BI is well integrated with Microsoft, particularly suitable for people who’re already using Azure and Office in their workflow. While Power BI Desktop is free, a subscription-based Power BI Pro is required to publish and share the visualization created.</li>
+<li><a href="https://observablehq.com/">Observable</a></li>
+<li><a href="https://dash.plotly.com/r/introduction">Dash</a> is a framework for building and deploying data apps with customized user interfaces in Python, R, Julia, and F# (experimental).</li>
+<li><a href="https://shiny.rstudio.com/">Shiny</a> is an R package that makes it easy to build interactive web apps straight from R. You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards. You can also extend your Shiny apps with CSS themes, htmlwidgets, and JavaScript actions.
+<ul>
+<li>This <a href="https://lsw5077.github.io/shiny_workshop/resources.html">webpage of Shiny resources</a> provides example apps in Ecology, Conservation, and Epidemiology, links to Shiny and R programming resources, and statistical modeling, a Bayesian course, and Tidymodels</li>
+<li>EFI hosted a <a href="https://ecoforecast.org/workshops/r-shiny-seminar-series/">4-part seminar series</a> on R Shiny applications and the associated code needed for the applications. The applications included:
+<ul>
+<li><a href="https://ecoforecast.org/workshops/r-shiny-seminar-series/#space-time">Visualization of Data in Space and Time: An Interactive Framework</a></li>
+<li><a href="https://ecoforecast.org/workshops/r-shiny-seminar-series/#uncertainty-viz">Creative Visualization of Model Results and Uncertainty in Shiny</a></li>
+<li><a href="https://ecoforecast.org/workshops/r-shiny-seminar-series/#pre-compute">Improving Speed of Shiny Apps by Pre-Computing Models</a></li>
+<li><a href="https://ecoforecast.org/workshops/r-shiny-seminar-series/#leaflet">A Primer to Creating Interactive Maps with Leaflet in Shiny</a></li>
+</ul></li>
+</ul></li>
+<li><a href="https://github.com/JuliaGizmos/Interact.jl">Interact.jl</a> is a Julia package for creating web-based widgets</li>
+</ul>
+<p>See <a href="#Table-3">Table 3 (below)</a> for a list of web-application development frameworks.</p>
+</div>
+</div>
+<div id="geospatial-visuals" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> Geospatial Visuals<a href="visualization.html#geospatial-visuals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Spatial datasets contain information that links the data to physical/geographic locations. Because spatial data has extra information, visualization, modeling, and manipulating spatial data requires special file formats, projections, and geospatial operations. We will briefly describe these here, but refer to existing resources on Geographic Information Systems (GIS) and working with static spatial data.
+<a href="https://geocompr.robinlovelace.net">Geocomputation with R</a> is an online book on geographic data analysis, visualization and modeling</p>
+<div id="file-formats" class="section level4 hasAnchor" number="3.3.5.1">
+<h4><span class="header-section-number">3.3.5.1</span> File Formats<a href="visualization.html#file-formats" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Files containing spatial data need to convey the spatial coordinates and how coordinates in geographic space are mapped onto a flat map surface. Thus, these data are often stored in different file formats than non-spatial data.</p>
+<ul>
+<li><strong>Vector:</strong> A vector stores spatial data in a vector format (as opposed to gridded), such as in points, lines, and polygons
+<ul>
+<li><a href="http://geojson.io/about.html">geojson.io</a> - json or text based standard that is commonly sent with APIs. geojson.io is a fast, simple tool to create, change, and publish maps using geojson data</li>
+<li><a href="https://www.geopackage.org/">geopackage</a> - based on SQLite (derived from spatialite and updated for OGC standard compliance)</li>
+<li><a href="https://en.wikipedia.org/wiki/Shapefile">Shapefile</a> - this is widely adopted ArcGIS format; requires multiple files (shp, shx, dbf, etc) to be complete, often combined into a single zip</li>
+</ul></li>
+<li><strong>Raster:</strong> Raster file formats store spatial data in pixels along a regular grid.
+<ul>
+<li>There are a variety of different raster file formats, including GeoTIFF, ASCII, netcdf, cloud optimized geotiff, etc</li>
+</ul></li>
+</ul>
+</div>
+<div id="projections-and-coordinate-reference-systems-crs" class="section level4 hasAnchor" number="3.3.5.2">
+<h4><span class="header-section-number">3.3.5.2</span> Projections and Coordinate Reference Systems (CRS)<a href="visualization.html#projections-and-coordinate-reference-systems-crs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Projections and coordinate reference systems both contain information about how spatial data can be visualized, and where it is, with important differences.
+Geographic Coordinate Reference Systems contain information on how spatial data is projected or placed on the Earth’s surface.</p>
+<ul>
+<li><a href="https://support.virtual-surveyor.com/en/support/solutions/articles/1000261353-what-is-an-epsg-code-">ESPG codes</a> are often used to refer to different coordinate reference systems</li>
+<li>Most spatial data formats (shapefiles, rasters, etc) store the geographic coordinate system with the data, so users only need to worry about this if they wish to switch the Geographic Coordinate Reference System to match that of another spatial dataset.
+Additional information about Geographic Coordinate Systems (where the data is located on earth) and Projected Coordinate Systems (how the data is drawn on a flat surface) can be found <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs">here</a>.</li>
+</ul>
+</div>
+<div id="static-spatial-visualization" class="section level4 hasAnchor" number="3.3.5.3">
+<h4><span class="header-section-number">3.3.5.3</span> Static Spatial Visualization<a href="visualization.html#static-spatial-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Often, we need to visualize data and/or forecasts distributed in geographic space. Here we list some static spatial visualization tools in R and Python which can be helpful to open, work with, and visualize spatial data. These packages and tools may help when dealing with issues specific to geospatial data, for example, opening geospatial file types, making maps with appropriate spatial projections, plotting different spatial data types including gridded raster data and polygons and other shapefiles.</p>
+<p>Geospatial operations &amp; tools for working with spatial data:
+Many of the software programs commonly used in ecological forecasting have capabilities to work with geospatial data. Here we provide links to these resources and packages</p>
+<p><strong>R</strong></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/raster/index.html">Raster</a> contains useful functions for working with, manipulating, and visualizing rasters in R. The R community is moving towards deprecating this tool in favor of Terra</li>
+<li><a href="https://cran.r-project.org/web/packages/terra/index.html">Terra</a> is primarily a faster version of the Raster package built by the same author but also handles some aspects of vector data. Currently suggested for use over raster, but may have some compatibility issues with other packages. The Raster package is <a href="https://gis.stackexchange.com/questions/413105/terrarast-vs-rasterbrick-for-loading-in-nc-files">still suggested</a> when working with netCDF files that have multiple layers.</li>
+<li><a href="https://cran.r-project.org/web/packages/maps/index.html">maps</a> draws geographical maps</li>
+<li><a href="https://cran.r-project.org/web/packages/sf/index.html">sf</a> supports a standardized way to encode spatial vector data. Binds to ‘GDAL’ for reading and writing data, to ‘GEOS’ for geometrical operations, and to ‘PROJ’ for projection conversions and datum transformations.</li>
+<li><a href="https://cran.r-project.org/web/packages/sp/index.html">sp</a> Now <a href="https://twitter.com/edzerpebesma/status/1272928917700165633?s=20&amp;t=teYNasm0f5dKabpt4IMpKg">deprecated</a> in favor of the <a href="https://cran.r-project.org/web/packages/sf/index.html">sf</a> package. This <a href="https://github.com/r-spatial/sf/wiki/Migrating">wiki page</a> contains some equivalent commands between packages.</li>
+<li><a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html">tmap</a> generates thematic maps. The syntax for creating plots is similar to that of ggplot2, but tailored to maps.</li>
+<li>[ncdf4](<a href="https://cran.r-project.org/web/packages/ncdf4/index.html" class="uri">https://cran.r-project.org/web/packages/ncdf4/index.html</a> is a package for working with netCDF files in R</li>
+<li><a href="https://cran.r-project.org/web/packages/rgdal/index.html">rgdal</a> provides bindings to the ‘Geospatial’ Data Abstraction Library (‘GDAL’) (&gt;= 1.11.4) and access to the projection/transformation operations from the ‘PROJ’ library. <strong><em>Note that ‘rgdal’ will be retired by the end of 2023</em></strong> so plan to transition to sf/stars/‘terra’ functions using ‘GDAL’ and ‘PROJ’ at your earliest convenience.</li>
+</ul>
+<p><strong>Python</strong></p>
+<ul>
+<li><a href="https://rasterio.readthedocs.io/en/latest/">Rasterio</a></li>
+<li><a href="https://geopandas.org/en/stable/">GeoPandas</a></li>
+<li><a href="https://github.com/pysal">Pysal</a></li>
+<li><a href="https://xarray.pydata.org/en/stable/">Xarray:</a> useful for working with netCDF files</li>
+</ul>
+</div>
+<div id="types-of-plots-for-spatial-data" class="section level4 hasAnchor" number="3.3.5.4">
+<h4><span class="header-section-number">3.3.5.4</span> Types of Plots for Spatial Data<a href="visualization.html#types-of-plots-for-spatial-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>A <strong>choropleth map</strong> links polygons (e.g., counties, states, etc.) to values of a variable in a dataset using color or symbols.</li>
+<li>Proportional or graduated symbol maps use symbols scaled either proportionally to values of a variable or based on classifications of a variable</li>
+<li>A <strong>dot map</strong> uses points to show the distribution of data spatially. Dots can be either at specific xy coordinates, or evenly distributed within an area of interest depending on the intent.</li>
+<li>An <strong>isopleth map</strong> uses contours to connect identical values on a map and show the distribution of a variable spatially</li>
+<li><strong>Cartograms</strong> are maps that scale polygons (e.g., counties, states, etc.) based on the values of a variable. Similar conceptually to a proportional symbol map, but the underlying map features themselves are scaled instead of a point layer on top</li>
+<li><strong>Dasymetric maps</strong> type refine chloropleth maps using additional information to make the spatial distribution of mapped values more accurate</li>
+<li>Reference: <a href="https://www.cdc.gov/dhdsp/maps/gisx/resources/thematic-maps.html">https://www.cdc.gov/dhdsp/maps/gisx/resources/thematic-maps.html</a></li>
+</ol>
+</div>
+<div id="interactive-spatial-visualization" class="section level4 hasAnchor" number="3.3.5.5">
+<h4><span class="header-section-number">3.3.5.5</span> Interactive Spatial Visualization<a href="visualization.html#interactive-spatial-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Many spatial datasets contain additional dimensions that you want to represent in your visualization. For example (could include a specific forecast example here) a dataset might have both spatial and temporal information, and you want to visualize how the geographic patterns in the data change over time, or visualize how different scenarios can change geographic distribution of your data. These tools provide some capability to create interactive spatial visualization:</p>
+<p><strong>Tools to create maps:</strong></p>
+<p>Here is a list of resources commonly used to plot rasters and shapefiles</p>
+<ul>
+<li><a href="https://www.esri.com/en-us/arcgis/about-arcgis/overview">ArcGIS</a></li>
+<li><a href="https://www.qgis.org/en/site/">QGIS</a> is free and open source</li>
+<li>R
+<ul>
+<li><a href="https://shiny.rstudio.com/">Shiny</a> - R package to create interactive web apps including maps</li>
+<li><a href="https://plotly.com/r/">Plotly</a> - a graphing library in R that can be used to make maps</li>
+<li><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf()</a> for <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><a href="https://oscarperpinan.github.io/rastervis/">rasterVis</a> package to plot rasters more effectively in R</li>
+</ul></li>
+<li><a href="https://pysal.org/">PYSAL</a></li>
+<li><a href="https://rstudio.github.io/leaflet/">Leaflet</a> is an open-source javaScript library for interactive maps. Leaflet can be used on its own or with Shiny.</li>
+<li><a href="https://www.mapbox.com/">Mapbox</a> provides interactive spatial forecasts (i.e. user inputs spatial location and type of management change the forecasts outputs)</li>
+<li><a href="https://www.giss.nasa.gov/tools/panoply/">Panoply</a> is a stand alone netcdf visualizer for local or remote catalogs</li>
+</ul>
+</div>
+</div>
+<div id="uncertainty-visualization" class="section level3 hasAnchor" number="3.3.6">
+<h3><span class="header-section-number">3.3.6</span> Uncertainty Visualization<a href="visualization.html#uncertainty-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Communicating forecast uncertainty can play a critical role in both aiding decision-makers and building and maintaining public trust. When depicting uncertainty, it is important to consider the audience, their numeracy, and their level of training in statistics. Below we briefly discuss several methods for visualizing uncertainty and present tools that can be used to implement each.</p>
+<ul>
+<li><strong>Error bars</strong> are commonly used to depict uncertainty in the scientific community. When using error bars, it is important to clearly specify what the error bar represents, since error bars can be used to represent different measures of uncertainty (e.g. standard deviations, standard errors, confidence intervals, prediction intervals). Because interpreting many of these uncertainty measures requires a firm grasp of statistics, using error bars can lead to misinterpretation or inappropriate inference, especially by lay audiences (Hofman et al., 2020; Joslyn &amp; LeClerc, 2012; <a href="https://doi.org/10.1177/15291006211051956">Franconeri et al., 2021</a>).
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html"><code>geom_errorbar</code></a> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a></li>
+<li><a href="https://ggplot2.tidyverse.org/reference/geom_ribbon.html"><code>geom_ribbon</code></a> in <a href="https://ggplot2.tidyverse.org/">ggplot2</a> - analogous to an error bar but for lines rather than points</li>
+<li><code>point_interval</code> from <a href="https://mjskay.github.io/ggdist/">ggdist</a> package</li>
+</ul></li>
+<li>Depicting a full <strong>distribution</strong> rather than summarizing it using an error bar can be an effective way of visualizing uncertainty. Compared to error bars, distribution visualizations provide the viewer with more information and have been linked to better decision making <a href="https://doi.org/10.1177/15291006211051956">Franconeri et al., 2021</a>. See the Distributions section above for tools - <strong><em>NEED TO PUT IN THE LINK TO THIS WHEN THE PAGE IS MADE</em></strong></li>
+<li>Uncertainty can also be mapped to different visual channels, including color value or <strong>luminance, fuzziness, size, transparency, and location</strong> (MacEachren et al., 2012). These channels can be particularly useful when both x and y positions are already being used to represent another aspect of the data (e.g. on a map). However, these visual channels are less precise than encoding uncertainty with position, as in the case of error bars and distributions <a href="https://doi.org/10.1177/15291006211051956">Franconeri et al., 2021</a>.
+<ul>
+<li>In ggplot the <code>aes()</code> function can be used to map the fill, size, and alpha aesthetics to uncertainty.</li>
+<li>Uncertainty can be mapped to fuzziness using the <code>with_blur()</code> function from <a href="https://ggfx.data-imaginist.com/">ggfx</a> package</li>
+</ul></li>
+<li><strong>Value-suppressing uncertainty palettes</strong> leverage the fact that color hues are easier to tell apart when they are saturated and darker (Correll et al., 2018). Such palettes map a variable of interest to color hue, and uncertainty to color saturation and luminance. The result is that values associated with high levels of uncertainty are more difficult to ascertain. Value-suppressing uncertainty palettes can be applied to visualizations like choropleth maps and heatmaps.
+<ul>
+<li><a href="https://github.com/clauswilke/multiscales">multiscales</a> package in R</li>
+</ul></li>
+<li>Another approach to visualize uncertainty is to re-framing probabilities (e.g. 10%) as frequencies (e.g. 1 in 10). This can be an effective way to communicate uncertainty to a broader audience, including individuals with low numeracy. (<a href="https://journals.sagepub.com/doi/full/10.1177/0272989X10391672">Peters et al., 2010</a>; <a href="https://doi.org/10.1177/15291006211051956">Franconeri et al., 2021</a>). Several plot types take advantage of this so-called <strong>“frequency-framing”</strong> approach, which allows viewers to infer probability from visual representations of frequency:
+<ul>
+<li><strong>Quantile dotplots</strong> depict distributions by representing individual quantiles of the data as dots. Quantile dotplots have been shown to aid people in making decisions in the face of uncertainty (<a href="https://dl.acm.org/doi/10.1145/2858036.2858558">Kay et al, 2016</a>).
++<code>stat_dots</code> from the ggdist package produces a quantile dotplot if the quantiles argument is specified.</li>
+<li><strong>Icon arrays</strong> depict ratios with a frequency-frame by depicting a large number of icons and coloring them according to one or more variables.
+<ul>
+<li><a href="https://hneth.github.io/riskyr">riskyr</a> package</li>
+<li><a href="https://github.com/liamgilbey/ggwaffle">ggwaffle</a> package</li>
+</ul></li>
+<li>Visualizing individual data points, ensemble members, or samples from a distribution can convey uncertainty more intuitively while providing a more nuanced representation of the data underlying a distribution.(<a href="https://doi.org/10.1371/journal.pbio.1002128">Weissgerber et al 2015</a>; <a href="https://doi.org/10.1177/15291006211051956">Franconeri et al., 2021</a>)
+<ul>
+<li><code>geom_jitter</code> in ggplot can be used to avoid overplotting when plotting several individual data points</li>
+</ul></li>
+<li><strong>Hypothetical outcome plots</strong> (or HOPs) are animated sequences of plots where each plot represents a random draw from an underlying distribution. Research suggests that HOPs lead to better understanding of uncertainty and more accurate judgments about differences between multiple random variables (<a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142444">Hullman et al., 2015</a>; <a href="https://ieeexplore.ieee.org/document/8440816">Kale et al., 2019</a>).
+<ul>
+<li>See tools for <a href="#Animated-Visuals">Animated Visuals above</a>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<div id="other-resources-or-uncertainty-visualization" class="section level4 hasAnchor" number="3.3.6.1">
+<h4><span class="header-section-number">3.3.6.1</span> Other Resources or Uncertainty Visualization<a href="visualization.html#other-resources-or-uncertainty-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><a href="https://clauswilke.com/dataviz/visualizing-uncertainty.html">Fundamentals of Data Visualization</a> - section 16 specifically discusses visualizing uncertainty</li>
+<li><a href="https://journals.sagepub.com/stoken/default+domain/10.1177%2F15291006211051956-FREE/full">The Science of Visual Data Communication</a> - an overview of approaches to uncertainty visualization</li>
+<li><a href="https://mjskay.github.io/ggdist/">ggdist</a> package</li>
+<li><a href="https://github.com/wilkelab/ungeviz">ungeviz</a> package</li>
+<li><a href="https://youtu.be/LTSKrtyzALM">Recording</a> of a panel hosted by the EFI Social Science Working group on visualizing uncertainty in forecasts including the use of color in NOAA weather maps</li>
+</ul>
+</div>
+<div id="tables" class="section level4 hasAnchor" number="3.3.6.2">
+<h4><span class="header-section-number">3.3.6.2</span> Tables<a href="visualization.html#tables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="table-1" class="section level3 hasAnchor" number="3.3.7">
+<h3><span class="header-section-number">3.3.7</span> Table 1<a href="visualization.html#table-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Table 1: Considerations for end-users, life expectancy and sustainability of the app, interface outputs, communicating to end-users and feedback, and app maintenance and updates.</strong></p>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="24%" />
+<col width="18%" />
+<col width="32%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Consideration</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Recommendations</strong></th>
+<th><strong>Benefits</strong></th>
+<th><strong>Consequence of Ignoring</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>End-users</td>
+<td>Who is my end-user? (Arugably the most important questions)</td>
+<td></td>
+<td>Identify potential communities with which to communicate throughout the process. Design the interface for the anticipated end-users. Reach out to the anticipated end-users to identify needs, skills, etc. Make it easier to streamline the dissemination process.</td>
+<td>Creating a product that has no clear end-users</td>
+</tr>
+<tr class="even">
+<td>End-users</td>
+<td>What are the needs of my end-users?</td>
+<td>Ask potential end-users.</td>
+<td>Improve chances of actually meeting the needs of end-users. Improve broader impacts of your research.</td>
+<td>Fail to meet the needs of the end-users.</td>
+</tr>
+<tr class="odd">
+<td>End-users</td>
+<td>What are the skills or prior knowledge of my end-users?</td>
+<td>Ask end-users or always assume that end-users have the minimal amount of skills or prior knowledge, but don’t “dumb it down”.</td>
+<td>Make your interface easier to use by stakeholders. Make the content more easily interpretable. Opportunity to create different options for end-users with varying skills, while keeping the barrier to entry low for users without certain skills.</td>
+<td>Isolating end-users without necessary skills or knowledge may lead to non-adoption.</td>
+</tr>
+<tr class="even">
+<td>Life expectancy and sustainability</td>
+<td>How long will this application be relevant to end-users?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Life expectancy and sustainability</td>
+<td>How will I ensure the application is available for that period of time?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Life expectancy and sustainability</td>
+<td>What are the costs (time, money, bytes) associated with hosting or storing for this period of time?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Life expectancy and sustainability</td>
+<td>Where will this application be located in 1 years time? 5? 10?</td>
+<td>Consider storing the source code for your application within a trusted digital repository. Consider using persistent identifiers for released versions. Be certain you will always have access to the host location (e.g., website), and if there are associated fees consider whether you anticipate to always pay the hosting fees.</td>
+<td>Releasing the initial version and each thereafter requires only a single location (URL, URI, DOI) to maintain and to share.</td>
+<td>Changing the location (e.g., URL) of an application will be to the detriment of the usage of your application. If you publish the first release of this software inside a research journal article, but change the location some months or years down the road, it will render the intial reference useless. Will also add another layer to the findability of your application.</td>
+</tr>
+<tr class="even">
+<td>Interface outputs</td>
+<td>What is the purpose of the interface?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Interface outputs</td>
+<td>How will information be exported from the interface?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Communication</td>
+<td>How will I communicate to potential end-users?</td>
+<td>If you have identified the end-user types or individuals, then a communication plan becomes more constrained. Consider how effective communication through various outlets will be. Will a research article reach your intended audience? How about a Tweet? How about an email to certain individuals?</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Communication</td>
+<td>Will I provide an option for feedback on the interface? If so, how?</td>
+<td>The easier it is for the end-user to provide feedback, the higher the probability is that the end-user will supply it.</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Maintenance and updating</td>
+<td>What are the costs associated with maintaining the source code and user interface?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="table-2" class="section level3 hasAnchor" number="3.3.8">
+<h3><span class="header-section-number">3.3.8</span> Table 2<a href="visualization.html#table-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Table 2: a11y resources with general information, standards and evaluation, assessment tools, and communities of practice that are useful to explore when creating web applications or other user interfaces.</strong></p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="50%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Resources Type</strong></th>
+<th><strong>Consideration</strong></th>
+<th><strong>Website</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>General information</td>
+<td>U.S. federal government-wide IT accessibility program. Includes recommendations, and standards for creating accessible digital products. Also provides many tools for evaluating digital products for accessibility.</td>
+<td><a href="https://www.section508.gov/" class="uri">https://www.section508.gov/</a></td>
+</tr>
+<tr class="even">
+<td>General information</td>
+<td>Open access front-end checklist for website design by David Dias. The .io webpage includes a DIY checklist and report for evaluating websites.</td>
+<td><a href="https://frontendchecklist.io/" class="uri">https://frontendchecklist.io/</a>; <a href="https://github.com/thedaviddias/Front-End-Checklist#accessibility" class="uri">https://github.com/thedaviddias/Front-End-Checklist#accessibility</a></td>
+</tr>
+<tr class="odd">
+<td>General information</td>
+<td>A11Y Project. A open-source resource and community of practice for advancing accessibility (A11Y) in the digital space. Provides digestable information, tips, and tools for creating accessible digital products.</td>
+<td><a href="https://a11yproject.com/" class="uri">https://a11yproject.com/</a></td>
+</tr>
+<tr class="even">
+<td>General information</td>
+<td>Yale University’s curated list of tips, techniques, and resources for web accessibility.</td>
+<td><a href="https://usability.yale.edu/web-accessibility/articles/links" class="uri">https://usability.yale.edu/web-accessibility/articles/links</a></td>
+</tr>
+<tr class="odd">
+<td>General information</td>
+<td>Tutorials, documentation, and resources for web accessibility curated and hosted by Mozilla.</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" class="uri">https://developer.mozilla.org/en-US/docs/Web/Accessibility</a></td>
+</tr>
+<tr class="even">
+<td>Standards and evaluation</td>
+<td>A quick start guide/evaluation of a product from W3C</td>
+<td><a href="https://www.w3.org/WAI/test-evaluate/preliminary/" class="uri">https://www.w3.org/WAI/test-evaluate/preliminary/</a></td>
+</tr>
+<tr class="odd">
+<td>Standards and evaluation</td>
+<td>The Worldwide Web Consortium’s (W3C) Web Content Accessibility Guidelines (WCAG) is an eminent standard (recommendations) for web accessibility. These guidelines provide self-evaluation criterion for meeting one of three standards in order of less to more accessible: A, AA, or AAA.</td>
+<td><a href="https://www.levelaccess.com/wcag-2-1-in-amp/" class="uri">https://www.levelaccess.com/wcag-2-1-in-amp/</a>; <a href="https://www.w3.org/TR/WCAG21/" class="uri">https://www.w3.org/TR/WCAG21/</a> (guidelines v2.1)</td>
+</tr>
+<tr class="even">
+<td>Assessment tool</td>
+<td>Web Accessibility Evaluation Tool (WAVE) for evaluating websites for accessibility.</td>
+<td><a href="https://wave.webaim.org/" class="uri">https://wave.webaim.org/</a></td>
+</tr>
+<tr class="odd">
+<td>Assessment tool</td>
+<td>Functional Accessibility Evaluator (University of Illinois). An open source tool for evaluating websites for Level A and AA WCAG standards.</td>
+<td><a href="https://fae.disability.illinois.edu/" class="uri">https://fae.disability.illinois.edu/</a></td>
+</tr>
+<tr class="even">
+<td>Assessment tool</td>
+<td>Section 508 ICT manual baseline testing for accessibility</td>
+<td><a href="https://github.com/Section508Coordinators/ICTTestingBaseline" class="uri">https://github.com/Section508Coordinators/ICTTestingBaseline</a></td>
+</tr>
+<tr class="odd">
+<td>Community of Practice</td>
+<td>U.S. federal government accessibility community of practice</td>
+<td><a href="https://www.cio.gov/about/members-and-leadership/accessibility-cop/" class="uri">https://www.cio.gov/about/members-and-leadership/accessibility-cop/</a></td>
+</tr>
+<tr class="even">
+<td>Community of Practice</td>
+<td>Worldwide Web Consortium (W3C) Web Accessibility Initiative (WAI)</td>
+<td><a href="https://www.w3.org/WAI/" class="uri">https://www.w3.org/WAI/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="table-3" class="section level3 hasAnchor" number="3.3.9">
+<h3><span class="header-section-number">3.3.9</span> Table 3<a href="visualization.html#table-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Table 3: List of web-application development frameworks. This table expands on the comes from the Supplement Information in <a href="https://doi.org/10.1111/cobi.13305">Valle et al. 2019</a>. <sup>+</sup> These tools are based on Graphical User Interfaces (GUI) and are stand-alone software. <sup>§</sup> These tools were not originally included in Valle 2019.</strong></p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="50%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Name</strong></th>
+<th><strong>computer language</strong></th>
+<th><strong>Websites</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bokeh</td>
+<td>Python/Scala/Julia/R</td>
+<td><a href="https://bokeh.pydata.org/" class="uri">https://bokeh.pydata.org/</a>; <a href="http://hafen.github.io/rbokeh/" class="uri">http://hafen.github.io/rbokeh/</a></td>
+</tr>
+<tr class="even">
+<td>Django</td>
+<td>Python</td>
+<td><a href="https://www.djangoproject.com/" class="uri">https://www.djangoproject.com/</a></td>
+</tr>
+<tr class="odd">
+<td>Flask</td>
+<td>Python</td>
+<td><a href="http://flask.pocoo.org/" class="uri">http://flask.pocoo.org/</a></td>
+</tr>
+<tr class="even">
+<td>Vega/Vega-Lite</td>
+<td>Python (via Altair)/R (via reticulate)</td>
+<td><a href="https://altair-viz.github.io/" class="uri">https://altair-viz.github.io/</a>; <a href="https://github.com/vegawidget/altair" class="uri">https://github.com/vegawidget/altair</a></td>
+</tr>
+<tr class="odd">
+<td>Plotly/Dash</td>
+<td>R/Python/Matlab/Julia</td>
+<td><a href="https://plot.ly" class="uri">https://plot.ly</a></td>
+</tr>
+<tr class="even">
+<td>Htmlwidgets</td>
+<td>R</td>
+<td><a href="http://www.htmlwidgets.org/" class="uri">http://www.htmlwidgets.org/</a></td>
+</tr>
+<tr class="odd">
+<td>Shiny/ShinyDashboard</td>
+<td>R</td>
+<td><a href="https://shiny.rstudio.com/;https://rstudio.github.io/shinydashboard/" class="uri">https://shiny.rstudio.com/;https://rstudio.github.io/shinydashboard/</a></td>
+</tr>
+<tr class="even">
+<td>Leaflet</td>
+<td>R/Python (via folium)</td>
+<td><a href="https://rstudio.github.io/leaflet/" class="uri">https://rstudio.github.io/leaflet/</a>; <a href="https://github.com/python-visualization/folium" class="uri">https://github.com/python-visualization/folium</a></td>
+</tr>
+<tr class="odd">
+<td>Tableau</td>
+<td>None<sup>+</sup></td>
+<td><a href="https://www.tableau.com" class="uri">https://www.tableau.com</a></td>
+</tr>
+<tr class="even">
+<td>RapidMiner</td>
+<td>None<sup>+</sup></td>
+<td><a href="https://docs.rapidminer.com/7.6/server/how-to/create-web-apps/" class="uri">https://docs.rapidminer.com/7.6/server/how-to/create-web-apps/</a></td>
+</tr>
+<tr class="odd">
+<td>PowerBI^§c</td>
+<td>None<sup>+</sup></td>
+<td><a href="https://powerbi.microsoft.com/en-us/what-is-power-bi/" class="uri">https://powerbi.microsoft.com/en-us/what-is-power-bi/</a></td>
+</tr>
+<tr class="even">
+<td>Spotfire<sup>§</sup></td>
+<td>None<sup>+</sup></td>
+<td><a href="https://www.tibco.com/products/tibco-spotfire" class="uri">https://www.tibco.com/products/tibco-spotfire</a></td>
+</tr>
+<tr class="odd">
+<td>Superset<sup>§</sup></td>
+<td>None<sup>+</sup></td>
+<td><a href="https://superset.apache.org/" class="uri">https://superset.apache.org/</a></td>
+</tr>
+</tbody>
+</table>
+<div id="references-1" class="section level4 hasAnchor" number="3.3.9.1">
+<h4><span class="header-section-number">3.3.9.1</span> References<a href="visualization.html#references-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>David-Chavez DM, Gavin MC (2018) A global assessment of Indigenous community engagement in climate research. Environ Res Lett 13:123005. <a href="https://doi.org/10.1088/1748-9326/aaf300">https://doi.org/10.1088/1748-9326/aaf300</a></li>
+<li>Franconeri SL, Padilla LM, Shah P, Zacks JM, Hullman J (2021) The Science of Visual Data Communication: What Works: Psychological Science in the Public Interest. <a href="https://doi.org/10.1177/15291006211051956">https://doi.org/10.1177/15291006211051956</a>
+*Hullman J, Resnick P, Adar E (2015) Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences about Reliability of Variable Ordering. PLOS ONE 10:e0142444. <a href="https://doi.org/10.1371/journal.pone.0142444">https://doi.org/10.1371/journal.pone.0142444</a></li>
+<li>Kale A, Nguyen F, Kay M, Hullman J (2019) Hypothetical Outcome Plots Help Untrained Observers Judge Trends in Ambiguous Data. IEEE Transactions on Visualization and Computer Graphics 25:892–902. <a href="https://doi.org/10.1109/TVCG.2018.2864909">https://doi.org/10.1109/TVCG.2018.2864909</a></li>
+<li>McInerny, G J. et al. (2014) Information visualization in science and policy - engaging users &amp; communicating bias. Trends in Ecology &amp; Evolution. 29. 148-157. <a href="https://doi.org/10.1016/j.tree.2014.01.003">https://doi.org/10.1016/j.tree.2014.01.003</a>
+*Metze, T. (2020). Visualization in environmental policy and planning: a systematic review and research agenda. Journal of Environmental Policy and Planning. <a href="https://doi.org/10.1080/1523908X.2020.1798751">https://doi.org/10.1080/1523908X.2020.1798751</a></li>
+<li>Rehkopf M (2022) User Stories with Examples and a Template. In: Atlassian Agile Coach. <a href="https://www.atlassian.com/agile/project-management/user-stories">https://www.atlassian.com/agile/project-management/user-stories</a>. Accessed 11 Apr 2022</li>
+<li>Smith JB, Schneider SH, Oppenheimer M, Yohe GW, Hare W, Mastrandrea MD, Patwardhan A, Burton I, Corfee-Morlot J, Magadza CHD, Füssel H-M, Pittock AB, Rahman A, Suarez A, van Ypersele J-P (2009) Assessing dangerous climate change through an update of the Intergovernmental Panel on Climate Change (IPCC) “reasons for concern.” Proceedings of the National Academy of Sciences 106:4133–4137. <a href="https://doi.org/10.1073/pnas.0812355106">https://doi.org/10.1073/pnas.0812355106</a></li>
+<li>Valle D, Toh KB, Millar J (2019) Rapid prototyping of decision-support tools for conservation. Conservation Biology. 33:1448-1450. <a href="https://doi.org/10.1111/cobi.13305">https://doi.org/10.1111/cobi.13305</a></li>
+<li>Wardekker, A., &amp; Lorenz, S. (2019). The visual framing of climate change impacts and adaptation in the IPCC assessment reports. Climatic Change, 156(1–2), 273–292. <a href="https://doi.org/10.1007/s10584-019-02522-6">https://doi.org/10.1007/s10584-019-02522-6</a></li>
+<li>Weissgerber, Tracey L., et al. “Beyond bar and line graphs: time for a new data presentation paradigm.” PLoS biology 13.4 (2015): e1002128. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a></li>
+<li>Wilke CO (2019) Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures, 1st edition. O’Reilly Media, Sebastopol, CA. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

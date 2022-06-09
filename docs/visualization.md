@@ -93,33 +93,7 @@ In **Julia**, the [Plots.jl](https://docs.juliaplots.org/stable/) metapackage pr
 
 Spreadsheet platforms (e.g. [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel) and [Google sheets](https://www.google.com/sheets/about/)) also provide interactive tools for making simple static plots. 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE) # Show code and plots
-# Load packages
-library(tidyverse)
-library(lubridate)
-library(here)
-library(neon4cast)
-#neon4cast can be installed with: 
-#install.packages("remotes")
-#remotes::install_github("eco4cast/neon4cast")
-library(cowplot)
-library(patchwork)
-library(ggtext)
-library(colorspace)
-library(viridis)
-library(ggridges)
-library(GGally)
-library(ggdist)
-library(ggExtra)
-# Get target data
-aquatics_targets <- readr::read_csv("https://data.ecoforecast.org/targets/aquatics/aquatics-targets.csv.gz")
-terrestrial_daily_targets <-
-readr::read_csv("https://data.ecoforecast.org/targets/terrestrial_daily/terrestrial_daily-targets.csv.gz", guess_max = 1e6)
-pheno_targets <- readr::read_csv("https://data.ecoforecast.org/targets/phenology/phenology-targets.csv.gz")
-tick_targets <- readr::read_csv("https://data.ecoforecast.org/targets/ticks/ticks-targets.csv.gz")
-beetle_targets <- readr::read_csv("https://data.ecoforecast.org/targets/beetles/beetles-targets.csv.gz", guess_max = 1e6)
-```
+
 
 #### Distributions 
 When developing forecasts it is often useful to examine the **distribution** of a single variable or parameter. Such visualizations can be used to examine 1) how data are distributed and 2) uncertainty in parameter estimates or other estimated quantities. There are a few different “flavors” of distribution plots, depending on the application.
@@ -134,7 +108,8 @@ When developing forecasts it is often useful to examine the **distribution** of 
 * `geom_hex` in [ggplot2](https://ggplot2.tidyverse.org/) - creates a 2D histogram showing joint distribution of two variables by binning observations into hexagons in a Cartesian plane
 * `ggMarginal` from the ggMarginal package can add marginal histograms to existing ggplots.
 
-```{r histogram, fig.cap = "Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in February at the Konza Prairie Biological Station NEON site, 2019-2022"}
+
+```r
 terrestrial_daily_targets %>%
   drop_na(nee) %>%
   filter(siteID == "KONZ",
@@ -148,8 +123,14 @@ terrestrial_daily_targets %>%
   theme(axis.title.x = element_markdown())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/histogram-1.png" alt="Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in February at the Konza Prairie Biological Station NEON site, 2019-2022" width="672" />
+<p class="caption">(\#fig:histogram)Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in February at the Konza Prairie Biological Station NEON site, 2019-2022</p>
+</div>
 
-```{r histogram2D, fig.cap = "Hexagonal heatmap showing the joint distribution of greenness chromatic coordinate and redness chromatic coordinate at the six NEON sites in the phenology forecast challenge."}
+
+
+```r
 p <- ggplot(pheno_targets, aes(x = gcc_90, y = rcc_90)) +
   geom_hex(bins = 30)+
   geom_point(color = "transparent")+
@@ -161,6 +142,11 @@ p <- ggplot(pheno_targets, aes(x = gcc_90, y = rcc_90)) +
 ggMarginal(p,type = "histogram", fill = "grey80", color = "white", bins = 30)
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/histogram2D-1.png" alt="Hexagonal heatmap showing the joint distribution of greenness chromatic coordinate and redness chromatic coordinate at the six NEON sites in the phenology forecast challenge." width="672" />
+<p class="caption">(\#fig:histogram2D)Hexagonal heatmap showing the joint distribution of greenness chromatic coordinate and redness chromatic coordinate at the six NEON sites in the phenology forecast challenge.</p>
+</div>
+
 A **Density Plot** is a smoothed, continuous version of a histogram that displays the estimated probability distribution of a variable or parameter. Density plots are often used to visualize Bayesian prior and posterior distributions. When data or MCMC samples are involved, probability density is typically estimated using the “kernel density estimation” method, where the smoothness and shape of the density curve are controlled by the choice of bandwidth parameter and kernel, respectively (see [Wilke, 2019: Visualizing distributions: Histograms and density plots](https://clauswilke.com/dataviz/)).
 
 * `geom_density` in [ggplot2](https://ggplot2.tidyverse.org/) - plots density estimates for a single variable
@@ -169,7 +155,8 @@ A **Density Plot** is a smoothed, continuous version of a histogram that display
 * `geom_area` in [ggplot2](https://ggplot2.tidyverse.org/) - can be used for a filled density plot
 * `slab` and `halfeye` stats from the ggdist package
 
-```{r density, fig.cap = "Density plot for a log-normal distribution with mean = 0 and standard deviation = 1"}
+
+```r
 ggplot() +
   geom_area(data = tibble(x = seq(0.01, 4, 0.01), y = dlnorm(seq(0.01, 4, 0.01))), aes(x = x, y = y), fill = "grey80", color = "grey40")+
   xlim(c(0,4))+
@@ -178,13 +165,19 @@ ggplot() +
   theme(axis.title.x = element_blank())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/density-1.png" alt="Density plot for a log-normal distribution with mean = 0 and standard deviation = 1" width="672" />
+<p class="caption">(\#fig:density)Density plot for a log-normal distribution with mean = 0 and standard deviation = 1</p>
+</div>
+
 **Dotplots** show the individual observations of a distribution, either as continuous values or as part of binned intervals (similar to histograms). This type of visualization provides the finest scale of visualization for distributions that may be lost when using other common methods (i.e., histograms, density plots, boxplots). **Quantile Dotplots** are similar, except that the data are broken into quantiles, which are then binned and plotted such that each dot represents a single quantile rather than a single observation. Quantile dotplots are a way of visualizing distributions and uncertainty with a “frequency frame”, and have been shown to aid people in making decisions in the face of uncertainty ([Kay et al, 2016](https://dl.acm.org/doi/10.1145/2858036.2858558)).
 
 * `geom_jitter` in [ggplot2](https://ggplot2.tidyverse.org/) - adds small amounts of variation to the location of each point to avoid overplotting when visualizing observations of a quantitative variable.
 * `geom_dotplot` in [ggplot2](https://ggplot2.tidyverse.org/) - bins up observations and plots a single point for each observation.
 * `stat_dots` from the [ggdist](https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-) package - plots a single point for each binned observation by default, or produces a quantile dotplot if the quantiles argument is specified.
 
-```{r qdotplot, fig.cap = "Quantile dotplot showing the probability of temperature exceeding 19 °C for a theoretical, normally-distributed temperature forecast with mean = 17.7 °C and sd = 1"}
+
+```r
 set.seed(123)
 tempSample <- tibble(temp = rnorm(10000, mean = 17.7, sd = 1))
 ggplot(tempSample, aes(x = temp, fill = stat(x > 19), color = stat(x > 19))) + 
@@ -201,13 +194,19 @@ ggplot(tempSample, aes(x = temp, fill = stat(x > 19), color = stat(x > 19))) +
         axis.ticks.y = element_blank())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/qdotplot-1.png" alt="Quantile dotplot showing the probability of temperature exceeding 19 °C for a theoretical, normally-distributed temperature forecast with mean = 17.7 °C and sd = 1" width="672" />
+<p class="caption">(\#fig:qdotplot)Quantile dotplot showing the probability of temperature exceeding 19 °C for a theoretical, normally-distributed temperature forecast with mean = 17.7 °C and sd = 1</p>
+</div>
+
 **Boxplots** display common summary statistics for a distribution, which include the minimum, first quartile, median, third quartile, and maximum values. The ‘box’ displays the middle 50% of the distribution while the ‘whiskers’ display the remaining 50% in the tails of the distribution. Any values that fall outside of 1.5 times the length of the ‘box’ are typically drawn as points beyond the whiskers and are typically referred to as outliers. Similarly, **interval plots** typically show the median as a point and one or more lines or boxes whose widths represent quantiles of the distribution. Whereas the plots described above are useful for visualizing single distributions, boxplots, interval plots, violin plots, and ridgeline plots can display multiple distributions in the same plot ([Wilke, 2019](https://clauswilke.com/dataviz/)).
 
 * `boxplot` in base R
 * `geom_boxplot` in [ggplot2](https://ggplot2.tidyverse.org/)
 * `interval` and `pointinterval` from the [ggdist](https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-) package create stand-alone interval plots, whereas several other stats from the stat_slabinterval family allow one to add intervals to other plot types, including density plots, violin plots, histograms, and dotplots.
 
-```{r boxplot, warning=FALSE, fig.cap= "Distributions of daily latent heat flux during May at 5 NEON sites shown as boxplots."}
+
+```r
 terrestrial_daily_targets %>% 
   drop_na(le) %>%
   filter(month(time) == 5,
@@ -220,13 +219,19 @@ terrestrial_daily_targets %>%
   theme(axis.title.y = element_markdown())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/boxplot-1.png" alt="Distributions of daily latent heat flux during May at 5 NEON sites shown as boxplots." width="672" />
+<p class="caption">(\#fig:boxplot)Distributions of daily latent heat flux during May at 5 NEON sites shown as boxplots.</p>
+</div>
+
 **Violin plots** are an extension of a density plot where the density plot is mirrored and shows the minimum and maximum values, as well as the maximum point density region(s). Since they can show greater detail of a distribution, violin plots have often been used as a replacement for boxplots more recently.
 
 * `geom_violin` in [ggplot2](https://ggplot2.tidyverse.org/)
 * `pirateplot` from the [yarrr](https://bookdown.org/ndphillips/YaRrr/pirateplot.html) package
 * `stat_eye` from the [ggdist](https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-) package
 
-```{r violin, warning=FALSE, fig.cap="Distributions of daily latent heat flux during May at 5 NEON sites shown violin plots."}
+
+```r
 terrestrial_daily_targets %>% 
   drop_na(le) %>%
   filter(month(time) == 5, 
@@ -239,12 +244,18 @@ terrestrial_daily_targets %>%
   theme(axis.title.y = element_markdown())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/violin-1.png" alt="Distributions of daily latent heat flux during May at 5 NEON sites shown violin plots." width="672" />
+<p class="caption">(\#fig:violin)Distributions of daily latent heat flux during May at 5 NEON sites shown violin plots.</p>
+</div>
+
 **Ridgeline plots** show offset density plots for multiple variables. This can be useful for making comparisons of a given variable over space or time, as well as for comparing among a number of groups. However, it is not possible to directly compare the values on the y axis among density plots due to the three dimensional effect of this type of plot. Therefore, this method may be more useful when interested in relative (rather than absolute) densities.
 
 * `geom_density_ridges` from the [ggridges](https://wilkelab.org/ggridges/) package
 * `stat_halfeye` from the [ggdist](https://mjskay.github.io/ggdist/articles/slabinterval.html#roadmap-it-all-starts-with-slabinterval-) package
 
-```{r ridgeline, warning=FALSE, fig.cap="Distributions of daily latent heat flux during May at 10 NEON sites shown as staggered density plots or 'ridgeline' plots."}
+
+```r
 terrestrial_daily_targets %>% 
   drop_na(le) %>%
   filter(month(time) == 5, 
@@ -257,6 +268,11 @@ terrestrial_daily_targets %>%
   theme(axis.title.x = element_markdown())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/ridgeline-1.png" alt="Distributions of daily latent heat flux during May at 10 NEON sites shown as staggered density plots or 'ridgeline' plots." width="672" />
+<p class="caption">(\#fig:ridgeline)Distributions of daily latent heat flux during May at 10 NEON sites shown as staggered density plots or 'ridgeline' plots.</p>
+</div>
+
 
 #### Point and line plots 
 **Scatterplots** are handy for visualizing relationships between two continuous variables. This includes **time series**, where the variable on the x-axis is time. The following tools are commonly used for making scatterplots: 
@@ -264,7 +280,8 @@ terrestrial_daily_targets %>%
 * The `plot` function from the base package in R defaults to producing a scatter plot 
 * With [ggplot2](https://ggplot2.tidyverse.org/), the geometric object `geom_point` can be used
 
-```{r scatterplot, warning=FALSE, fig.cap="Scatterplot of dissolved oxygen concentrations vs. temperature at the Posey Creek NEON site, 2019-2020"}
+
+```r
 aquatics_targets %>% 
   filter(year(time) <= 2020, 
          year(time) >= 2019,
@@ -278,13 +295,19 @@ aquatics_targets %>%
   xlab("Temperature (°C)")
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/scatterplot-1.png" alt="Scatterplot of dissolved oxygen concentrations vs. temperature at the Posey Creek NEON site, 2019-2020" width="672" />
+<p class="caption">(\#fig:scatterplot)Scatterplot of dissolved oxygen concentrations vs. temperature at the Posey Creek NEON site, 2019-2020</p>
+</div>
+
 **Line Graphs** connect data points sequentially and are also commonly used for visualizing **time series**. It’s also possible to add lines to existing scatter plots to emphasize connections between the data while emphasizing the data themselves with points. The tools below are often used to create line graphs or add lines to existing plots:
 
 * The `plot` function from the base package in R generates a line plot with the argument `type = “l”`
 * The `lines` function in base R adds a line to an existing plot.
 * With [ggplot2](https://ggplot2.tidyverse.org/), the geometric object `geom_line` (or `geom_path`) can be used to add lines.
 
-```{r line, fig.cap="Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020"}
+
+```r
 aquatics_targets %>% 
   filter(year(time) <= 2020, 
          year(time) >= 2019,
@@ -296,7 +319,13 @@ aquatics_targets %>%
   theme(axis.title.x = element_blank())
 ```
 
-```{r pointline, fig.cap="Line graph with dots showing dissolved oxygen concentrations at the Posey Creek NEON site, June 2021"}
+<div class="figure">
+<img src="visualization_files/figure-html/line-1.png" alt="Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020" width="672" />
+<p class="caption">(\#fig:line)Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020</p>
+</div>
+
+
+```r
 aquatics_targets %>% 
   filter(year(time) == 2021, 
          month(time) == 6,
@@ -309,13 +338,19 @@ aquatics_targets %>%
   theme(axis.title.x = element_blank())
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/pointline-1.png" alt="Line graph with dots showing dissolved oxygen concentrations at the Posey Creek NEON site, June 2021" width="672" />
+<p class="caption">(\#fig:pointline)Line graph with dots showing dissolved oxygen concentrations at the Posey Creek NEON site, June 2021</p>
+</div>
+
 **Pairs Plots** and **correlograms** are useful for quickly visualizing relationships and correlations between several variables at once. These plots are typically used for exploratory data analysis.
 
 * `pairs` function from base R - creates scatterplot for each combination of variables
 * `ggpairs` from the GGally package - by default, displays the correlation between each combination of variables in the top right corner, a scatter plot for each combination of variables in the lower left corner, and a density plot for each variable on the diagonal. Several customization options are available.
 * `corPlot` from the psych package - displays the correlation between each combination of variables in a box, where the color hue of the box indicates whether the correlation is positive or negative and the color value indicates the strength of the correlation.
 
-```{r pairs, fig.cap = "Combined scatterplot matrix and correlation matrix for five weather variables at the Oak Ridge National Lab NEON site."}
+
+```r
 #drivers <- neon4cast::stack_noaa(dir = here("drivers"), model = "NOAAGEFS_1hr_stacked")
 #drivers %>% 
 #  mutate(date = as_date(time)) %>% 
@@ -342,7 +377,8 @@ Barplots and Heatmaps are both used to visualize and compare quantities among on
 * `barplot` from base R
 * `geom_bar` and `geom_col` from [ggplot2](https://ggplot2.tidyverse.org/)
 
-```{r barplot, fig.cap="Barplot showing the mean density of *amblyomma americanum* larvae observed in June 2019 at 5 NEON sites"}
+
+```r
 tick_targets %>%
   filter(year(time) == 2019, month(time) == 6, siteID %in% c("UKFS", "TALL", "SERC", "ORNL", "KONZ")) %>%
   group_by(siteID) %>%
@@ -355,15 +391,20 @@ tick_targets %>%
   xlab("NEON site") +
   theme_minimal_hgrid()+
   theme(axis.title.y = element_markdown())
-  
 ```
+
+<div class="figure">
+<img src="visualization_files/figure-html/barplot-1.png" alt="Barplot showing the mean density of *amblyomma americanum* larvae observed in June 2019 at 5 NEON sites" width="672" />
+<p class="caption">(\#fig:barplot)Barplot showing the mean density of *amblyomma americanum* larvae observed in June 2019 at 5 NEON sites</p>
+</div>
 
 **Heatmaps** encode quantities using color, where the x and y position of each block in the heatmap correspond to the first and second categorical variables, respectively.
 
 * `heatmap` from base R
 * `geom_tile` from [ggplot2](https://ggplot2.tidyverse.org/)
 
-```{r heatmap, fig.cap = "Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019.", fig.height = 6, fig.width  = 5}
+
+```r
 siteIDLevels <- beetle_targets %>%
   filter(year(time) >= 2017,
          year(time) <= 2019) %>%
@@ -412,6 +453,11 @@ annotate("text",
          size = 3)
 ```
 
+<div class="figure">
+<img src="visualization_files/figure-html/heatmap-1.png" alt="Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019." width="480" />
+<p class="caption">(\#fig:heatmap)Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019.</p>
+</div>
+
 **Composite plots** are created by combining multiple plots into the same graphic.
 
 * `facet_wrap` and `facet_grid` in [ggplot2](https://ggplot2.tidyverse.org/) - breaks the data into groups based on one or more grouping variables and displays a plot for each group
@@ -419,7 +465,8 @@ annotate("text",
 * The [patchwork](https://patchwork.data-imaginist.com/) package 
 * `grid.arrange` from the [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html) package
 
-```{r facet, fig.cap = "Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021."}
+
+```r
 filteredData <- pheno_targets %>%
   filter(siteID == "HARV", 
          year(time) == 2021) 
@@ -435,6 +482,11 @@ green <- ggplot(filteredData, aes(x = time, y = gcc_90))+
   theme(axis.title.x = element_blank())
 red + green+ plot_layout(nrow = 2, byrow = FALSE)
 ```
+
+<div class="figure">
+<img src="visualization_files/figure-html/facet-1.png" alt="Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021." width="672" />
+<p class="caption">(\#fig:facet)Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021.</p>
+</div>
 
 #### References 
 **R**
@@ -538,7 +590,7 @@ Files containing spatial data need to convey the spatial coordinates and how coo
 * **Vector:** A vector stores spatial data in a vector format (as opposed to gridded), such as in points, lines, and polygons
   + [geojson.io](http://geojson.io/about.html) - json or text based standard that is commonly sent with APIs. geojson.io is a fast, simple tool to create, change, and publish maps using geojson data
   + [geopackage](https://www.geopackage.org/) - based on SQLite (derived from spatialite and updated for OGC standard compliance)
-  + [Shapefile](https://en.wikipedia.org/wiki/Shapefile) - this is a widely adopted ArcGIS format; requires multiple files (shp, shx, dbf, etc) to be complete, often combined into a single zip
+  + [Shapefile](https://en.wikipedia.org/wiki/Shapefile) - this is widely adopted ArcGIS format; requires multiple files (shp, shx, dbf, etc) to be complete, often combined into a single zip
 * **Raster:** Raster file formats store spatial data in pixels along a regular grid.
   + There are a variety of different raster file formats, including GeoTIFF, ASCII, netcdf, cloud optimized geotiff, etc
 
@@ -690,7 +742,7 @@ Communicating forecast uncertainty can play a critical role in both aiding decis
 | Leaflet | R/Python (via folium)  | https://rstudio.github.io/leaflet/; https://github.com/python-visualization/folium | 
 | Tableau | None^+^ | https://www.tableau.com | 
 | RapidMiner | None^+^ | https://docs.rapidminer.com/7.6/server/how-to/create-web-apps/ | 
-| PowerBI^§^ | None^+^ | https://powerbi.microsoft.com/en-us/what-is-power-bi/ | 
+| PowerBI^§c | None^+^ | https://powerbi.microsoft.com/en-us/what-is-power-bi/ | 
 | Spotfire^§^ | None^+^ | https://www.tibco.com/products/tibco-spotfire | 
 | Superset^§^ | None^+^ | https://superset.apache.org/ | 
 
