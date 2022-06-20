@@ -99,3 +99,4 @@ table-1
 tables
 table-2
 table-3
+fig:pairs

@@ -4,7 +4,7 @@
 
 Curators: Libby Mohr^1^, Matthew Brousil^2^, Kelly Heilman^3^, Hassan Moustahfid^4^, Leah Johnson^5^, David LeBauer^3^, Rob Kooper^6^, Cee Nell^7^, Josh Cullen^8^, Jake Zwart^7^, Jody Peters^9^, Quinn Thomas^5^, Mike Dietze^10^
 
-*^1^University of Montana, ^2^Washington State University, ^3^University of Arizona, ^4^NOAA, ^5^Virginia Tech, ^6^National Center for Supercomputing Applications, ^7^USGS, ^8^Florida State University, ^9^University of Notre Dame, ^10^Boston University*
+*^1^Montana State University, ^2^Washington State University, ^3^University of Arizona, ^4^NOAA, ^5^Virginia Tech, ^6^National Center for Supercomputing Applications, ^7^USGS, ^8^Florida State University, ^9^University of Notre Dame, ^10^Boston University*
 
 
 As the old adage goes
@@ -351,23 +351,39 @@ aquatics_targets %>%
 
 
 ```r
-#drivers <- neon4cast::stack_noaa(dir = here("drivers"), model = "NOAAGEFS_1hr_stacked")
-#drivers %>% 
-#  mutate(date = as_date(time)) %>% 
-#  group_by(date) %>% 
-#  summarize(air_temperature = mean(air_temperature, na.rm = TRUE),
-#            "air pressure" = mean(air_pressure, na.rm = TRUE),
-#            "longwave flux" = mean(surface_downwelling_longwave_flux_in_air, na.rm = TRUE),
-#            "shortwave flux" = mean(surface_downwelling_shortwave_flux_in_air, na.rm = TRUE),
-#            "relative humidity" = mean(relative_humidity, na.rm = TRUE),
-#            "wind speed" = mean(wind_speed, na.rm = TRUE),
-#            .groups = "drop") %>% 
-#  mutate("air temperature" = air_temperature - 273.15) %>%
-#  filter(`air temperature`< 40) %>%
-#  select("air temperature", "air pressure", "relative humidity", "wind speed", "longwave flux") %>%
-#  ggpairs()+
-#  theme_minimal_grid(font_size = 10)
+neon4cast::get_stacked_noaa_s3(
+  tempdir(),
+  site = "ORNL", 
+  averaged = FALSE, 
+  s3_region = "data"
+)
+
+drivers <- neon4cast::stack_noaa(
+  dir = file.path(tempdir(), "drivers"), 
+  model = "NOAAGEFS_1hr_stacked"
+)
+
+drivers %>%
+ mutate(date = as_date(time)) %>%
+ group_by(date) %>%
+ summarize(air_temperature = mean(air_temperature, na.rm = TRUE),
+           "air pressure" = mean(air_pressure, na.rm = TRUE),
+           "longwave flux" = mean(surface_downwelling_longwave_flux_in_air, na.rm = TRUE),
+           "shortwave flux" = mean(surface_downwelling_shortwave_flux_in_air, na.rm = TRUE),
+           "relative humidity" = mean(relative_humidity, na.rm = TRUE),
+           "wind speed" = mean(wind_speed, na.rm = TRUE),
+           .groups = "drop") %>%
+ mutate("air temperature" = air_temperature - 273.15) %>%
+ filter(`air temperature`< 40) %>%
+ select("air temperature", "air pressure", "relative humidity", "wind speed", "longwave flux") %>%
+ ggpairs()+
+ theme_minimal_grid(font_size = 10)
 ```
+
+<div class="figure">
+<img src="visualization_files/figure-html/pairs-1.png" alt="Combined scatterplot matrix and correlation matrix for five weather variables at the Oak Ridge National Lab NEON site." width="672" />
+<p class="caption">(\#fig:pairs)Combined scatterplot matrix and correlation matrix for five weather variables at the Oak Ridge National Lab NEON site.</p>
+</div>
 
 #### Barplots and Heatmaps 
 Barplots and Heatmaps are both used to visualize and compare quantities among one or more grouping variables. 
@@ -590,7 +606,7 @@ Files containing spatial data need to convey the spatial coordinates and how coo
 * **Vector:** A vector stores spatial data in a vector format (as opposed to gridded), such as in points, lines, and polygons
   + [geojson.io](http://geojson.io/about.html) - json or text based standard that is commonly sent with APIs. geojson.io is a fast, simple tool to create, change, and publish maps using geojson data
   + [geopackage](https://www.geopackage.org/) - based on SQLite (derived from spatialite and updated for OGC standard compliance)
-  + [Shapefile](https://en.wikipedia.org/wiki/Shapefile) - this is widely adopted ArcGIS format; requires multiple files (shp, shx, dbf, etc) to be complete, often combined into a single zip
+  + [Shapefile](https://en.wikipedia.org/wiki/Shapefile) - this is a widely adopted ArcGIS format; requires multiple files (shp, shx, dbf, etc) to be complete, often combined into a single zip
 * **Raster:** Raster file formats store spatial data in pixels along a regular grid.
   + There are a variety of different raster file formats, including GeoTIFF, ASCII, netcdf, cloud optimized geotiff, etc
 
@@ -652,23 +668,23 @@ Here is a list of resources commonly used to plot rasters and shapefiles
   + [rasterVis](https://oscarperpinan.github.io/rastervis/) package to plot rasters more effectively in R
 * [PYSAL](https://pysal.org/)
 * [Leaflet](https://rstudio.github.io/leaflet/) is an open-source javaScript library for interactive maps. Leaflet can be used on its own or with Shiny.
-* [Mapbox](https://www.mapbox.com/) provides interactive spatial forecasts (i.e. user inputs spatial location and type of management change the forecasts outputs)
+* [Mapbox](https://www.mapbox.com/) is a mapping platform for building custom, interactive maps that can be embedded into web applications. Mapbox also provides a variety of vector and raster tilesets (e.g. roads, satellite imagery) and a geocoding API.
 * [Panoply](https://www.giss.nasa.gov/tools/panoply/) is a stand alone netcdf visualizer for local or remote catalogs
 
 ### Uncertainty Visualization
 Communicating forecast uncertainty can play a critical role in both aiding decision-makers and building and maintaining public trust. When depicting uncertainty, it is important to consider the audience, their numeracy, and their level of training in statistics. Below we briefly discuss several methods for visualizing uncertainty and present tools that can be used to implement each.
 
-* **Error bars** are commonly used to depict uncertainty in the scientific community. When using error bars, it is important to clearly specify what the error bar represents, since error bars can be used to represent different measures of uncertainty (e.g. standard deviations, standard errors, confidence intervals, prediction intervals). Because interpreting many of these uncertainty measures requires a firm grasp of statistics, using error bars can lead to misinterpretation or inappropriate inference, especially by lay audiences (Hofman et al., 2020; Joslyn & LeClerc, 2012; [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956)).
+* **Error bars** are commonly used to depict uncertainty in the scientific community. When using error bars, it is important to clearly specify what the error bar represents, since error bars can be used to represent different measures of uncertainty (e.g. standard deviations, standard errors, confidence intervals, prediction intervals). Because interpreting many of these uncertainty measures requires a firm grasp of statistics, using error bars can lead to misinterpretation or inappropriate inference, especially by lay audiences ([Hofman et al., 2020](https://doi.org/10.1145/3313831.3376454); [Joslyn & LeClerc, 2012](https://doi.org/10.1037/a0025185); [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956)).
   + [`geom_errorbar`](https://ggplot2.tidyverse.org/reference/geom_linerange.html) in [ggplot2](https://ggplot2.tidyverse.org/)
   + [`geom_ribbon`](https://ggplot2.tidyverse.org/reference/geom_ribbon.html) in [ggplot2](https://ggplot2.tidyverse.org/) - analogous to an error bar but for lines rather than points
   + `point_interval` from [ggdist](https://mjskay.github.io/ggdist/) package
-* Depicting a full **distribution** rather than summarizing it using an error bar can be an effective way of visualizing uncertainty. Compared to error bars, distribution visualizations provide the viewer with more information and have been linked to better decision making [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956). See the Distributions section above for tools - ***NEED TO PUT IN THE LINK TO THIS WHEN THE PAGE IS MADE***
+* Depicting a full **distribution** rather than summarizing it using an error bar can be an effective way to vizualize uncertainty. Compared to error bars, distribution visualizations provide the viewer with more information and have been linked to better decision making [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956). See the Distributions section above for tools - ***NEED TO PUT IN THE LINK TO THIS WHEN THE PAGE IS MADE***
 * Uncertainty can also be mapped to different visual channels, including color value or **luminance, fuzziness, size, transparency, and location** (MacEachren et al., 2012). These channels can be particularly useful when both x and y positions are already being used to represent another aspect of the data (e.g. on a map). However, these visual channels are less precise than encoding uncertainty with position, as in the case of error bars and distributions [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956).
   + In ggplot the `aes()` function can be used to map the fill, size, and alpha aesthetics to uncertainty. 
   + Uncertainty can be mapped to fuzziness using the `with_blur()` function from [ggfx](https://ggfx.data-imaginist.com/) package
 * **Value-suppressing uncertainty palettes** leverage the fact that color hues are easier to tell apart when they are saturated and darker (Correll et al., 2018). Such palettes map a variable of interest to color hue, and uncertainty to color saturation and luminance. The result is that values associated with high levels of uncertainty are more difficult to ascertain. Value-suppressing uncertainty palettes can be applied to visualizations like choropleth maps and heatmaps.
   + [multiscales](https://github.com/clauswilke/multiscales) package in R
-* Another approach to visualize uncertainty is to re-framing probabilities (e.g. 10%) as frequencies (e.g. 1 in 10). This can be an effective way to communicate uncertainty to a broader audience, including individuals with low numeracy.  ([Peters et al., 2010](https://journals.sagepub.com/doi/full/10.1177/0272989X10391672); [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956)). Several plot types take advantage of this so-called **“frequency-framing”** approach, which allows viewers to infer probability from visual representations of frequency: 
+* Another approach to visualizing uncertainty is to re-frame probabilities (e.g. 10%) as frequencies (e.g. 1 in 10). This can be an effective way to communicate uncertainty to a broader audience, including individuals with low numeracy.  ([Peters et al., 2010](https://journals.sagepub.com/doi/full/10.1177/0272989X10391672); [Franconeri et al., 2021](https://doi.org/10.1177/15291006211051956)). Several plot types take advantage of this so-called **“frequency-framing”** approach, which allows viewers to infer probability from visual representations of frequency: 
   + **Quantile dotplots** depict distributions by representing individual quantiles of the data as dots. Quantile dotplots have been shown to aid people in making decisions in the face of uncertainty ([Kay et al, 2016](https://dl.acm.org/doi/10.1145/2858036.2858558)).
     +`stat_dots` from the ggdist package produces a quantile dotplot if the quantiles argument is specified.
   + **Icon arrays** depict ratios with a frequency-frame by depicting a large number of icons and coloring them according to one or more variables.
@@ -694,7 +710,7 @@ Communicating forecast uncertainty can play a critical role in both aiding decis
 
 |**Consideration**  | **Description** | **Recommendations**  | **Benefits** | **Consequence of Ignoring** | 
 |------------- | --------------------------------- | ------------------------- | -------------------------------------------- | ---------------------- |
-| End-users | Who is my end-user? (Arugably the most important questions) |     | Identify potential communities with which to communicate throughout the process. Design the interface for the anticipated end-users. Reach out to the anticipated end-users to identify needs, skills, etc. Make it easier to streamline the dissemination process. | Creating a product that has no clear end-users | 
+| End-users | Who is my end-user? (Arguably the most important questions) |     | Identify potential communities with which to communicate throughout the process. Design the interface for the anticipated end-users. Reach out to the anticipated end-users to identify needs, skills, etc. Make it easier to streamline the dissemination process. | Creating a product that has no clear end-users | 
 | End-users | What are the needs of my end-users? | Ask potential end-users. | Improve chances of actually meeting the needs of end-users. Improve broader impacts of your research. | Fail to meet the needs of the end-users. | 
 | End-users | What are the skills or prior knowledge of my end-users? | Ask end-users or always assume that end-users have the minimal amount of skills or prior knowledge, but don't "dumb it down". | Make your interface easier to use by stakeholders. Make the content more easily interpretable. Opportunity to create different options for end-users with varying skills, while keeping the barrier to entry low for users without certain skills. | Isolating end-users without necessary skills or knowledge may lead to non-adoption. | 
 | Life expectancy and sustainability | How long will this application be relevant to end-users?  |  |  |  | 
@@ -742,7 +758,7 @@ Communicating forecast uncertainty can play a critical role in both aiding decis
 | Leaflet | R/Python (via folium)  | https://rstudio.github.io/leaflet/; https://github.com/python-visualization/folium | 
 | Tableau | None^+^ | https://www.tableau.com | 
 | RapidMiner | None^+^ | https://docs.rapidminer.com/7.6/server/how-to/create-web-apps/ | 
-| PowerBI^§c | None^+^ | https://powerbi.microsoft.com/en-us/what-is-power-bi/ | 
+| PowerBI^§^ | None^+^ | https://powerbi.microsoft.com/en-us/what-is-power-bi/ | 
 | Spotfire^§^ | None^+^ | https://www.tibco.com/products/tibco-spotfire | 
 | Superset^§^ | None^+^ | https://superset.apache.org/ | 
 
@@ -750,10 +766,12 @@ Communicating forecast uncertainty can play a critical role in both aiding decis
 #### References
 * David-Chavez DM, Gavin MC (2018) A global assessment of Indigenous community engagement in climate research. Environ Res Lett 13:123005. [https://doi.org/10.1088/1748-9326/aaf300](https://doi.org/10.1088/1748-9326/aaf300)
 * Franconeri SL, Padilla LM, Shah P, Zacks JM, Hullman J (2021) The Science of Visual Data Communication: What Works: Psychological Science in the Public Interest. [https://doi.org/10.1177/15291006211051956](https://doi.org/10.1177/15291006211051956)
-*Hullman J, Resnick P, Adar E (2015) Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences about Reliability of Variable Ordering. PLOS ONE 10:e0142444. [https://doi.org/10.1371/journal.pone.0142444](https://doi.org/10.1371/journal.pone.0142444)
+* Hofman, J. M., Goldstein, D. G. & Hullman, J. (2020) How Visualizing Inferential Uncertainty Can Mislead Readers About Treatment Effects in Scientific Results. Proc 2020 Chi Conf Hum Factors Comput Syst 1–12. [doi:10.1145/3313831.3376454](doi:10.1145/3313831.3376454) 
+* Hullman J, Resnick P, Adar E (2015) Hypothetical Outcome Plots Outperform Error Bars and Violin Plots for Inferences about Reliability of Variable Ordering. PLOS ONE 10:e0142444. [https://doi.org/10.1371/journal.pone.0142444](https://doi.org/10.1371/journal.pone.0142444)
+* Joslyn, S. L., & LeClerc, J. E. (2012) Uncertainty forecasts improve weather-related decisions and attenuate the effects of forecast error. Journal of Experimental Psychology: Applied, 18(1), 126–140. [https://doi.org/10.1037/a0025185](https://doi.org/10.1037/a0025185)
 * Kale A, Nguyen F, Kay M, Hullman J (2019) Hypothetical Outcome Plots Help Untrained Observers Judge Trends in Ambiguous Data. IEEE Transactions on Visualization and Computer Graphics 25:892–902. [https://doi.org/10.1109/TVCG.2018.2864909](https://doi.org/10.1109/TVCG.2018.2864909)
 * McInerny, G J. et al. (2014) Information visualization in science and policy - engaging users & communicating bias. Trends in Ecology & Evolution. 29. 148-157. [https://doi.org/10.1016/j.tree.2014.01.003](https://doi.org/10.1016/j.tree.2014.01.003)
-*Metze, T. (2020). Visualization in environmental policy and planning: a systematic review and research agenda. Journal of Environmental Policy and Planning. [https://doi.org/10.1080/1523908X.2020.1798751](https://doi.org/10.1080/1523908X.2020.1798751) 
+* Metze, T. (2020). Visualization in environmental policy and planning: a systematic review and research agenda. Journal of Environmental Policy and Planning. [https://doi.org/10.1080/1523908X.2020.1798751](https://doi.org/10.1080/1523908X.2020.1798751) 
 * Rehkopf M (2022) User Stories with Examples and a Template. In: Atlassian Agile Coach. [https://www.atlassian.com/agile/project-management/user-stories](https://www.atlassian.com/agile/project-management/user-stories). Accessed 11 Apr 2022
 * Smith JB, Schneider SH, Oppenheimer M, Yohe GW, Hare W, Mastrandrea MD, Patwardhan A, Burton I, Corfee-Morlot J, Magadza CHD, Füssel H-M, Pittock AB, Rahman A, Suarez A, van Ypersele J-P (2009) Assessing dangerous climate change through an update of the Intergovernmental Panel on Climate Change (IPCC) “reasons for concern.” Proceedings of the National Academy of Sciences 106:4133–4137. [https://doi.org/10.1073/pnas.0812355106](https://doi.org/10.1073/pnas.0812355106)
 * Valle D, Toh KB, Millar J (2019) Rapid prototyping of decision-support tools for conservation. Conservation Biology. 33:1448-1450. [https://doi.org/10.1111/cobi.13305](https://doi.org/10.1111/cobi.13305)
