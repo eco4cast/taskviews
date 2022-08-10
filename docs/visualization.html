@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Visualization | EFI Task Views</title>
   <meta name="description" content="A compilation of common tasks in ecological forecasting and methods and tools to help with those tasks" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Visualization | EFI Task Views" />
   <meta property="og:type" content="book" />
@@ -364,48 +364,73 @@ Click here to see the code for the R packages and NEON data used to create the p
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualization.html#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">message =</span> <span class="cn">FALSE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>) <span class="co"># Show code and plots</span></span>
 <span id="cb1-2"><a href="visualization.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-3"><a href="visualization.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
 ## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
 ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
 ## ✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.1</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.2.1</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.2.1</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 4.2.1</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualization.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualization.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;lubridate&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="visualization.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
-<pre><code>## here() starts at C:/Users/jmurray7/Documents/TaskViews/taskviews</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualization.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(neon4cast)</span>
-<span id="cb10-2"><a href="visualization.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#neon4cast can be installed with: </span></span>
-<span id="cb10-3"><a href="visualization.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;remotes&quot;)</span></span>
-<span id="cb10-4"><a href="visualization.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github(&quot;eco4cast/neon4cast&quot;)</span></span>
-<span id="cb10-5"><a href="visualization.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="visualization.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<pre><code>## Warning: package &#39;here&#39; was built under R version 4.2.1</code></pre>
+<pre><code>## here() starts at C:/Users/lmohr/OneDrive - Environmental Defense Fund - edf.org/Documents/R/taskviews_fork</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="visualization.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span></code></pre></div>
+<pre><code>## Warning: package &#39;arrow&#39; was built under R version 4.2.1</code></pre>
+<pre><code>## 
+## Attaching package: &#39;arrow&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
+## 
+##     duration</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     timestamp</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="visualization.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span></code></pre></div>
+<pre><code>## Warning: package &#39;cowplot&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;cowplot&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:lubridate&#39;:
 ## 
 ##     stamp</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="visualization.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="visualization.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div>
+<pre><code>## Warning: package &#39;patchwork&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;patchwork&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:cowplot&#39;:
 ## 
 ##     align_plots</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="visualization.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext)</span>
-<span id="cb16-2"><a href="visualization.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span>
-<span id="cb16-3"><a href="visualization.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="visualization.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggtext)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggtext&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="visualization.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span></code></pre></div>
+<pre><code>## Warning: package &#39;colorspace&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="visualization.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span></code></pre></div>
+<pre><code>## Warning: package &#39;viridis&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## Loading required package: viridisLite</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="visualization.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb18-2"><a href="visualization.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code></pre></div>
+<pre><code>## Warning: package &#39;viridisLite&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="visualization.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggridges&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="visualization.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span></code></pre></div>
+<pre><code>## Warning: package &#39;GGally&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
 ##   method from   
 ##   +.gg   ggplot2</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="visualization.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdist)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="visualization.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hexbin)</span></code></pre></div>
+<pre><code>## Warning: package &#39;hexbin&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="visualization.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdist)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggdist&#39; was built under R version 4.2.1</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;ggdist&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:ggridges&#39;:
@@ -414,10 +439,11 @@ Click here to see the code for the R packages and NEON data used to create the p
 ##     scale_point_colour_continuous, scale_point_colour_discrete,
 ##     scale_point_fill_continuous, scale_point_fill_discrete,
 ##     scale_point_size_continuous</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="visualization.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span>
-<span id="cb23-2"><a href="visualization.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get target data</span></span>
-<span id="cb23-3"><a href="visualization.html#cb23-3" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/aquatics/aquatics-targets.csv.gz&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 10281 Columns: 10</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="visualization.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggExtra&#39; was built under R version 4.2.1</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="visualization.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get target data</span></span>
+<span id="cb52-2"><a href="visualization.html#cb52-2" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/aquatics/aquatics-targets.csv.gz&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 10491 Columns: 10</code></pre>
 <pre><code>## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (1): siteID
@@ -426,9 +452,9 @@ Click here to see the code for the R packages and NEON data used to create the p
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="visualization.html#cb26-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="ot">&lt;-</span></span>
-<span id="cb26-2"><a href="visualization.html#cb26-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/terrestrial_daily/terrestrial_daily-targets.csv.gz&quot;</span>, <span class="at">guess_max =</span> <span class="fl">1e6</span>)</span></code></pre></div>
-<pre><code>## Rows: 19670 Columns: 4
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="visualization.html#cb55-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="ot">&lt;-</span></span>
+<span id="cb55-2"><a href="visualization.html#cb55-2" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/terrestrial_daily/terrestrial_daily-targets.csv.gz&quot;</span>, <span class="at">guess_max =</span> <span class="fl">1e6</span>)</span></code></pre></div>
+<pre><code>## Rows: 19980 Columns: 4
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (1): siteID
@@ -437,8 +463,8 @@ Click here to see the code for the R packages and NEON data used to create the p
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="visualization.html#cb28-1" aria-hidden="true" tabindex="-1"></a>pheno_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/phenology/phenology-targets.csv.gz&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 42120 Columns: 6
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="visualization.html#cb57-1" aria-hidden="true" tabindex="-1"></a>pheno_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/phenology/phenology-targets.csv.gz&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 42804 Columns: 6
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (1): siteID
@@ -447,8 +473,8 @@ Click here to see the code for the R packages and NEON data used to create the p
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="visualization.html#cb30-1" aria-hidden="true" tabindex="-1"></a>tick_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/ticks/ticks-targets.csv.gz&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 477 Columns: 4
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="visualization.html#cb59-1" aria-hidden="true" tabindex="-1"></a>tick_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/ticks/ticks-targets.csv.gz&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 528 Columns: 4
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (1): siteID
@@ -457,8 +483,8 @@ Click here to see the code for the R packages and NEON data used to create the p
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="visualization.html#cb32-1" aria-hidden="true" tabindex="-1"></a>beetle_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/beetles/beetles-targets.csv.gz&quot;</span>, <span class="at">guess_max =</span> <span class="fl">1e6</span>)</span></code></pre></div>
-<pre><code>## Rows: 3182 Columns: 4
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="visualization.html#cb61-1" aria-hidden="true" tabindex="-1"></a>beetle_targets <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">&quot;https://data.ecoforecast.org/targets/beetles/beetles-targets.csv.gz&quot;</span>, <span class="at">guess_max =</span> <span class="fl">1e6</span>)</span></code></pre></div>
+<pre><code>## Rows: 3234 Columns: 4
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (1): siteID
@@ -492,17 +518,17 @@ For visualizing data in <strong>Python</strong>, we recommend checking out the c
 <summary>
 Click here to see an example of geom_bar code and plot.
 </summary>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="visualization.html#cb34-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="visualization.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(nee) <span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="visualization.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(siteID <span class="sc">==</span> <span class="st">&quot;KONZ&quot;</span>,</span>
-<span id="cb34-4"><a href="visualization.html#cb34-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-5"><a href="visualization.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nee)) <span class="sc">+</span> </span>
-<span id="cb34-6"><a href="visualization.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">fill =</span> <span class="st">&quot;#588B8E&quot;</span>)<span class="sc">+</span></span>
-<span id="cb34-7"><a href="visualization.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>()<span class="sc">+</span></span>
-<span id="cb34-8"><a href="visualization.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
-<span id="cb34-9"><a href="visualization.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;net ecosystem exchange (g C m&lt;sup&gt;-2&lt;/sup&gt; day&lt;sup&gt;-1&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb34-10"><a href="visualization.html#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;number of days&quot;</span>)<span class="sc">+</span></span>
-<span id="cb34-11"><a href="visualization.html#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="visualization.html#cb63-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="visualization.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(nee) <span class="sc">%&gt;%</span></span>
+<span id="cb63-3"><a href="visualization.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(siteID <span class="sc">==</span> <span class="st">&quot;KONZ&quot;</span>,</span>
+<span id="cb63-4"><a href="visualization.html#cb63-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb63-5"><a href="visualization.html#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nee)) <span class="sc">+</span> </span>
+<span id="cb63-6"><a href="visualization.html#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">fill =</span> <span class="st">&quot;#588B8E&quot;</span>)<span class="sc">+</span></span>
+<span id="cb63-7"><a href="visualization.html#cb63-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_binned</span>()<span class="sc">+</span></span>
+<span id="cb63-8"><a href="visualization.html#cb63-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
+<span id="cb63-9"><a href="visualization.html#cb63-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;net ecosystem exchange (g C m&lt;sup&gt;-2&lt;/sup&gt; day&lt;sup&gt;-1&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb63-10"><a href="visualization.html#cb63-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;number of days&quot;</span>)<span class="sc">+</span></span>
+<span id="cb63-11"><a href="visualization.html#cb63-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:histogram"></span>
 <img src="visualization_files/figure-html/histogram-1.png" alt="Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in February at the Konza Prairie Biological Station NEON site, 2019-2022" width="672" />
 <p class="caption">
@@ -511,19 +537,20 @@ Figure 3.1: Histogram of daily net ecosystem exchange of carbon dioxide (NEE) in
 </div>
 </details>
 <br />
+
 <details>
 <summary>
 Click here to see an example of geom_hex and ggMarginal code and plot.
 </summary>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="visualization.html#cb35-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pheno_targets, <span class="fu">aes</span>(<span class="at">x =</span> gcc_90, <span class="at">y =</span> rcc_90)) <span class="sc">+</span></span>
-<span id="cb35-2"><a href="visualization.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">30</span>)<span class="sc">+</span></span>
-<span id="cb35-3"><a href="visualization.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>)<span class="sc">+</span></span>
-<span id="cb35-4"><a href="visualization.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;greenness index&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb35-5"><a href="visualization.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;redness index&quot;</span>)<span class="sc">+</span></span>
-<span id="cb35-6"><a href="visualization.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>()<span class="sc">+</span></span>
-<span id="cb35-7"><a href="visualization.html#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous_sequential</span>(<span class="at">palette =</span> <span class="st">&quot;BurgYl&quot;</span>)<span class="sc">+</span></span>
-<span id="cb35-8"><a href="visualization.html#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.8</span>))</span>
-<span id="cb35-9"><a href="visualization.html#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(p,<span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">bins =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="visualization.html#cb64-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pheno_targets, <span class="fu">aes</span>(<span class="at">x =</span> gcc_90, <span class="at">y =</span> rcc_90)) <span class="sc">+</span></span>
+<span id="cb64-2"><a href="visualization.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hex</span>(<span class="at">bins =</span> <span class="dv">30</span>)<span class="sc">+</span></span>
+<span id="cb64-3"><a href="visualization.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>)<span class="sc">+</span></span>
+<span id="cb64-4"><a href="visualization.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;greenness index&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb64-5"><a href="visualization.html#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;redness index&quot;</span>)<span class="sc">+</span></span>
+<span id="cb64-6"><a href="visualization.html#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>()<span class="sc">+</span></span>
+<span id="cb64-7"><a href="visualization.html#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_continuous_sequential</span>(<span class="at">palette =</span> <span class="st">&quot;BurgYl&quot;</span>)<span class="sc">+</span></span>
+<span id="cb64-8"><a href="visualization.html#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.8</span>))</span>
+<span id="cb64-9"><a href="visualization.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(p,<span class="at">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">bins =</span> <span class="dv">30</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:histogram2D"></span>
 <img src="visualization_files/figure-html/histogram2D-1.png" alt="Hexagonal heatmap showing the joint distribution of greenness chromatic coordinate and redness chromatic coordinate at the six NEON sites in the phenology forecast challenge." width="672" />
 <p class="caption">
@@ -546,12 +573,12 @@ Figure 3.2: Hexagonal heatmap showing the joint distribution of greenness chroma
 <summary>
 Click here to see an example of geom_area code and plot.
 </summary>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="visualization.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb36-2"><a href="visualization.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="fl">0.01</span>), <span class="at">y =</span> <span class="fu">dlnorm</span>(<span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="fl">0.01</span>))), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey40&quot;</span>)<span class="sc">+</span></span>
-<span id="cb36-3"><a href="visualization.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">4</span>))<span class="sc">+</span></span>
-<span id="cb36-4"><a href="visualization.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
-<span id="cb36-5"><a href="visualization.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;probability density&quot;</span>)<span class="sc">+</span></span>
-<span id="cb36-6"><a href="visualization.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="visualization.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb65-2"><a href="visualization.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="fl">0.01</span>), <span class="at">y =</span> <span class="fu">dlnorm</span>(<span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="fl">0.01</span>))), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">fill =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">color =</span> <span class="st">&quot;grey40&quot;</span>)<span class="sc">+</span></span>
+<span id="cb65-3"><a href="visualization.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">4</span>))<span class="sc">+</span></span>
+<span id="cb65-4"><a href="visualization.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
+<span id="cb65-5"><a href="visualization.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;probability density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb65-6"><a href="visualization.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:density"></span>
 <img src="visualization_files/figure-html/density-1.png" alt="Density plot for a log-normal distribution with mean = 0 and standard deviation = 1" width="672" />
 <p class="caption">
@@ -572,20 +599,20 @@ Figure 3.3: Density plot for a log-normal distribution with mean = 0 and standar
 <summary>
 Click here to see an example of stat_dots code and plot.
 </summary>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="visualization.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb37-2"><a href="visualization.html#cb37-2" aria-hidden="true" tabindex="-1"></a>tempSample <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">temp =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="fl">17.7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
-<span id="cb37-3"><a href="visualization.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tempSample, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">fill =</span> <span class="fu">stat</span>(x <span class="sc">&gt;</span> <span class="dv">19</span>), <span class="at">color =</span> <span class="fu">stat</span>(x <span class="sc">&gt;</span> <span class="dv">19</span>))) <span class="sc">+</span> </span>
-<span id="cb37-4"><a href="visualization.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_dots</span>(<span class="at">quantiles =</span> <span class="dv">30</span>)<span class="sc">+</span></span>
-<span id="cb37-5"><a href="visualization.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">19</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">&quot;gray50&quot;</span>)<span class="sc">+</span></span>
-<span id="cb37-6"><a href="visualization.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>() <span class="sc">+</span></span>
-<span id="cb37-7"><a href="visualization.html#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Temperature (°C)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb37-8"><a href="visualization.html#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#517AC9&quot;</span>, <span class="st">&quot;#C05D5D&quot;</span>))<span class="sc">+</span></span>
-<span id="cb37-9"><a href="visualization.html#cb37-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#517AC9&quot;</span>, <span class="st">&quot;#C05D5D&quot;</span>))<span class="sc">+</span></span>
-<span id="cb37-10"><a href="visualization.html#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>,</span>
-<span id="cb37-11"><a href="visualization.html#cb37-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb37-12"><a href="visualization.html#cb37-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb37-13"><a href="visualization.html#cb37-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb37-14"><a href="visualization.html#cb37-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="visualization.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb66-2"><a href="visualization.html#cb66-2" aria-hidden="true" tabindex="-1"></a>tempSample <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">temp =</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="fl">17.7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb66-3"><a href="visualization.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tempSample, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">fill =</span> <span class="fu">stat</span>(x <span class="sc">&gt;</span> <span class="dv">19</span>), <span class="at">color =</span> <span class="fu">stat</span>(x <span class="sc">&gt;</span> <span class="dv">19</span>))) <span class="sc">+</span> </span>
+<span id="cb66-4"><a href="visualization.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_dots</span>(<span class="at">quantiles =</span> <span class="dv">30</span>)<span class="sc">+</span></span>
+<span id="cb66-5"><a href="visualization.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">19</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">&quot;gray50&quot;</span>)<span class="sc">+</span></span>
+<span id="cb66-6"><a href="visualization.html#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>() <span class="sc">+</span></span>
+<span id="cb66-7"><a href="visualization.html#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Temperature (°C)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb66-8"><a href="visualization.html#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#517AC9&quot;</span>, <span class="st">&quot;#C05D5D&quot;</span>))<span class="sc">+</span></span>
+<span id="cb66-9"><a href="visualization.html#cb66-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#517AC9&quot;</span>, <span class="st">&quot;#C05D5D&quot;</span>))<span class="sc">+</span></span>
+<span id="cb66-10"><a href="visualization.html#cb66-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>,</span>
+<span id="cb66-11"><a href="visualization.html#cb66-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb66-12"><a href="visualization.html#cb66-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb66-13"><a href="visualization.html#cb66-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb66-14"><a href="visualization.html#cb66-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:qdotplot"></span>
 <img src="visualization_files/figure-html/qdotplot-1.png" alt="Quantile dotplot showing the probability of temperature exceeding 19 °C for a theoretical, normally-distributed temperature forecast with mean = 17.7 °C and sd = 1" width="672" />
 <p class="caption">
@@ -606,16 +633,16 @@ Figure 3.4: Quantile dotplot showing the probability of temperature exceeding 19
 <summary>
 Click here to see an example of geom_boxplot code and plot.
 </summary>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="visualization.html#cb38-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
-<span id="cb38-2"><a href="visualization.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href="visualization.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>,</span>
-<span id="cb38-4"><a href="visualization.html#cb38-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb38-5"><a href="visualization.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> le))<span class="sc">+</span></span>
-<span id="cb38-6"><a href="visualization.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
-<span id="cb38-7"><a href="visualization.html#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb38-8"><a href="visualization.html#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
-<span id="cb38-9"><a href="visualization.html#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb38-10"><a href="visualization.html#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="visualization.html#cb67-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="visualization.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
+<span id="cb67-3"><a href="visualization.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>,</span>
+<span id="cb67-4"><a href="visualization.html#cb67-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb67-5"><a href="visualization.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> le))<span class="sc">+</span></span>
+<span id="cb67-6"><a href="visualization.html#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
+<span id="cb67-7"><a href="visualization.html#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb67-8"><a href="visualization.html#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb67-9"><a href="visualization.html#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb67-10"><a href="visualization.html#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:boxplot"></span>
 <img src="visualization_files/figure-html/boxplot-1.png" alt="Distributions of daily latent heat flux during May at 5 NEON sites shown as boxplots." width="672" />
 <p class="caption">
@@ -636,16 +663,16 @@ Figure 3.5: Distributions of daily latent heat flux during May at 5 NEON sites s
 <summary>
 Click here to see an example of geom_violin code and plot.
 </summary>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="visualization.html#cb39-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="visualization.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="visualization.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>, </span>
-<span id="cb39-4"><a href="visualization.html#cb39-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb39-5"><a href="visualization.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> le))<span class="sc">+</span></span>
-<span id="cb39-6"><a href="visualization.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-7"><a href="visualization.html#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb39-8"><a href="visualization.html#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-9"><a href="visualization.html#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb39-10"><a href="visualization.html#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="visualization.html#cb68-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="visualization.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
+<span id="cb68-3"><a href="visualization.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>, </span>
+<span id="cb68-4"><a href="visualization.html#cb68-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb68-5"><a href="visualization.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> le))<span class="sc">+</span></span>
+<span id="cb68-6"><a href="visualization.html#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
+<span id="cb68-7"><a href="visualization.html#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb68-8"><a href="visualization.html#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb68-9"><a href="visualization.html#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb68-10"><a href="visualization.html#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:violin"></span>
 <img src="visualization_files/figure-html/violin-1.png" alt="Distributions of daily latent heat flux during May at 5 NEON sites shown violin plots." width="672" />
 <p class="caption">
@@ -665,16 +692,16 @@ Figure 3.6: Distributions of daily latent heat flux during May at 5 NEON sites s
 <summary>
 Click here to see an example of geom_density_ridges code and plot.
 </summary>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="visualization.html#cb40-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
-<span id="cb40-2"><a href="visualization.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a href="visualization.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>, </span>
-<span id="cb40-4"><a href="visualization.html#cb40-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb40-5"><a href="visualization.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> le, <span class="at">y =</span> siteID))<span class="sc">+</span></span>
-<span id="cb40-6"><a href="visualization.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-7"><a href="visualization.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb40-8"><a href="visualization.html#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-9"><a href="visualization.html#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb40-10"><a href="visualization.html#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="visualization.html#cb69-1" aria-hidden="true" tabindex="-1"></a>terrestrial_daily_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb69-2"><a href="visualization.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(le) <span class="sc">%&gt;%</span></span>
+<span id="cb69-3"><a href="visualization.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">5</span>, </span>
+<span id="cb69-4"><a href="visualization.html#cb69-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;BART&quot;</span>, <span class="st">&quot;CLBJ&quot;</span>, <span class="st">&quot;KONZ&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;OSBS&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb69-5"><a href="visualization.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> le, <span class="at">y =</span> siteID))<span class="sc">+</span></span>
+<span id="cb69-6"><a href="visualization.html#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">fill =</span> <span class="st">&quot;#78A481&quot;</span>) <span class="sc">+</span></span>
+<span id="cb69-7"><a href="visualization.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb69-8"><a href="visualization.html#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb69-9"><a href="visualization.html#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;latent heat flux (W m&lt;sup&gt;-2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb69-10"><a href="visualization.html#cb69-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:ridgeline"></span>
 <img src="visualization_files/figure-html/ridgeline-1.png" alt="Distributions of daily latent heat flux during May at 10 NEON sites shown as staggered density plots or 'ridgeline' plots." width="672" />
 <p class="caption">
@@ -699,17 +726,17 @@ Figure 3.7: Distributions of daily latent heat flux during May at 10 NEON sites 
 <summary>
 Click here to see an example of geom_point code and plot.
 </summary>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="visualization.html#cb41-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="visualization.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2020</span>, </span>
-<span id="cb41-3"><a href="visualization.html#cb41-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
-<span id="cb41-4"><a href="visualization.html#cb41-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb41-5"><a href="visualization.html#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
-<span id="cb41-6"><a href="visualization.html#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.2</span>)<span class="sc">+</span></span>
-<span id="cb41-7"><a href="visualization.html#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">13.0</span>))<span class="sc">+</span></span>
-<span id="cb41-8"><a href="visualization.html#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>))<span class="sc">+</span></span>
-<span id="cb41-9"><a href="visualization.html#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
-<span id="cb41-10"><a href="visualization.html#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
-<span id="cb41-11"><a href="visualization.html#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Temperature (°C)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="visualization.html#cb70-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb70-2"><a href="visualization.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2020</span>, </span>
+<span id="cb70-3"><a href="visualization.html#cb70-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb70-4"><a href="visualization.html#cb70-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-5"><a href="visualization.html#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
+<span id="cb70-6"><a href="visualization.html#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.2</span>)<span class="sc">+</span></span>
+<span id="cb70-7"><a href="visualization.html#cb70-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="fl">7.5</span>, <span class="fl">13.0</span>))<span class="sc">+</span></span>
+<span id="cb70-8"><a href="visualization.html#cb70-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb70-9"><a href="visualization.html#cb70-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb70-10"><a href="visualization.html#cb70-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb70-11"><a href="visualization.html#cb70-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Temperature (°C)&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:scatterplot"></span>
 <img src="visualization_files/figure-html/scatterplot-1.png" alt="Scatterplot of dissolved oxygen concentrations vs. temperature at the Posey Creek NEON site, 2019-2020" width="672" />
 <p class="caption">
@@ -730,31 +757,31 @@ Figure 3.8: Scatterplot of dissolved oxygen concentrations vs. temperature at t
 <summary>
 Click here to see two examples of geom_line, with and without geom_point code, and the plots.
 </summary>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="visualization.html#cb42-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a href="visualization.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2020</span>, </span>
-<span id="cb42-3"><a href="visualization.html#cb42-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
-<span id="cb42-4"><a href="visualization.html#cb42-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb42-5"><a href="visualization.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
-<span id="cb42-6"><a href="visualization.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb42-7"><a href="visualization.html#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
-<span id="cb42-8"><a href="visualization.html#cb42-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
-<span id="cb42-9"><a href="visualization.html#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="visualization.html#cb71-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb71-2"><a href="visualization.html#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2020</span>, </span>
+<span id="cb71-3"><a href="visualization.html#cb71-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2019</span>,</span>
+<span id="cb71-4"><a href="visualization.html#cb71-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb71-5"><a href="visualization.html#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
+<span id="cb71-6"><a href="visualization.html#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb71-7"><a href="visualization.html#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb71-8"><a href="visualization.html#cb71-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb71-9"><a href="visualization.html#cb71-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:line"></span>
 <img src="visualization_files/figure-html/line-1.png" alt="Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020" width="672" />
 <p class="caption">
 Figure 3.9: Line graph of mean daily dissolved oxygen concentrations at the Posey Creek NEON site, 2019-2020
 </p>
 </div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="visualization.html#cb43-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
-<span id="cb43-2"><a href="visualization.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2021</span>, </span>
-<span id="cb43-3"><a href="visualization.html#cb43-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">6</span>,</span>
-<span id="cb43-4"><a href="visualization.html#cb43-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb43-5"><a href="visualization.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
-<span id="cb43-6"><a href="visualization.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb43-7"><a href="visualization.html#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb43-8"><a href="visualization.html#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
-<span id="cb43-9"><a href="visualization.html#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
-<span id="cb43-10"><a href="visualization.html#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="visualization.html#cb72-1" aria-hidden="true" tabindex="-1"></a>aquatics_targets <span class="sc">%&gt;%</span> </span>
+<span id="cb72-2"><a href="visualization.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2021</span>, </span>
+<span id="cb72-3"><a href="visualization.html#cb72-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">6</span>,</span>
+<span id="cb72-4"><a href="visualization.html#cb72-4" aria-hidden="true" tabindex="-1"></a>         siteID <span class="sc">==</span> <span class="st">&quot;POSE&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-5"><a href="visualization.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> oxygen))<span class="sc">+</span></span>
+<span id="cb72-6"><a href="visualization.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb72-7"><a href="visualization.html#cb72-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb72-8"><a href="visualization.html#cb72-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb72-9"><a href="visualization.html#cb72-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">&quot;dissolved oxygen (mg &quot;</span>, L<span class="sc">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))<span class="sc">+</span></span>
+<span id="cb72-10"><a href="visualization.html#cb72-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:pointline"></span>
 <img src="visualization_files/figure-html/pointline-1.png" alt="Line graph with dots showing dissolved oxygen concentrations at the Posey Creek NEON site, June 2021" width="672" />
 <p class="caption">
@@ -775,33 +802,47 @@ Figure 3.10: Line graph with dots showing dissolved oxygen concentrations at the
 <summary>
 Click here to see an example of ggpairs code and plot.
 </summary>
-<p>#```{r pairs, fig.cap = “Combined scatterplot matrix and correlation matrix for five weather variables #at the Oak Ridge National Lab NEON site.”}
-#neon4cast::get_stacked_noaa_s3(
-# tempdir(),
-# site = “ORNL”,
-# averaged = FALSE,
-# s3_region = “data”
-#)</p>
-<p>#drivers &lt;- neon4cast::stack_noaa(
-# dir = file.path(tempdir(), “drivers”),
-# model = “NOAAGEFS_1hr_stacked”
-#)</p>
-#drivers %&gt;%
-# mutate(date = as_date(time)) %&gt;%
-# group_by(date) %&gt;%
-# summarize(air_temperature = mean(air_temperature, na.rm = TRUE),
-# “air pressure” = mean(air_pressure, na.rm = TRUE),
-# “longwave flux” = mean(surface_downwelling_longwave_flux_in_air, na.rm = TRUE),
-# “shortwave flux” = mean(surface_downwelling_shortwave_flux_in_air, na.rm = TRUE),
-# “relative humidity” = mean(relative_humidity, na.rm = TRUE),
-# “wind speed” = mean(wind_speed, na.rm = TRUE),
-# .groups = “drop”) %&gt;%
-# mutate(“air temperature” = air_temperature - 273.15) %&gt;%
-# filter(<code>air temperature</code>&lt; 40) %&gt;%
-# select(“air temperature”, “air pressure”, “relative humidity”, “wind speed”, “longwave flux”) %&gt;%
-# ggpairs()+
-# theme_minimal_grid(font_size = 10)
-#```
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="visualization.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.unsetenv</span>(<span class="st">&quot;AWS_DEFAULT_REGION&quot;</span>)</span>
+<span id="cb73-2"><a href="visualization.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.unsetenv</span>(<span class="st">&quot;AWS_S3_ENDPOINT&quot;</span>)</span>
+<span id="cb73-3"><a href="visualization.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">AWS_EC2_METADATA_DISABLED =</span> <span class="st">&quot;TRUE&quot;</span>)</span>
+<span id="cb73-4"><a href="visualization.html#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="visualization.html#cb73-5" aria-hidden="true" tabindex="-1"></a>s3 <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">s3_bucket</span>(</span>
+<span id="cb73-6"><a href="visualization.html#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;drivers/noaa/neon/gefs&quot;</span>,</span>
+<span id="cb73-7"><a href="visualization.html#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">endpoint_override =</span> <span class="st">&quot;js2.jetstream-cloud.org:8001&quot;</span>,</span>
+<span id="cb73-8"><a href="visualization.html#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">anonymous =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb73-9"><a href="visualization.html#cb73-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-10"><a href="visualization.html#cb73-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(s3)</span>
+<span id="cb73-11"><a href="visualization.html#cb73-11" aria-hidden="true" tabindex="-1"></a>fc <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb73-12"><a href="visualization.html#cb73-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(start_time <span class="sc">==</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-04-20&quot;</span>),</span>
+<span id="cb73-13"><a href="visualization.html#cb73-13" aria-hidden="true" tabindex="-1"></a>         site_id <span class="sc">==</span> <span class="st">&quot;ORNL&quot;</span>, </span>
+<span id="cb73-14"><a href="visualization.html#cb73-14" aria-hidden="true" tabindex="-1"></a>         variable <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;TMP&quot;</span>, <span class="st">&quot;PRES&quot;</span>, <span class="st">&quot;RH&quot;</span>, <span class="st">&quot;DSWRF&quot;</span>, <span class="st">&quot;DLWRF&quot;</span>, <span class="st">&quot;UGRD&quot;</span>, <span class="st">&quot;VGRD&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb73-15"><a href="visualization.html#cb73-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(horizon, ensemble, variable, predicted) <span class="sc">%&gt;%</span></span>
+<span id="cb73-16"><a href="visualization.html#cb73-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb73-17"><a href="visualization.html#cb73-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb73-18"><a href="visualization.html#cb73-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> variable, </span>
+<span id="cb73-19"><a href="visualization.html#cb73-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> predicted, </span>
+<span id="cb73-20"><a href="visualization.html#cb73-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fn =</span> mean</span>
+<span id="cb73-21"><a href="visualization.html#cb73-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb73-22"><a href="visualization.html#cb73-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wind_speed =</span> <span class="fu">sqrt</span>(UGRD<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> VGRD<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb73-23"><a href="visualization.html#cb73-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb73-24"><a href="visualization.html#cb73-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;air temperature&quot;</span> <span class="ot">=</span> TMP,</span>
+<span id="cb73-25"><a href="visualization.html#cb73-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;air pressure&quot;</span> <span class="ot">=</span> PRES,</span>
+<span id="cb73-26"><a href="visualization.html#cb73-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;longwave flux&quot;</span> <span class="ot">=</span> DLWRF,</span>
+<span id="cb73-27"><a href="visualization.html#cb73-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;shortwave flux&quot;</span> <span class="ot">=</span> DSWRF,</span>
+<span id="cb73-28"><a href="visualization.html#cb73-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;relative humidity&quot;</span> <span class="ot">=</span> RH,</span>
+<span id="cb73-29"><a href="visualization.html#cb73-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;wind speed&quot;</span> <span class="ot">=</span> wind_speed,</span>
+<span id="cb73-30"><a href="visualization.html#cb73-30" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb73-31"><a href="visualization.html#cb73-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-32"><a href="visualization.html#cb73-32" aria-hidden="true" tabindex="-1"></a>fc[<span class="fu">sample</span>(<span class="fu">nrow</span>(fc), <span class="dv">300</span>), ] <span class="sc">%&gt;%</span></span>
+<span id="cb73-33"><a href="visualization.html#cb73-33" aria-hidden="true" tabindex="-1"></a> <span class="fu">select</span>(<span class="st">&quot;air temperature&quot;</span>, <span class="st">&quot;air pressure&quot;</span>, <span class="st">&quot;relative humidity&quot;</span>, <span class="st">&quot;wind speed&quot;</span>, <span class="st">&quot;longwave flux&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-34"><a href="visualization.html#cb73-34" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggpairs</span>()<span class="sc">+</span></span>
+<span id="cb73-35"><a href="visualization.html#cb73-35" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme_minimal_grid</span>(<span class="at">font_size =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:pairs"></span>
+<img src="visualization_files/figure-html/pairs-1.png" alt="Combined scatterplot matrix and correlation matrix for five weather variables from the noaa GEFS model at the Oak Ridge National Lab NEON site." width="672" />
+<p class="caption">
+Figure 3.11: Combined scatterplot matrix and correlation matrix for five weather variables from the noaa GEFS model at the Oak Ridge National Lab NEON site.
+</p>
+</div>
 </details>
 </div>
 </div>
@@ -819,22 +860,22 @@ Click here to see an example of ggpairs code and plot.
 <summary>
 Click here to see an example of geom_col code and plot.
 </summary>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="visualization.html#cb44-1" aria-hidden="true" tabindex="-1"></a>tick_targets <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a href="visualization.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2019</span>, <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">6</span>, siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;UKFS&quot;</span>, <span class="st">&quot;TALL&quot;</span>, <span class="st">&quot;SERC&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;KONZ&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb44-3"><a href="visualization.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(siteID) <span class="sc">%&gt;%</span></span>
-<span id="cb44-4"><a href="visualization.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb44-5"><a href="visualization.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb44-6"><a href="visualization.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">siteID =</span> <span class="fu">factor</span>(siteID, <span class="at">levels =</span> siteID)) <span class="sc">%&gt;%</span></span>
-<span id="cb44-7"><a href="visualization.html#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> <span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>))<span class="sc">+</span></span>
-<span id="cb44-8"><a href="visualization.html#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span>  <span class="st">&quot;#7C7BB2&quot;</span> )<span class="sc">+</span></span>
-<span id="cb44-9"><a href="visualization.html#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;*Amblyomma americanum* density (ticks per 1600 m&lt;sup&gt;2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb44-10"><a href="visualization.html#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
-<span id="cb44-11"><a href="visualization.html#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
-<span id="cb44-12"><a href="visualization.html#cb44-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="visualization.html#cb74-1" aria-hidden="true" tabindex="-1"></a>tick_targets <span class="sc">%&gt;%</span></span>
+<span id="cb74-2"><a href="visualization.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2019</span>, <span class="fu">month</span>(time) <span class="sc">==</span> <span class="dv">6</span>, siteID <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;UKFS&quot;</span>, <span class="st">&quot;TALL&quot;</span>, <span class="st">&quot;SERC&quot;</span>, <span class="st">&quot;ORNL&quot;</span>, <span class="st">&quot;KONZ&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb74-3"><a href="visualization.html#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(siteID) <span class="sc">%&gt;%</span></span>
+<span id="cb74-4"><a href="visualization.html#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb74-5"><a href="visualization.html#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb74-6"><a href="visualization.html#cb74-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">siteID =</span> <span class="fu">factor</span>(siteID, <span class="at">levels =</span> siteID)) <span class="sc">%&gt;%</span></span>
+<span id="cb74-7"><a href="visualization.html#cb74-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> siteID, <span class="at">y =</span> <span class="st">`</span><span class="at">amblyomma_americanum</span><span class="st">`</span>))<span class="sc">+</span></span>
+<span id="cb74-8"><a href="visualization.html#cb74-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span>  <span class="st">&quot;#7C7BB2&quot;</span> )<span class="sc">+</span></span>
+<span id="cb74-9"><a href="visualization.html#cb74-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;*Amblyomma americanum* density (ticks per 1600 m&lt;sup&gt;2&lt;/sup&gt;)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb74-10"><a href="visualization.html#cb74-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;NEON site&quot;</span>) <span class="sc">+</span></span>
+<span id="cb74-11"><a href="visualization.html#cb74-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_hgrid</span>()<span class="sc">+</span></span>
+<span id="cb74-12"><a href="visualization.html#cb74-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>())</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:barplot"></span>
 <img src="visualization_files/figure-html/barplot-1.png" alt="Barplot showing the mean density of *amblyomma americanum* larvae observed in June 2019 at 5 NEON sites" width="672" />
 <p class="caption">
-Figure 3.11: Barplot showing the mean density of <em>amblyomma americanum</em> larvae observed in June 2019 at 5 NEON sites
+Figure 3.12: Barplot showing the mean density of <em>amblyomma americanum</em> larvae observed in June 2019 at 5 NEON sites
 </p>
 </div>
 </details>
@@ -850,56 +891,56 @@ Figure 3.11: Barplot showing the mean density of <em>amblyomma americanum</em> l
 <summary>
 Click here to see an example of geom_tile code and plot.
 </summary>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="visualization.html#cb45-1" aria-hidden="true" tabindex="-1"></a>siteIDLevels <span class="ot">&lt;-</span> beetle_targets <span class="sc">%&gt;%</span></span>
-<span id="cb45-2"><a href="visualization.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2017</span>,</span>
-<span id="cb45-3"><a href="visualization.html#cb45-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb45-4"><a href="visualization.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(siteID) <span class="sc">%&gt;%</span></span>
-<span id="cb45-5"><a href="visualization.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">meanRichness =</span> <span class="fu">mean</span>(richness, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb45-6"><a href="visualization.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(meanRichness) <span class="sc">%&gt;%</span></span>
-<span id="cb45-7"><a href="visualization.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(siteID)</span>
-<span id="cb45-8"><a href="visualization.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_grid</span>(<span class="at">year =</span> <span class="dv">2017</span><span class="sc">:</span><span class="dv">2019</span>,</span>
-<span id="cb45-9"><a href="visualization.html#cb45-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">month =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, </span>
-<span id="cb45-10"><a href="visualization.html#cb45-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">siteID =</span> <span class="fu">unique</span>(beetle_targets<span class="sc">$</span>siteID)) <span class="sc">%&gt;%</span></span>
-<span id="cb45-11"><a href="visualization.html#cb45-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">monthYear =</span> <span class="fu">paste0</span>(year, <span class="st">&quot;-&quot;</span>, <span class="fu">if_else</span>(<span class="fu">nchar</span>(month) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, month), <span class="fu">as.character</span>(month)))) <span class="sc">%&gt;%</span></span>
-<span id="cb45-12"><a href="visualization.html#cb45-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(beetle_targets <span class="sc">%&gt;%</span></span>
-<span id="cb45-13"><a href="visualization.html#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(time),</span>
-<span id="cb45-14"><a href="visualization.html#cb45-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(time), </span>
-<span id="cb45-15"><a href="visualization.html#cb45-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">monthYear =</span> <span class="fu">paste0</span>(year, <span class="st">&quot;-&quot;</span>, <span class="fu">if_else</span>(<span class="fu">nchar</span>(month) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, month), <span class="fu">as.character</span>(month)))) <span class="sc">%&gt;%</span></span>
-<span id="cb45-16"><a href="visualization.html#cb45-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2017</span>, year <span class="sc">&lt;=</span> <span class="dv">2019</span>),</span>
-<span id="cb45-17"><a href="visualization.html#cb45-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;siteID&quot;</span>, <span class="st">&quot;monthYear&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb45-18"><a href="visualization.html#cb45-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">siteID =</span> <span class="fu">factor</span>(siteID, <span class="at">levels =</span> siteIDLevels)) <span class="sc">%&gt;%</span></span>
-<span id="cb45-19"><a href="visualization.html#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> monthYear, <span class="at">y =</span> siteID)) <span class="sc">+</span></span>
-<span id="cb45-20"><a href="visualization.html#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">height =</span> <span class="fl">0.9</span>, <span class="fu">aes</span>(<span class="at">fill =</span> richness)) <span class="sc">+</span> </span>
-<span id="cb45-21"><a href="visualization.html#cb45-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">12</span>)<span class="sc">+</span></span>
-<span id="cb45-22"><a href="visualization.html#cb45-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">&quot;B&quot;</span>, <span class="at">na.value =</span> <span class="st">&quot;#BBBBBB&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">end =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
-<span id="cb45-23"><a href="visualization.html#cb45-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;site&quot;</span>)<span class="sc">+</span></span>
-<span id="cb45-24"><a href="visualization.html#cb45-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb45-25"><a href="visualization.html#cb45-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb45-26"><a href="visualization.html#cb45-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb45-27"><a href="visualization.html#cb45-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb45-28"><a href="visualization.html#cb45-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
-<span id="cb45-29"><a href="visualization.html#cb45-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)) <span class="sc">+</span></span>
-<span id="cb45-30"><a href="visualization.html#cb45-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">&#39;off&#39;</span>) <span class="sc">+</span></span>
-<span id="cb45-31"><a href="visualization.html#cb45-31" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, </span>
-<span id="cb45-32"><a href="visualization.html#cb45-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">18</span>, <span class="dv">30</span>), </span>
-<span id="cb45-33"><a href="visualization.html#cb45-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">3.7</span>, <span class="sc">-</span><span class="fl">3.7</span>, <span class="sc">-</span><span class="fl">3.7</span>), </span>
-<span id="cb45-34"><a href="visualization.html#cb45-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;2017&quot;</span>, <span class="st">&quot;2018&quot;</span>, <span class="st">&quot;2019&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb45-35"><a href="visualization.html#cb45-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
-<span id="cb45-36"><a href="visualization.html#cb45-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">12</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
-<span id="cb45-37"><a href="visualization.html#cb45-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
-<span id="cb45-38"><a href="visualization.html#cb45-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">13</span>, <span class="at">xend =</span> <span class="dv">24</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
-<span id="cb45-39"><a href="visualization.html#cb45-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
-<span id="cb45-40"><a href="visualization.html#cb45-40" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">25</span>, <span class="at">xend =</span> <span class="dv">37</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
-<span id="cb45-41"><a href="visualization.html#cb45-41" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,</span>
-<span id="cb45-42"><a href="visualization.html#cb45-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>,</span>
-<span id="cb45-43"><a href="visualization.html#cb45-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="at">times =</span> <span class="dv">36</span>),</span>
-<span id="cb45-44"><a href="visualization.html#cb45-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;Aug&quot;</span>, <span class="st">&quot;Sept&quot;</span>, <span class="st">&quot;Oct&quot;</span>, <span class="st">&quot;Nov&quot;</span>, <span class="st">&quot;Dec&quot;</span>), <span class="at">times =</span> <span class="dv">3</span>),</span>
-<span id="cb45-45"><a href="visualization.html#cb45-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">angle =</span> <span class="st">&#39;90&#39;</span>, </span>
-<span id="cb45-46"><a href="visualization.html#cb45-46" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="visualization.html#cb75-1" aria-hidden="true" tabindex="-1"></a>siteIDLevels <span class="ot">&lt;-</span> beetle_targets <span class="sc">%&gt;%</span></span>
+<span id="cb75-2"><a href="visualization.html#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(time) <span class="sc">&gt;=</span> <span class="dv">2017</span>,</span>
+<span id="cb75-3"><a href="visualization.html#cb75-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb75-4"><a href="visualization.html#cb75-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(siteID) <span class="sc">%&gt;%</span></span>
+<span id="cb75-5"><a href="visualization.html#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">meanRichness =</span> <span class="fu">mean</span>(richness, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb75-6"><a href="visualization.html#cb75-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(meanRichness) <span class="sc">%&gt;%</span></span>
+<span id="cb75-7"><a href="visualization.html#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(siteID)</span>
+<span id="cb75-8"><a href="visualization.html#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="fu">expand_grid</span>(<span class="at">year =</span> <span class="dv">2017</span><span class="sc">:</span><span class="dv">2019</span>,</span>
+<span id="cb75-9"><a href="visualization.html#cb75-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">month =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, </span>
+<span id="cb75-10"><a href="visualization.html#cb75-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">siteID =</span> <span class="fu">unique</span>(beetle_targets<span class="sc">$</span>siteID)) <span class="sc">%&gt;%</span></span>
+<span id="cb75-11"><a href="visualization.html#cb75-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">monthYear =</span> <span class="fu">paste0</span>(year, <span class="st">&quot;-&quot;</span>, <span class="fu">if_else</span>(<span class="fu">nchar</span>(month) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, month), <span class="fu">as.character</span>(month)))) <span class="sc">%&gt;%</span></span>
+<span id="cb75-12"><a href="visualization.html#cb75-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(beetle_targets <span class="sc">%&gt;%</span></span>
+<span id="cb75-13"><a href="visualization.html#cb75-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">month</span>(time),</span>
+<span id="cb75-14"><a href="visualization.html#cb75-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(time), </span>
+<span id="cb75-15"><a href="visualization.html#cb75-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">monthYear =</span> <span class="fu">paste0</span>(year, <span class="st">&quot;-&quot;</span>, <span class="fu">if_else</span>(<span class="fu">nchar</span>(month) <span class="sc">==</span> <span class="dv">1</span>, <span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>, month), <span class="fu">as.character</span>(month)))) <span class="sc">%&gt;%</span></span>
+<span id="cb75-16"><a href="visualization.html#cb75-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">2017</span>, year <span class="sc">&lt;=</span> <span class="dv">2019</span>),</span>
+<span id="cb75-17"><a href="visualization.html#cb75-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;siteID&quot;</span>, <span class="st">&quot;monthYear&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb75-18"><a href="visualization.html#cb75-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">siteID =</span> <span class="fu">factor</span>(siteID, <span class="at">levels =</span> siteIDLevels)) <span class="sc">%&gt;%</span></span>
+<span id="cb75-19"><a href="visualization.html#cb75-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> monthYear, <span class="at">y =</span> siteID)) <span class="sc">+</span></span>
+<span id="cb75-20"><a href="visualization.html#cb75-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">width =</span> <span class="fl">0.9</span>, <span class="at">height =</span> <span class="fl">0.9</span>, <span class="fu">aes</span>(<span class="at">fill =</span> richness)) <span class="sc">+</span> </span>
+<span id="cb75-21"><a href="visualization.html#cb75-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_cowplot</span>(<span class="at">font_size =</span> <span class="dv">12</span>)<span class="sc">+</span></span>
+<span id="cb75-22"><a href="visualization.html#cb75-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">&quot;B&quot;</span>, <span class="at">na.value =</span> <span class="st">&quot;#BBBBBB&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">end =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb75-23"><a href="visualization.html#cb75-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;site&quot;</span>)<span class="sc">+</span></span>
+<span id="cb75-24"><a href="visualization.html#cb75-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb75-25"><a href="visualization.html#cb75-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb75-26"><a href="visualization.html#cb75-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb75-27"><a href="visualization.html#cb75-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb75-28"><a href="visualization.html#cb75-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb75-29"><a href="visualization.html#cb75-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>)) <span class="sc">+</span></span>
+<span id="cb75-30"><a href="visualization.html#cb75-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">&#39;off&#39;</span>) <span class="sc">+</span></span>
+<span id="cb75-31"><a href="visualization.html#cb75-31" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, </span>
+<span id="cb75-32"><a href="visualization.html#cb75-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">18</span>, <span class="dv">30</span>), </span>
+<span id="cb75-33"><a href="visualization.html#cb75-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">3.7</span>, <span class="sc">-</span><span class="fl">3.7</span>, <span class="sc">-</span><span class="fl">3.7</span>), </span>
+<span id="cb75-34"><a href="visualization.html#cb75-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;2017&quot;</span>, <span class="st">&quot;2018&quot;</span>, <span class="st">&quot;2019&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb75-35"><a href="visualization.html#cb75-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
+<span id="cb75-36"><a href="visualization.html#cb75-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">12</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
+<span id="cb75-37"><a href="visualization.html#cb75-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
+<span id="cb75-38"><a href="visualization.html#cb75-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">13</span>, <span class="at">xend =</span> <span class="dv">24</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
+<span id="cb75-39"><a href="visualization.html#cb75-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;segment&quot;</span>, </span>
+<span id="cb75-40"><a href="visualization.html#cb75-40" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">25</span>, <span class="at">xend =</span> <span class="dv">37</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">2.8</span>, <span class="at">yend =</span> <span class="sc">-</span><span class="fl">2.8</span>) <span class="sc">+</span> </span>
+<span id="cb75-41"><a href="visualization.html#cb75-41" aria-hidden="true" tabindex="-1"></a><span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,</span>
+<span id="cb75-42"><a href="visualization.html#cb75-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>,</span>
+<span id="cb75-43"><a href="visualization.html#cb75-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="at">times =</span> <span class="dv">36</span>),</span>
+<span id="cb75-44"><a href="visualization.html#cb75-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;Feb&quot;</span>, <span class="st">&quot;March&quot;</span>, <span class="st">&quot;April&quot;</span>, <span class="st">&quot;May&quot;</span>, <span class="st">&quot;June&quot;</span>, <span class="st">&quot;July&quot;</span>, <span class="st">&quot;Aug&quot;</span>, <span class="st">&quot;Sept&quot;</span>, <span class="st">&quot;Oct&quot;</span>, <span class="st">&quot;Nov&quot;</span>, <span class="st">&quot;Dec&quot;</span>), <span class="at">times =</span> <span class="dv">3</span>),</span>
+<span id="cb75-45"><a href="visualization.html#cb75-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">angle =</span> <span class="st">&#39;90&#39;</span>, </span>
+<span id="cb75-46"><a href="visualization.html#cb75-46" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:heatmap"></span>
 <img src="visualization_files/figure-html/heatmap-1.png" alt="Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019." width="480" />
 <p class="caption">
-Figure 3.12: Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019.
+Figure 3.13: Heatmap of monthly beetle species richness observations at 47 NEON sites, 2017-2019.
 </p>
 </div>
 </details>
@@ -917,24 +958,24 @@ Figure 3.12: Heatmap of monthly beetle species richness observations at 47 NEON 
 <summary>
 Click here to see an code combining two plots into the same graphic.
 </summary>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="visualization.html#cb46-1" aria-hidden="true" tabindex="-1"></a>filteredData <span class="ot">&lt;-</span> pheno_targets <span class="sc">%&gt;%</span></span>
-<span id="cb46-2"><a href="visualization.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(siteID <span class="sc">==</span> <span class="st">&quot;HARV&quot;</span>, </span>
-<span id="cb46-3"><a href="visualization.html#cb46-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2021</span>) </span>
-<span id="cb46-4"><a href="visualization.html#cb46-4" aria-hidden="true" tabindex="-1"></a>red <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filteredData, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> rcc_90))<span class="sc">+</span></span>
-<span id="cb46-5"><a href="visualization.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#841859&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb46-6"><a href="visualization.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;redness index&quot;</span>)<span class="sc">+</span></span>
-<span id="cb46-7"><a href="visualization.html#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
-<span id="cb46-8"><a href="visualization.html#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb46-9"><a href="visualization.html#cb46-9" aria-hidden="true" tabindex="-1"></a>green <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filteredData, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> gcc_90))<span class="sc">+</span></span>
-<span id="cb46-10"><a href="visualization.html#cb46-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#005600&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb46-11"><a href="visualization.html#cb46-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;greenness index&quot;</span>)<span class="sc">+</span></span>
-<span id="cb46-12"><a href="visualization.html#cb46-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
-<span id="cb46-13"><a href="visualization.html#cb46-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb46-14"><a href="visualization.html#cb46-14" aria-hidden="true" tabindex="-1"></a>red <span class="sc">+</span> green<span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="visualization.html#cb76-1" aria-hidden="true" tabindex="-1"></a>filteredData <span class="ot">&lt;-</span> pheno_targets <span class="sc">%&gt;%</span></span>
+<span id="cb76-2"><a href="visualization.html#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(siteID <span class="sc">==</span> <span class="st">&quot;HARV&quot;</span>, </span>
+<span id="cb76-3"><a href="visualization.html#cb76-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">year</span>(time) <span class="sc">==</span> <span class="dv">2021</span>) </span>
+<span id="cb76-4"><a href="visualization.html#cb76-4" aria-hidden="true" tabindex="-1"></a>red <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filteredData, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> rcc_90))<span class="sc">+</span></span>
+<span id="cb76-5"><a href="visualization.html#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#841859&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb76-6"><a href="visualization.html#cb76-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;redness index&quot;</span>)<span class="sc">+</span></span>
+<span id="cb76-7"><a href="visualization.html#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb76-8"><a href="visualization.html#cb76-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb76-9"><a href="visualization.html#cb76-9" aria-hidden="true" tabindex="-1"></a>green <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(filteredData, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> gcc_90))<span class="sc">+</span></span>
+<span id="cb76-10"><a href="visualization.html#cb76-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#005600&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb76-11"><a href="visualization.html#cb76-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;greenness index&quot;</span>)<span class="sc">+</span></span>
+<span id="cb76-12"><a href="visualization.html#cb76-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal_grid</span>()<span class="sc">+</span></span>
+<span id="cb76-13"><a href="visualization.html#cb76-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb76-14"><a href="visualization.html#cb76-14" aria-hidden="true" tabindex="-1"></a>red <span class="sc">+</span> green<span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:facet"></span>
 <img src="visualization_files/figure-html/facet-1.png" alt="Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021." width="672" />
 <p class="caption">
-Figure 3.13: Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021.
+Figure 3.14: Stacked line plots of greenness and redness index at the Harvard Forest NEON site in 2021.
 </p>
 </div>
 </details>

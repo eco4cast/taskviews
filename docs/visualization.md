@@ -96,6 +96,10 @@ library(tidyverse)
 ```
 
 ```
+## Warning: package 'tidyverse' was built under R version 4.2.1
+```
+
+```
 ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 ```
 
@@ -107,6 +111,26 @@ library(tidyverse)
 ```
 
 ```
+## Warning: package 'ggplot2' was built under R version 4.2.1
+```
+
+```
+## Warning: package 'tidyr' was built under R version 4.2.1
+```
+
+```
+## Warning: package 'readr' was built under R version 4.2.1
+```
+
+```
+## Warning: package 'stringr' was built under R version 4.2.1
+```
+
+```
+## Warning: package 'forcats' was built under R version 4.2.1
+```
+
+```
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
@@ -114,6 +138,10 @@ library(tidyverse)
 
 ```r
 library(lubridate)
+```
+
+```
+## Warning: package 'lubridate' was built under R version 4.2.1
 ```
 
 ```
@@ -132,15 +160,44 @@ library(here)
 ```
 
 ```
-## here() starts at C:/Users/jmurray7/Documents/TaskViews/taskviews
+## Warning: package 'here' was built under R version 4.2.1
+```
+
+```
+## here() starts at C:/Users/lmohr/OneDrive - Environmental Defense Fund - edf.org/Documents/R/taskviews_fork
 ```
 
 ```r
-library(neon4cast)
-#neon4cast can be installed with: 
-#install.packages("remotes")
-#remotes::install_github("eco4cast/neon4cast")
+library(arrow)
+```
+
+```
+## Warning: package 'arrow' was built under R version 4.2.1
+```
+
+```
+## 
+## Attaching package: 'arrow'
+```
+
+```
+## The following object is masked from 'package:lubridate':
+## 
+##     duration
+```
+
+```
+## The following object is masked from 'package:utils':
+## 
+##     timestamp
+```
+
+```r
 library(cowplot)
+```
+
+```
+## Warning: package 'cowplot' was built under R version 4.2.1
 ```
 
 ```
@@ -159,6 +216,10 @@ library(patchwork)
 ```
 
 ```
+## Warning: package 'patchwork' was built under R version 4.2.1
+```
+
+```
 ## 
 ## Attaching package: 'patchwork'
 ```
@@ -171,17 +232,50 @@ library(patchwork)
 
 ```r
 library(ggtext)
+```
+
+```
+## Warning: package 'ggtext' was built under R version 4.2.1
+```
+
+```r
 library(colorspace)
+```
+
+```
+## Warning: package 'colorspace' was built under R version 4.2.1
+```
+
+```r
 library(viridis)
+```
+
+```
+## Warning: package 'viridis' was built under R version 4.2.1
 ```
 
 ```
 ## Loading required package: viridisLite
 ```
 
+```
+## Warning: package 'viridisLite' was built under R version 4.2.1
+```
+
 ```r
 library(ggridges)
+```
+
+```
+## Warning: package 'ggridges' was built under R version 4.2.1
+```
+
+```r
 library(GGally)
+```
+
+```
+## Warning: package 'GGally' was built under R version 4.2.1
 ```
 
 ```
@@ -191,7 +285,19 @@ library(GGally)
 ```
 
 ```r
+library(hexbin)
+```
+
+```
+## Warning: package 'hexbin' was built under R version 4.2.1
+```
+
+```r
 library(ggdist)
+```
+
+```
+## Warning: package 'ggdist' was built under R version 4.2.1
 ```
 
 ```
@@ -210,12 +316,19 @@ library(ggdist)
 
 ```r
 library(ggExtra)
+```
+
+```
+## Warning: package 'ggExtra' was built under R version 4.2.1
+```
+
+```r
 # Get target data
 aquatics_targets <- readr::read_csv("https://data.ecoforecast.org/targets/aquatics/aquatics-targets.csv.gz")
 ```
 
 ```
-## Rows: 10281 Columns: 10
+## Rows: 10491 Columns: 10
 ```
 
 ```
@@ -235,7 +348,7 @@ readr::read_csv("https://data.ecoforecast.org/targets/terrestrial_daily/terrestr
 ```
 
 ```
-## Rows: 19670 Columns: 4
+## Rows: 19980 Columns: 4
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr  (1): siteID
@@ -251,7 +364,7 @@ pheno_targets <- readr::read_csv("https://data.ecoforecast.org/targets/phenology
 ```
 
 ```
-## Rows: 42120 Columns: 6
+## Rows: 42804 Columns: 6
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr  (1): siteID
@@ -267,7 +380,7 @@ tick_targets <- readr::read_csv("https://data.ecoforecast.org/targets/ticks/tick
 ```
 
 ```
-## Rows: 477 Columns: 4
+## Rows: 528 Columns: 4
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr  (1): siteID
@@ -283,7 +396,7 @@ beetle_targets <- readr::read_csv("https://data.ecoforecast.org/targets/beetles/
 ```
 
 ```
-## Rows: 3182 Columns: 4
+## Rows: 3234 Columns: 4
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr  (1): siteID
@@ -604,35 +717,49 @@ aquatics_targets %>%
 
 <details>
 <summary>Click here to see an example of ggpairs code and plot.</summary>
-#```{r pairs, fig.cap = "Combined scatterplot matrix and correlation matrix for five weather variables #at the Oak Ridge National Lab NEON site."}
-#neon4cast::get_stacked_noaa_s3(
-#  tempdir(),
-#  site = "ORNL", 
-#  averaged = FALSE, 
-#  s3_region = "data"
-#)
 
-#drivers <- neon4cast::stack_noaa(
-#  dir = file.path(tempdir(), "drivers"), 
-#  model = "NOAAGEFS_1hr_stacked"
-#)
+```r
+Sys.unsetenv("AWS_DEFAULT_REGION")
+Sys.unsetenv("AWS_S3_ENDPOINT")
+Sys.setenv(AWS_EC2_METADATA_DISABLED = "TRUE")
 
-#drivers %>%
-# mutate(date = as_date(time)) %>%
-# group_by(date) %>%
-# summarize(air_temperature = mean(air_temperature, na.rm = TRUE),
-#           "air pressure" = mean(air_pressure, na.rm = TRUE),
-#           "longwave flux" = mean(surface_downwelling_longwave_flux_in_air, na.rm = TRUE),
-#           "shortwave flux" = mean(surface_downwelling_shortwave_flux_in_air, na.rm = TRUE),
-#           "relative humidity" = mean(relative_humidity, na.rm = TRUE),
-#           "wind speed" = mean(wind_speed, na.rm = TRUE),
-#           .groups = "drop") %>%
-# mutate("air temperature" = air_temperature - 273.15) %>%
-# filter(`air temperature`< 40) %>%
-# select("air temperature", "air pressure", "relative humidity", "wind speed", "longwave flux") %>%
-# ggpairs()+
-# theme_minimal_grid(font_size = 10)
-#```
+s3 <- arrow::s3_bucket(
+  "drivers/noaa/neon/gefs",
+  endpoint_override = "js2.jetstream-cloud.org:8001",
+  anonymous = TRUE)
+
+df <- arrow::open_dataset(s3)
+fc <- df %>%
+  filter(start_time == as.Date("2022-04-20"),
+         site_id == "ORNL", 
+         variable %in% c("TMP", "PRES", "RH", "DSWRF", "DLWRF", "UGRD", "VGRD")) %>%
+  select(horizon, ensemble, variable, predicted) %>%
+  collect() %>%
+  pivot_wider(
+    names_from = variable, 
+    values_from = predicted, 
+    values_fn = mean
+  ) %>%
+  mutate(wind_speed = sqrt(UGRD^2 + VGRD^2)) %>%
+  rename(
+    "air temperature" = TMP,
+    "air pressure" = PRES,
+    "longwave flux" = DLWRF,
+    "shortwave flux" = DSWRF,
+    "relative humidity" = RH,
+    "wind speed" = wind_speed,
+  )
+
+fc[sample(nrow(fc), 300), ] %>%
+ select("air temperature", "air pressure", "relative humidity", "wind speed", "longwave flux") %>%
+ ggpairs()+
+ theme_minimal_grid(font_size = 10)
+```
+
+<div class="figure">
+<img src="visualization_files/figure-html/pairs-1.png" alt="Combined scatterplot matrix and correlation matrix for five weather variables from the noaa GEFS model at the Oak Ridge National Lab NEON site." width="672" />
+<p class="caption">(\#fig:pairs)Combined scatterplot matrix and correlation matrix for five weather variables from the noaa GEFS model at the Oak Ridge National Lab NEON site.</p>
+</div>
 </details>
 
 
