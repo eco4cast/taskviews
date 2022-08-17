@@ -2,7 +2,7 @@
 
 ## Overview  
 
-Curators: Libby Mohr^1^, Matthew Brousil^2^, Kelly Heilman^3^, Hassan Moustahfid^4^, Leah Johnson^5^, David LeBauer^3^, Rob Kooper^6^, Cee Nell^7^, Josh Cullen^8^, Jake Zwart^7^, Jody Peters^9^, Quinn Thomas^5^, Mike Dietze^10^
+Curators: Libby Mohr^1^, Matthew Brousil^2^, Kelly Heilman^3^, Hfassan Moustahfid^4^, Leah Johnson^5^, David LeBauer^3^, Rob Kooper^6^, Cee Nell^7^, Josh Cullen^8^, Jake Zwart^7^, Jody Peters^9^, Quinn Thomas^5^, Mike Dietze^10^
 
 *^1^Montana State University, ^2^Washington State University, ^3^University of Arizona, ^4^NOAA, ^5^Virginia Tech, ^6^National Center for Supercomputing Applications, ^7^USGS, ^8^Florida State University, ^9^University of Notre Dame, ^10^Boston University*
 
@@ -96,38 +96,14 @@ library(tidyverse)
 ```
 
 ```
-## Warning: package 'tidyverse' was built under R version 4.2.1
-```
-
-```
 ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 ```
 
 ```
-## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
+## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
+## ✔ tibble  3.1.6     ✔ dplyr   1.0.8
 ## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
 ## ✔ readr   2.1.2     ✔ forcats 0.5.1
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'tidyr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'readr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'stringr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'forcats' was built under R version 4.2.1
 ```
 
 ```
@@ -138,10 +114,6 @@ library(tidyverse)
 
 ```r
 library(lubridate)
-```
-
-```
-## Warning: package 'lubridate' was built under R version 4.2.1
 ```
 
 ```
@@ -160,19 +132,11 @@ library(here)
 ```
 
 ```
-## Warning: package 'here' was built under R version 4.2.1
-```
-
-```
-## here() starts at C:/Users/lmohr/OneDrive - Environmental Defense Fund - edf.org/Documents/R/taskviews_fork
+## here() starts at /Users/elizabethmohr/Documents/R/taskviews
 ```
 
 ```r
 library(arrow)
-```
-
-```
-## Warning: package 'arrow' was built under R version 4.2.1
 ```
 
 ```
@@ -197,10 +161,6 @@ library(cowplot)
 ```
 
 ```
-## Warning: package 'cowplot' was built under R version 4.2.1
-```
-
-```
 ## 
 ## Attaching package: 'cowplot'
 ```
@@ -216,10 +176,6 @@ library(patchwork)
 ```
 
 ```
-## Warning: package 'patchwork' was built under R version 4.2.1
-```
-
-```
 ## 
 ## Attaching package: 'patchwork'
 ```
@@ -232,50 +188,17 @@ library(patchwork)
 
 ```r
 library(ggtext)
-```
-
-```
-## Warning: package 'ggtext' was built under R version 4.2.1
-```
-
-```r
 library(colorspace)
-```
-
-```
-## Warning: package 'colorspace' was built under R version 4.2.1
-```
-
-```r
 library(viridis)
-```
-
-```
-## Warning: package 'viridis' was built under R version 4.2.1
 ```
 
 ```
 ## Loading required package: viridisLite
 ```
 
-```
-## Warning: package 'viridisLite' was built under R version 4.2.1
-```
-
 ```r
 library(ggridges)
-```
-
-```
-## Warning: package 'ggridges' was built under R version 4.2.1
-```
-
-```r
 library(GGally)
-```
-
-```
-## Warning: package 'GGally' was built under R version 4.2.1
 ```
 
 ```
@@ -286,18 +209,7 @@ library(GGally)
 
 ```r
 library(hexbin)
-```
-
-```
-## Warning: package 'hexbin' was built under R version 4.2.1
-```
-
-```r
 library(ggdist)
-```
-
-```
-## Warning: package 'ggdist' was built under R version 4.2.1
 ```
 
 ```
@@ -316,13 +228,6 @@ library(ggdist)
 
 ```r
 library(ggExtra)
-```
-
-```
-## Warning: package 'ggExtra' was built under R version 4.2.1
-```
-
-```r
 # Get target data
 aquatics_targets <- readr::read_csv("https://data.ecoforecast.org/targets/aquatics/aquatics-targets.csv.gz")
 ```
@@ -922,6 +827,85 @@ red + green+ plot_layout(nrow = 2, byrow = FALSE)
 
 ### Animated Visuals
 Gif, video, and other animations are a powerful way to communicate complexity and patterns where static visualizations may fall short. Animations provide an additional dimension that can allow an audience to [see progression in data over time](https://ebird.org/science/status-and-trends/abundance-animations) or depth, [track changes](https://observablehq.com/@d3/bar-chart-race), or [layer in additional information to support narration](https://labs.waterdata.usgs.gov/visualizations/snow-to-flow/index.html#/). This may be useful to avoid overwhelming a viewer and guide the audience’s attention to specific data points. Further, whereas static, 2D representations of 3D objects [are difficult to interpret](https://clauswilke.com/dataviz/no-3d.html), animated representations where the object is rotated and displayed at different angles allow viewers to create [a mental reconstruction](https://www.tylermw.com/3d-maps-with-rayshader/) of the 3D object. Finally, animation can be used to convey uncertainty using hypothetical outcome plots (HOPs), which are animated sequences of plots where each plot represents a random draw from an underlying distribution. Research suggests that HOPs lead to better understanding of uncertainty and more accurate judgments about differences between multiple random variables ([Hullman et al., 2015](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142444); [Kale et al., 2019](https://ieeexplore.ieee.org/document/8440816)). See more details about HOPs in the [Uncertainty Visualization section](#Uncertainty-Visualization).
+
+<details>
+<summary>Click here to see an example of a hypothetical outcome plot.</summary>
+
+```r
+library(tidyverse)
+library(lubridate)
+library(cowplot)
+library(read4cast)
+library(gganimate)
+library(magick)
+library(av)
+
+# read EFI null temperature forecast for the aquatics challenge
+null_forecast <- read4cast::read_forecast(paste0("https://data.ecoforecast.org/forecasts/aquatics/",
+                                      "aquatics-2020-09-01-EFInull.csv.gz")) %>%
+  mutate(time = as_date(time)) %>%
+  filter(variable == "temperature",
+         site_id == "BARC")
+
+observed <- neon4cast::combined_scores("aquatics") %>%
+  filter(time >= lubridate::as_datetime('2020-09-01'), 
+         time < lubridate::as_datetime('2020-09-08'), 
+         variable == "temperature", 
+         !is.na(observed)) %>%
+  group_by(time) %>%
+  summarise(observed = median(observed))
+
+HOP <- null_forecast %>% 
+  filter(ensemble %in% random_ensembles) %>%
+  mutate(ensemble_rank = dense_rank(ensemble)) %>%
+  uncount(n_frames, .id="frame") %>%
+  filter(ensemble_rank <= frame) %>%
+  arrange(frame, ensemble_rank, time) %>%
+  group_by(frame) %>%
+  mutate(alpha = if_else(ensemble_rank == frame, 1, 0.5)) %>%
+  ungroup() %>%
+  mutate(
+    datetime = as_datetime(paste(time, "00:00:00")),
+    xmin = datetime - hours(9), 
+    xmax = datetime + hours(9)
+  ) %>%
+  ggplot() +
+  geom_segment(
+    aes(x = xmin, xend = xmax, y = predicted, yend = predicted, 
+        alpha = alpha, color = 'predicted'),
+    size = 2) +
+  transition_manual(frame) +
+  geom_point(data = observed, aes(x = time, y = observed, color = 'observed')) +
+  scale_color_manual(
+    name = NULL,
+    values = c('observed'  = "#000000", 'predicted' = '#00bfff'),
+    labels = c('observed', 'predicted'), 
+    guide = guide_legend(override.aes = list(linetype = c(0,1), shape = c(16,NA)))) +
+  scale_x_datetime(date_breaks = "1 day", date_labels = "%b-%d") +
+  ylab("temperature (degrees Celsius)") +
+  theme_minimal_hgrid() +
+  scale_alpha(guide = 'none') + 
+  theme(axis.title.x = element_blank(),
+        legend.position = 'right') + 
+  ggtitle('Number of ensemble members: {frame}')
+
+animation <- animate(HOP, fps = 2.5)
+anim_save("./HOP.gif", 
+          animation = animation)
+
+gif <- image_read("./HOP.gif")
+image_write_video(gif,
+                  path = "./HOP.mp4",
+                  framerate = 2.5)
+```
+
+<figure>
+ <video width="80%" controls>
+  <source src="images/HOP.mp4" type="video/mp4">
+</video> 
+<figcaption align = "center"> Hypothetical outcome plot showing uncertainty in a 7-day water temperature forecast by sequentially adding each of 100 ensemble members.</figcaption>
+</figure>
+</details>
 
 #### Animation tools
 
