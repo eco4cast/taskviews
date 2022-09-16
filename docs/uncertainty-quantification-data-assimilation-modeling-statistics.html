@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Uncertainty quantification, Data assimilation, Modeling &amp; Statistics | EFI Task Views</title>
   <meta name="description" content="A compilation of common tasks in ecological forecasting and methods and tools to help with those tasks" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Uncertainty quantification, Data assimilation, Modeling &amp; Statistics | EFI Task Views" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://seankross.com/bookdown-start/" />
   
   <meta property="og:description" content="A compilation of common tasks in ecological forecasting and methods and tools to help with those tasks" />
   <meta name="github-repo" content="eco4cast/neon4cast-taskviews" />
@@ -31,9 +30,9 @@
   
   
 <link rel="prev" href="reproducible-forecasting-workflows.html"/>
-
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="visualization.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,11 +48,75 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -147,6 +210,33 @@
 <li class="chapter" data-level="2.5.2" data-path="uncertainty-quantification-data-assimilation-modeling-statistics.html"><a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#tools-for-data-assimilation"><i class="fa fa-check"></i><b>2.5.2</b> Tools for data assimilation</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>3</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="visualization.html"><a href="visualization.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="visualization.html"><a href="visualization.html#guiding-principles"><i class="fa fa-check"></i><b>3.2</b> Guiding Principles</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="visualization.html"><a href="visualization.html#overview-3"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="visualization.html"><a href="visualization.html#design"><i class="fa fa-check"></i><b>3.2.2</b> Design</a></li>
+<li class="chapter" data-level="3.2.3" data-path="visualization.html"><a href="visualization.html#co-development"><i class="fa fa-check"></i><b>3.2.3</b> Co-development</a></li>
+<li class="chapter" data-level="3.2.4" data-path="visualization.html"><a href="visualization.html#product-sustainability"><i class="fa fa-check"></i><b>3.2.4</b> Product Sustainability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="visualization.html"><a href="visualization.html#how-we-make-visuals"><i class="fa fa-check"></i><b>3.3</b> How We Make Visuals</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="visualization.html"><a href="visualization.html#digital-accessibility-a11y"><i class="fa fa-check"></i><b>3.3.1</b> Digital Accessibility (a11y)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="visualization.html"><a href="visualization.html#static-visuals"><i class="fa fa-check"></i><b>3.3.2</b> Static Visuals</a></li>
+<li class="chapter" data-level="3.3.3" data-path="visualization.html"><a href="visualization.html#animated-visuals"><i class="fa fa-check"></i><b>3.3.3</b> Animated Visuals</a></li>
+<li class="chapter" data-level="3.3.4" data-path="visualization.html"><a href="visualization.html#interactive-and-reactive-features"><i class="fa fa-check"></i><b>3.3.4</b> Interactive and Reactive Features</a></li>
+<li class="chapter" data-level="3.3.5" data-path="visualization.html"><a href="visualization.html#geospatial-visuals"><i class="fa fa-check"></i><b>3.3.5</b> Geospatial Visuals</a></li>
+<li class="chapter" data-level="3.3.6" data-path="visualization.html"><a href="visualization.html#uncertainty-visualization"><i class="fa fa-check"></i><b>3.3.6</b> Uncertainty Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="visualization.html"><a href="visualization.html#tables"><i class="fa fa-check"></i><b>3.4</b> Tables</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="visualization.html"><a href="visualization.html#table-1---end-users"><i class="fa fa-check"></i><b>3.4.1</b> Table 1 - End-Users</a></li>
+<li class="chapter" data-level="3.4.2" data-path="visualization.html"><a href="visualization.html#table-2---a11y-resources"><i class="fa fa-check"></i><b>3.4.2</b> Table 2 - a11y Resources</a></li>
+<li class="chapter" data-level="3.4.3" data-path="visualization.html"><a href="visualization.html#table-3---web-application-development-frameworks"><i class="fa fa-check"></i><b>3.4.3</b> Table 3 - Web-application Development Frameworks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="visualization.html"><a href="visualization.html#references-1"><i class="fa fa-check"></i><b>3.5</b> References</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -167,10 +257,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="uncertainty-quantification-data-assimilation-modeling-statistics" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Uncertainty quantification, Data assimilation, Modeling &amp; Statistics</h1>
-<div id="overview-1" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Overview</h2>
+<div id="uncertainty-quantification-data-assimilation-modeling-statistics" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Uncertainty quantification, Data assimilation, Modeling &amp; Statistics<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#uncertainty-quantification-data-assimilation-modeling-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Curators: Abby Lewis<sup>1</sup>, Ben Toh<sup>2</sup>, Jake Zwart<sup>3</sup>, Alexey Shiklomanov<sup>4</sup>, Leah Johnson<sup>1</sup>, Ethan White<sup>2</sup>, Hassan Moustahfid<sup>5</sup>, Kelly Heilman<sup>6</sup>, Ash Griffin<sup>7</sup>, Jody Peters<sup>8</sup>, Quinn Thomas<sup>1</sup>, Mike Dietze<sup>9</sup></p>
 <p><em><sup>1</sup>Virginia Tech, <sup>2</sup>University of Florida, <sup>3</sup>USGS, <sup>4</sup>NASA, <sup>5</sup>NOAA, <sup>6</sup>University of Arizona, <sup>7</sup>MailChimp, <sup>8</sup>University of Notre Dame, <sup>9</sup>Boston University</em></p>
 <p>The crux of a successful forecasting system is an effective model with properly specified uncertainty. Numerous techniques are available to create a model for a given forecasting problem, and each modeling technique will require different mechanisms for incorporating, quantifying, and propagating uncertainty. Here, we outline the tools available for both empirical (statistical, Bayesian, and machine learning) and mechanistic models (Figure 1: C). To expand on existing modeling resources, we then describe how uncertainty can be incorporated into a forecasting workflow using different types of model and tools for assimilating new data to update a forecast (Figure 1: D).</p>
@@ -179,14 +269,14 @@
 <p class="caption">Figure 1. Conceptual diagram of the components in the forecast workflow, including the iterative forecast and adaptive management cycles. A (Data Ingest, Cleaning, Management) and D (Visualization/Decision Support Tools, User Interface) will be described in future task views. B (Data Assimilation) and C (Model) are described below.</p>
 </div>
 </div>
-<div id="empirical-models" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Empirical models</h2>
+<div id="empirical-models" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Empirical models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#empirical-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In general, empirical models let data speak for itself, making inferences and predictions without extensively encoding the underlying ecological process. These models are often fast and computationally efficient when making predictions. However, they are only informed by previous values in the dataset and therefore may be unlikely to perform well outside of the range of observed conditions. Furthermore, improper variable selection and assumptions on distributions can cause inaccurate predictions. In this section, we outline tools for two categories of empirical models: statistical models and machine learning.</p>
-<div id="statistical-model-frequentist" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Statistical model (frequentist)</h3>
+<div id="statistical-model-frequentist" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Statistical model (frequentist)<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-frequentist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Statistical models use historical data to estimate statistical parameters, then use those estimates to forecast into the future. In this section we focus on some of the more commonly used tools for fitting statistical models and making forecasts within a frequentist framework. Time series models, e.g. Auto Regressive Integrated Moving Average (<a href="https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average" target="_blank">ARIMA</a>) models, are a common choice of statistical model relevant to forecasting. These models focus on learning the temporal pattern of the past, including seasonality and temporal autocorrelation, and project this pattern into the future in a forecasting setting.</p>
-<div id="tools-for-frequentist-models" class="section level4" number="2.2.1.1">
-<h4><span class="header-section-number">2.2.1.1</span> Tools for frequentist models</h4>
+<div id="tools-for-frequentist-models" class="section level4 hasAnchor" number="2.2.1.1">
+<h4><span class="header-section-number">2.2.1.1</span> Tools for frequentist models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#tools-for-frequentist-models" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The following are commonly used tools for fitting and running frequentist models for the interpreted programming languages R and Python. See the <a href="https://projects.ecoforecast.org/taskviews/reproducible-forecasting-workflows.html" target="_blank">Reproducible Forecasting Workflows post</a> for more details on these two interpreted languages.</p>
 <ul>
 <li><strong>R</strong>
@@ -207,8 +297,8 @@
 </ul>
 </div>
 </div>
-<div id="statistical-model-bayesian" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Statistical model (Bayesian)</h3>
+<div id="statistical-model-bayesian" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Statistical model (Bayesian)<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-bayesian" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In a Bayesian framework, all fitted parameters have a probability distribution. This is useful as it enables robust accounting of parameter uncertainty, and allows for the model to be informed by existing data or expertise. Often, a Bayesian framework also allows the user to fit more complicated and hierarchical time series models, while accounting for uncertainty in parameters, drivers, and observation data. Options for fitting Bayesian models include</p>
 <ol style="list-style-type: decimal">
 <li>working directly with Markov chain Monte Carlo (MCMC) samplers,</li>
@@ -217,8 +307,8 @@
 <li>Laplace approximation.
 These methods are all described in more detail below.</li>
 </ol>
-<div id="work-directly-with-markov-chain-monte-carlo-mcmc" class="section level4" number="2.2.2.1">
-<h4><span class="header-section-number">2.2.2.1</span> Work directly with Markov chain Monte Carlo (MCMC)</h4>
+<div id="work-directly-with-markov-chain-monte-carlo-mcmc" class="section level4 hasAnchor" number="2.2.2.1">
+<h4><span class="header-section-number">2.2.2.1</span> Work directly with Markov chain Monte Carlo (MCMC)<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#work-directly-with-markov-chain-monte-carlo-mcmc" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>R</strong>
 <ul>
@@ -234,8 +324,8 @@ These methods are all described in more detail below.</li>
 </ul></li>
 </ul>
 </div>
-<div id="interface-with-jagsbugsstan" class="section level4" number="2.2.2.2">
-<h4><span class="header-section-number">2.2.2.2</span> Interface with JAGS/BUGS/Stan</h4>
+<div id="interface-with-jagsbugsstan" class="section level4 hasAnchor" number="2.2.2.2">
+<h4><span class="header-section-number">2.2.2.2</span> Interface with JAGS/BUGS/Stan<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#interface-with-jagsbugsstan" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Instead of working directly with MCMC samplers, a model can be specified in the <a href="https://mcmc-jags.sourceforge.io/" target="_blank">JAGS</a> (Just Another Gibbs Sampler), <a href="https://www.mrc-bsu.cam.ac.uk/software/bugs/" target="_blank">BUGS</a> (Bayesian Inference Using Gibbs Sampling), <a href="https://cran.r-project.org/web/packages/nimble/index.html" target="_blank">nimble</a>, or <a href="https://mc-stan.org/" target="_blank">Stan</a> syntax. Stan can be faster for complex, hierarchical models without conjugacy. For simple models, ones that have conjugate relationships, or models with a lot of latent variables, JAGS/BUGS/NIMBLE are usually faster.These languages select samplers based on the model, and provide posterior samples. Differences in these programs are primarily in the backend algorithms.</p>
 <ul>
 <li><strong>R</strong>
@@ -251,8 +341,8 @@ These methods are all described in more detail below.</li>
 </ul></li>
 </ul>
 </div>
-<div id="readily-available-native-functions" class="section level4" number="2.2.2.3">
-<h4><span class="header-section-number">2.2.2.3</span> Readily available “native” functions</h4>
+<div id="readily-available-native-functions" class="section level4 hasAnchor" number="2.2.2.3">
+<h4><span class="header-section-number">2.2.2.3</span> Readily available “native” functions<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#readily-available-native-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>By trading flexibility and customizability for some convenience, some packages allow us to fit Bayesian models with “native” functions.</p>
 <ul>
 <li><strong>R</strong>
@@ -266,21 +356,21 @@ These methods are all described in more detail below.</li>
 </ul></li>
 </ul>
 </div>
-<div id="laplace-approximation" class="section level4" number="2.2.2.4">
-<h4><span class="header-section-number">2.2.2.4</span> Laplace Approximation</h4>
+<div id="laplace-approximation" class="section level4 hasAnchor" number="2.2.2.4">
+<h4><span class="header-section-number">2.2.2.4</span> Laplace Approximation<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#laplace-approximation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The Bayesian approach is generally much more time consuming than frequentist and machine learning. Fitting time for MCMC is slow and due to the iterative nature of MCMC, parallelization of individual chains is not possible. One of the most common and well supported ways is to approximate the posterior distributions using Laplace approximation. The <a href="http://www.r-inla.org/" target="_blank">R-INLA package</a> (inla) provides ways to fit a wide variety of statistical models via the integrated nested Laplace approximation approach. It is now heavily used in temporal, spatial and spatiotemporal GLMM.</p>
 </div>
 </div>
-<div id="spatio-temporal-statistical-models" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Spatio-temporal statistical models</h3>
+<div id="spatio-temporal-statistical-models" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Spatio-temporal statistical models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#spatio-temporal-statistical-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The book <a href="https://spacetimewithr.org/" target="_blank">Spatio-Temporal Statistics with R</a> by Wikle et al. (2019) provides an accessible introduction to both frequentist and Bayesian approaches to spatiotemporal modeling (i.e. models for forecasting across both space and time) using a range of packages in R. The book particularly emphasizes the use of basis functions to approximate spatiotemporal covariance structures. The website provides open text and hands-on activities.</p>
 </div>
-<div id="machine-learning" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Machine learning</h3>
+<div id="machine-learning" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Machine learning<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#machine-learning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Unlike statistical models, Machine Learning (ML) models make few assumptions about probability distributions, instead relying on algorithms to learn patterns by themselves. ML allows for complex interactions among predictors (commonly called <em>features</em> in the ML community) without <em>a priori</em> specification. However, often it is best to carefully select the features used to train the ML models based on which features will most likely be influential to the variable being predicted. This feature selection can either be guided by ML models themselves, or by domain experts. Furthermore, outputs from other mechanistic or statistical methods can be used as features to train a ML model. Given enough data, ML methods often provide more accurate predictions than parametric statistical methods, largely due to their flexibility and limited a priori assumptions on variable distributions. Injecting process knowledge into ML techniques is an active and growing area of research (e.g. ‘<a href="https://ieeexplore.ieee.org/abstract/document/7959606" target="_blank">theory-guided machine learning</a>’, <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ele.13462?casa_token=qVMfHetF3hsAAAAA%3A1XJBLU1VLvNDPEPfGIXybcYcr2jb86Foy8twEkHpk_yVVySg_FtalJVDECQxdS-28OYeBqCF4s4tGiiJ" target="_blank">neural hierarchical models</a>, <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR024922" target="_blank">process-guided deep learning</a>).</p>
 <p>Methods that are generally considered ML include decision tree based methods (e.g. Classification And Regression Tree (<a href="https://en.wikipedia.org/wiki/Decision_tree_learning" target="_blank">CART</a>, <a href="https://en.wikipedia.org/wiki/Random_forest" target="_blank">random forest</a>, <a href="https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting" target="_blank">gradient boosted trees</a>), support vector machines (SVM), and artificial neural networks (ANN). More complicated deep learning models are a form of ANNs and are increasingly utilized in ecological forecasting. Empirical Dynamic Modeling is a time-series specific machine learning approach that is often used in ecological forecasting.</p>
-<div id="tools-used-for-ml-models" class="section level4" number="2.2.4.1">
-<h4><span class="header-section-number">2.2.4.1</span> Tools used for ML models</h4>
+<div id="tools-used-for-ml-models" class="section level4 hasAnchor" number="2.2.4.1">
+<h4><span class="header-section-number">2.2.4.1</span> Tools used for ML models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#tools-used-for-ml-models" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><strong>R</strong>
 <ul>
@@ -297,17 +387,17 @@ These methods are all described in more detail below.</li>
 </ul></li>
 </ul>
 </div>
-<div id="interface-with-machine-learning-platformlibraries" class="section level4" number="2.2.4.2">
-<h4><span class="header-section-number">2.2.4.2</span> Interface with machine learning platform/libraries</h4>
+<div id="interface-with-machine-learning-platformlibraries" class="section level4 hasAnchor" number="2.2.4.2">
+<h4><span class="header-section-number">2.2.4.2</span> Interface with machine learning platform/libraries<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#interface-with-machine-learning-platformlibraries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For neural networks and deep learning, (e.g. the Long Short-Term Memory (LSTM) recurrent neural networks, which are popular in fitting time series), it is extremely common and popular to use a number of libraries that are based on or interface primarily with Python, e.g., <a href="https://www.tensorflow.org/" target="_blank">Tensorflow</a>, <a href="https://pytorch.org/" target="_blank">PyTorch</a> and <a href="https://keras.io/" target="_blank">keras</a>. Thanks to Rstudio, there are now packages that interface R with these libraries (<a href="https://tensorflow.rstudio.com/" target="_blank">tensorflow</a>, <a href="https://keras.rstudio.com/" target="_blank">keras</a> and <a href="https://blogs.rstudio.com/ai/posts/2020-09-29-introducing-torch-for-r/" target="_blank">torch</a>).</p>
 </div>
 </div>
 </div>
-<div id="mechanistic-models" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Mechanistic models</h2>
+<div id="mechanistic-models" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Mechanistic models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#mechanistic-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mechanistic models can range from simple deterministic (finite-difference or differential equation-based) models to highly complex “black box” simulators. Simple deterministic models are often designed using custom code, but tools are available for parameter fitting and manipulating differential equations. Fewer tools are available for model fitting using external executables or agent based models.</p>
-<div id="simple-deterministic-model" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Simple deterministic model</h3>
+<div id="simple-deterministic-model" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Simple deterministic model<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#simple-deterministic-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The simplicity of these is both a strength and weakness in a forecasting framework; simplifying a model structure reduces parameter uncertainty and may avoid overfitting, but it may obscure important ecological processes.</p>
 <p>Deterministic models are typically designed using custom code, and there are very few off-the-shelf tools to help create deterministic models. That being said, a few packages (listed below) are useful to help with parameter fitting and manipulating differential equations. For more information on (frequentist) parameter fitting in R, see this <a href="https://www.r-bloggers.com/learning-r-parameter-fitting-for-models-involving-differential-equations/" target="_blank">tutorial</a> from R-bloggers. Bayesian inference for a limited variety of ordinary differential equations (ODEs) are available in the beta version of BUGS, or in R through the <a href="https://cran.r-project.org/web/packages/deBInfer/index.html" target="_blank">deBInfer</a> package.</p>
 <p><strong>Packages to note:</strong></p>
@@ -334,41 +424,41 @@ These methods are all described in more detail below.</li>
 </ul></li>
 </ol>
 </div>
-<div id="black-box-models" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Black box models</h3>
+<div id="black-box-models" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Black box models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#black-box-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The previously-mentioned <a href="https://cran.r-project.org/web/packages/BayesianTools/index.html" target="_blank">BayesianTools</a> R package was originally designed to calibrate “black box” ecological models and provides an in-depth vignette for coupling such models to R.</p>
 <p>While optimized for terrestrial ecosystem models, the Predictive Ecosystem Analyzer (<a href="https://pecanproject.github.io/" target="_blank">PEcAn</a>) is a predominantly R-based workflow that includes utilities for efficient Bayesian calibration of black box models by using Gaussian Process models to <a href="https://doi.org/10.5194/bg-15-5801-2018" target="_blank">emulate the Likelihood surface</a>. More recently, this approach has been extended to a <a href="https://www.biorxiv.org/content/10.1101/2021.04.28.441243v1" target="_blank">hierarchical across-site calibration</a>.</p>
 </div>
 </div>
-<div id="uncertainty" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Uncertainty</h2>
+<div id="uncertainty" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Uncertainty<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#uncertainty" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Understanding how much uncertainty is present in ecological forecasts is essential to both scientific inference and decision making. Decisions based on a highly confident forecast will be very different from those based on a forecast with a wide range of possible outcomes, and an incomplete accounting of uncertainty will lead to falsely overconfident (and thus risk prone) decisions. Uncertainty accounting requires both quantifying uncertainty for models, or components of models, and propagating that uncertainty through other aspects of the full forecast. Forecasts may include a variety of different types of uncertainty such as parameter uncertainty, random effect uncertainty, initial condition uncertainty, covariate or driver uncertainty, and process uncertainty.</p>
-<div id="statistical-model-frequentist-1" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Statistical model (frequentist)</h3>
+<div id="statistical-model-frequentist-1" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Statistical model (frequentist)<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-frequentist-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For most frequentist models, uncertainty sources are limited to parameter uncertainty and residual error, which are produced by most of the tools described for statistical modeling above. Parameter uncertainty can also be estimated using bootstrapping and other similar methods. Tools for producing prediction intervals (the range of values expected to capture a percentage of future observations) for these models include</p>
 <ul>
 <li><p>R: forecast() function from the <a href="https://cran.r-project.org/web/packages/forecast/index.html" target="_blank">forecast</a> package can be used to produce prediction intervals for many statistical models.</p></li>
 <li><p>Python: the same functionality is available in the get_forecast() function in <a href="https://www.statsmodels.org/stable/index.html" target="_blank">statsmodels</a>.</p></li>
 </ul>
 </div>
-<div id="statistical-model-bayesian-1" class="section level3" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Statistical model (Bayesian)</h3>
+<div id="statistical-model-bayesian-1" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Statistical model (Bayesian)<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-bayesian-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Statistical models that are formulated as Bayesian models have considerable flexibility in how multiple sources of uncertainty are incorporated and modeled. Standard inclusions are parameter uncertainty, residual process error, and observational uncertainty. Hierarchical models (the Bayesian versions of mixed effects models) allow variation in parameters between groups, and uncertainty in the parameters that describe the group level variation. Additionally, it is possible to explicitly include model uncertainty when using Bayesian methods, for example through Bayesian model averaging approaches. Typically estimates of all types of error/uncertainties, including predictive, must be obtained via Monte Carlo methods (as described below) as closed form solutions are only rarely available.</p>
 </div>
-<div id="machine-learning-models" class="section level3" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Machine learning models</h3>
+<div id="machine-learning-models" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Machine learning models<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#machine-learning-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Machine learning covers a wide range of models with equivalently wide ranges of approaches to uncertainty, including some methods that lack uncertainty estimates entirely using their standard implementations. Since machine learning is often focused on prediction, many methods produce estimates of uncertainty in the predictions, which is useful in a forecasting context. Some approaches are implemented so that the tools for prediction intervals described in <a href="https://projects.ecoforecast.org/taskviews/uncertainty-quantification-data-assimilation-modeling-statistics.html#statistical-model-frequentist-1" target="_blank">Statistical models (frequentist)</a> can also be used with these models. For neural networks, Monte Carlo dropout and Gaussian mixture methods <a href="https://arxiv.org/pdf/2012.14295.pdf" target="_blank">have also been used</a>. Other approaches may require handling uncertainty in a manner specific to the modeling approach.</p>
 </div>
-<div id="mechanistic-models-monte-carlo-propagation-and-partitioning" class="section level3" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Mechanistic Models: Monte Carlo propagation and partitioning</h3>
+<div id="mechanistic-models-monte-carlo-propagation-and-partitioning" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Mechanistic Models: Monte Carlo propagation and partitioning<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#mechanistic-models-monte-carlo-propagation-and-partitioning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most mechanistic models do not inherently include analytical uncertainty estimators, and thus uncertainty is usually incorporated using Monte Carlo methods (which can also be applied to any of the previous approaches). Monte Carlo methods involve running the model repeatedly with stochastic variation in either model inputs (e.g., incorporating uncertainty in the initial conditions and/or drivers), parameter values (to capture uncertainty in the parameters of the model), and/or residual/process error distribution. This is typically implemented using an ensemble approach, where each ensemble member has parameter and driver inputs drawn from a specified distribution (see <a href="https://projects.ecoforecast.org/taskviews/uncertainty-quantification-data-assimilation-modeling-statistics.html#tools-for-data-assimilation">Table 1</a> for tools). For models that include a temporal component uncertainty propagates into the future due to compounding differences in parameters and drivers between ensemble members. Uncertainty partitioning can be done using either global variance-based methods (e.g. Sobol indices) or one at a time (OAT) methods. Using OAT methods, all but one source of uncertainty is set to not have any variability, the contribution of that source of uncertainty to variability in the forecast output is determined, and this process is repeated for all other sources of uncertainty. A primer on <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Chapter_11_UncertAnalysis.Rmd" target="_blank">Monte Carlo propagation and OAT partitioning</a> is available as part of the <a href="https://press.princeton.edu/books/hardcover/9780691160573/ecological-forecasting" target="_blank">Ecological Forecasting book</a>.</p>
 </div>
-<div id="uncertainty-in-covariates" class="section level3" number="2.4.5">
-<h3><span class="header-section-number">2.4.5</span> Uncertainty in covariates</h3>
+<div id="uncertainty-in-covariates" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Uncertainty in covariates<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#uncertainty-in-covariates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the unique challenges related to uncertainty for forecasting is incorporating uncertainty in the value of future covariates. For example, a model that relies on climate covariates should include uncertainty in future climate conditions in forecasts. In Bayesian approaches this uncertainty can be incorporated directly into the model to make predictions. In other approaches it can be incorporated by running the model repeatedly using ensembles of covariates based on uncertainty in the covariate forecast. The different sets of predictions can then be incorporated using ensemble approaches (see <a href="https://projects.ecoforecast.org/taskviews/uncertainty-quantification-data-assimilation-modeling-statistics.html#mechanistic-models-monte-carlo-propagation-and-partitioning" target="_blank">Mechanistic Models: Monte Carlo propagation and partitioning</a>).</p>
 </div>
-<div id="propagating-uncertainty" class="section level3" number="2.4.6">
-<h3><span class="header-section-number">2.4.6</span> Propagating uncertainty</h3>
+<div id="propagating-uncertainty" class="section level3 hasAnchor" number="2.4.6">
+<h3><span class="header-section-number">2.4.6</span> Propagating uncertainty<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#propagating-uncertainty" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are currently not many “off the shelf” tools for propagating uncertainty in forecasts, as many forecasting practitioners develop their own pipelines for analyzing and propagating uncertainty into their forecasts. However, a few tools do exist:</p>
 <ul>
 <li><strong>R</strong>
@@ -399,8 +489,8 @@ These methods are all described in more detail below.</li>
 </ul>
 </div>
 </div>
-<div id="data-assimilation" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Data assimilation</h2>
+<div id="data-assimilation" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Data assimilation<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Updating model predictions to incorporate new data is a central component of near-term ecological forecasting (Figure 1). One way of doing this would be to repeat the entire model-fitting procedure above any time new observations are added to a dataset. However, that may be very computationally expensive, especially for large complex models. Instead, one might prefer to update existing model predictions using just the new observations (and their uncertainties) and then re-generate new predictions starting from the updated model state. We describe this process as <strong>data assimilation</strong>.</p>
 <p><strong>A Note on Vocabulary</strong></p>
 <p>The term “Data assimilation” (or sometimes, “model-data fusion”) is often used to describe a variety of modeling activities. Some people use “batch data assimilation” or “parameter data assimilation” to describe fitting models to data (see earlier sections). Others use “data assimilation” to broadly refer to any activity that combines information from data and models in any way, such as initializing a model with observed conditions or using observations as model drivers or boundary conditions. For the purposes of this document, we use “data assimilation” to mean the specific approach we describe above; namely, iteratively updating model states using observations (sometimes called “state” data assimilation or “sequential” data assimilation; Figure 2).</p>
@@ -409,8 +499,8 @@ These methods are all described in more detail below.</li>
 <p class="caption">Figure 2. In a sequential data assimilation framework, estimates of model states (and optionally parameters) are updated as new observations are assimilated into the model. The updated states take into account state observations and modeled state estimates as well as the relative confidence in each (shown as distributions). The updated states are then used as initial conditions for the model to make predictions at the next time step (t+1) using the model’s equations. Figure from Ellen Bechtel and Jake Zwart.</p>
 </div>
 <p>For a given time step, a data assimilation algorithm takes two things as inputs: a joint probability distribution of model predictions for all model variables, and distributions of observations of a subset of those model variables. The data assimilation algorithm then synthesizes this information from both the model and the data and produces as output a new joint posterior distribution of all model variables (taking into account covariance between model variables). This new joint posterior distribution is used as the new model initial condition to generate updated predictions into the future (Figure 2).</p>
-<div id="data-assimilation-approaches" class="section level3" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Data assimilation approaches</h3>
+<div id="data-assimilation-approaches" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Data assimilation approaches<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#data-assimilation-approaches" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Different data assimilation approaches (Table 1) differ in their assumptions about the distributions of the model and data predictions. Below we highlight some of the most commonly used data assimilation approaches.</p>
 <ul>
 <li><p>The simplest approach is the <strong>Kalman Filter (KF; <a href="https://github.com/EcoForecast/EF_Activities/blob/master/Exercise_09_KalmanFilter.Rmd" target="_blank">EFI/NEON tutorial</a>)</strong>, which assumes that both model predictions and data have Gaussian (normal) distributions and that the model is linear. This assumption gives the Kalman filter a simple (iterative) analytical solution. Because of its computational efficiency and conceptual simplicity, implementations of the Kalman filter abound.</p>
@@ -424,8 +514,8 @@ Data assimilation is an active area of research, particularly in atmospheric sci
 </ul>
 <p>In theory, data assimilation effectively and elegantly links uncertainties in parameters (see previous sections) and states. In practice, using data assimilation to track uncertainties in parameters and states simultaneously can be challenging (e.g., avoiding rapid convergence of all ensemble members to a single point) and often requires careful algorithm tuning. For example, Kalman Filter implementations sometimes artificially inflate the variance of the distributions to avoid convergence (e.g., filter inflation), but figuring out the right amount of inflation typically requires a lot of problem-specific trial and error (or methods that solve for the process error dynamically, e.g. TWEnF).</p>
 </div>
-<div id="tools-for-data-assimilation" class="section level3" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> Tools for data assimilation</h3>
+<div id="tools-for-data-assimilation" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Tools for data assimilation<a href="uncertainty-quantification-data-assimilation-modeling-statistics.html#tools-for-data-assimilation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Numerous tools exist for data assimilation , though a majority of these tools are targeted to large-scale models and big data and may be more complicated than needed for smaller ecological forecasting applications. Table 1 provides a sampling of the data assimilation tools available, but is by no means a comprehensive list.</p>
 <p><strong>Table 1: Examples of data assimilation tools</strong></p>
 <table>
@@ -522,12 +612,11 @@ Data assimilation is an active area of research, particularly in atmospheric sci
           </div>
         </div>
       </div>
-<a href="reproducible-forecasting-workflows.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="reproducible-forecasting-workflows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -567,6 +656,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

@@ -96,17 +96,11 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-```
-
-```
-## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
-## ✔ tibble  3.1.6     ✔ dplyr   1.0.8
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-## ✔ readr   2.1.2     ✔ forcats 0.5.1
-```
-
-```
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
+## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
+## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
+## ✔ readr   2.1.2      ✔ forcats 0.5.2 
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
@@ -119,9 +113,7 @@ library(lubridate)
 ```
 ## 
 ## Attaching package: 'lubridate'
-```
-
-```
+## 
 ## The following objects are masked from 'package:base':
 ## 
 ##     date, intersect, setdiff, union
@@ -132,7 +124,7 @@ library(here)
 ```
 
 ```
-## here() starts at /Users/elizabethmohr/Documents/R/taskviews
+## here() starts at /Users/runner/work/taskviews/taskviews
 ```
 
 ```r
@@ -142,15 +134,11 @@ library(arrow)
 ```
 ## 
 ## Attaching package: 'arrow'
-```
-
-```
+## 
 ## The following object is masked from 'package:lubridate':
 ## 
 ##     duration
-```
-
-```
+## 
 ## The following object is masked from 'package:utils':
 ## 
 ##     timestamp
@@ -163,9 +151,7 @@ library(cowplot)
 ```
 ## 
 ## Attaching package: 'cowplot'
-```
-
-```
+## 
 ## The following object is masked from 'package:lubridate':
 ## 
 ##     stamp
@@ -178,9 +164,7 @@ library(patchwork)
 ```
 ## 
 ## Attaching package: 'patchwork'
-```
-
-```
+## 
 ## The following object is masked from 'package:cowplot':
 ## 
 ##     align_plots
@@ -215,9 +199,7 @@ library(ggdist)
 ```
 ## 
 ## Attaching package: 'ggdist'
-```
-
-```
+## 
 ## The following objects are masked from 'package:ggridges':
 ## 
 ##     scale_point_color_continuous, scale_point_color_discrete,
@@ -234,9 +216,6 @@ aquatics_targets <- readr::read_csv("https://data.ecoforecast.org/targets/aquati
 
 ```
 ## Rows: 10491 Columns: 10
-```
-
-```
 ## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: ","
 ## chr  (1): siteID
@@ -855,6 +834,11 @@ observed <- neon4cast::combined_scores("aquatics") %>%
   group_by(time) %>%
   summarise(observed = median(observed))
 
+set.seed(8953762)
+n_frames <- 100 # Total number of ensemble members in animation
+random_ensembles <- sample(unique(aquatics_null$ensemble),
+                           size = n_frames)
+
 HOP <- null_forecast %>% 
   filter(ensemble %in% random_ensembles) %>%
   mutate(ensemble_rank = dense_rank(ensemble)) %>%
@@ -1156,4 +1140,3 @@ Communicating forecast uncertainty can play a critical role in both aiding decis
 * Wardekker, A, Lorenz, S (2019). The visual framing of climate change impacts and adaptation in the IPCC assessment reports. Climatic Change, 156(1–2), 273–292. [https://doi.org/10.1007/s10584-019-02522-6](https://doi.org/10.1007/s10584-019-02522-6)
 * Weissgerber et al. (2015) "Beyond bar and line graphs: time for a new data presentation paradigm." PLoS biology 13.4: e1002128. [https://doi.org/10.1371/journal.pbio.1002128](https://doi.org/10.1371/journal.pbio.1002128)
 * Wilke CO (2019) Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures, 1st edition. O’Reilly Media, Sebastopol, CA. [https://clauswilke.com/dataviz/](https://clauswilke.com/dataviz/)
-
