@@ -879,4 +879,3 @@ Communicating forecast uncertainty can play a critical role in both aiding decis
 * Wardekker, A, Lorenz, S (2019). The visual framing of climate change impacts and adaptation in the IPCC assessment reports. Climatic Change, 156(1–2), 273–292. [https://doi.org/10.1007/s10584-019-02522-6](https://doi.org/10.1007/s10584-019-02522-6)
 * Weissgerber et al. (2015) "Beyond bar and line graphs: time for a new data presentation paradigm." PLoS biology 13.4: e1002128. [https://doi.org/10.1371/journal.pbio.1002128](https://doi.org/10.1371/journal.pbio.1002128)
 * Wilke CO (2019) Fundamentals of Data Visualization: A Primer on Making Informative and Compelling Figures, 1st edition. O’Reilly Media, Sebastopol, CA. [https://clauswilke.com/dataviz/](https://clauswilke.com/dataviz/)
-
