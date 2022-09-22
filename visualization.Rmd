@@ -2,9 +2,9 @@
 
 ## Overview  
 
-Curators: Libby Mohr^1^, Matthew Brousil^2^, Kelly Heilman^3^, Hfassan Moustahfid^4^, Leah Johnson^5^, David LeBauer^3^, Rob Kooper^6^, Cee Nell^7^, Josh Cullen^8^, Jake Zwart^7^, Jody Peters^9^, Quinn Thomas^5^, Mike Dietze^10^
+Curators: Libby Mohr^1^, Matthew Brousil^2^, Jessica Burnett^3^, Kelly Heilman^4^, Hfassan Moustahfid^5^, Leah Johnson^6^, David LeBauer^4^, Rob Kooper^7^, Cee Nell^8^, Josh Cullen^9^, Jake Zwart^8^, Jody Peters^10^, Quinn Thomas^6^, Mike Dietze^10^
 
-*^1^Montana State University, ^2^Washington State University, ^3^University of Arizona, ^4^NOAA, ^5^Virginia Tech, ^6^National Center for Supercomputing Applications, ^7^USGS, ^8^Florida State University, ^9^University of Notre Dame, ^10^Boston University*
+*^1^Environmental Defense Fund, ^2^Washington State University, ^3^ NASA, ^4^University of Arizona, ^5^NOAA, ^6^Virginia Tech, ^7^National Center for Supercomputing Applications, ^8^USGS, ^9^Florida State University, ^10^University of Notre Dame, ^11^Boston University*
 
 
 As the old adage goes
