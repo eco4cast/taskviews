@@ -96,50 +96,11 @@ library(tidyverse)
 ```
 
 ```
-## Warning: package 'tidyverse' was built under R version 4.2.1
-```
-
-```
 ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ ggplot2 3.3.6      ✔ purrr   0.3.4 
 ## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
 ## ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-## ✔ readr   2.1.2      ✔ forcats 0.5.2
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'tibble' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'tidyr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'readr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'purrr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'dplyr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'stringr' was built under R version 4.2.1
-```
-
-```
-## Warning: package 'forcats' was built under R version 4.2.1
-```
-
-```
+## ✔ readr   2.1.2      ✔ forcats 0.5.2 
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
@@ -147,10 +108,6 @@ library(tidyverse)
 
 ```r
 library(lubridate)
-```
-
-```
-## Warning: package 'lubridate' was built under R version 4.2.1
 ```
 
 ```
@@ -167,19 +124,11 @@ library(here)
 ```
 
 ```
-## Warning: package 'here' was built under R version 4.2.1
-```
-
-```
-## here() starts at C:/Users/jmurray7/Documents/TaskViews/taskviews
+## here() starts at /Users/runner/work/taskviews/taskviews
 ```
 
 ```r
 library(arrow)
-```
-
-```
-## Warning: package 'arrow' was built under R version 4.2.1
 ```
 
 ```
@@ -200,10 +149,6 @@ library(cowplot)
 ```
 
 ```
-## Warning: package 'cowplot' was built under R version 4.2.1
-```
-
-```
 ## 
 ## Attaching package: 'cowplot'
 ## 
@@ -214,10 +159,6 @@ library(cowplot)
 
 ```r
 library(patchwork)
-```
-
-```
-## Warning: package 'patchwork' was built under R version 4.2.1
 ```
 
 ```
@@ -232,42 +173,16 @@ library(patchwork)
 ```r
 library(ggtext)
 library(colorspace)
-```
-
-```
-## Warning: package 'colorspace' was built under R version 4.2.1
-```
-
-```r
 library(viridis)
-```
-
-```
-## Warning: package 'viridis' was built under R version 4.2.1
 ```
 
 ```
 ## Loading required package: viridisLite
 ```
 
-```
-## Warning: package 'viridisLite' was built under R version 4.2.1
-```
-
 ```r
 library(ggridges)
-```
-
-```
-## Warning: package 'ggridges' was built under R version 4.2.1
-```
-
-```r
 library(GGally)
-```
-
-```
-## Warning: package 'GGally' was built under R version 4.2.1
 ```
 
 ```
@@ -278,18 +193,7 @@ library(GGally)
 
 ```r
 library(hexbin)
-```
-
-```
-## Warning: package 'hexbin' was built under R version 4.2.1
-```
-
-```r
 library(ggdist)
-```
-
-```
-## Warning: package 'ggdist' was built under R version 4.2.1
 ```
 
 ```
@@ -306,13 +210,6 @@ library(ggdist)
 
 ```r
 library(ggExtra)
-```
-
-```
-## Warning: package 'ggExtra' was built under R version 4.2.1
-```
-
-```r
 # Get target data
 aquatics_targets <- readr::read_csv("https://data.ecoforecast.org/targets/aquatics/aquatics-targets.csv.gz")
 ```

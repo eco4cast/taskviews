@@ -1,7 +1,7 @@
 --- 
 title: "EFI Task Views"
 author: "Ecological Forecasting Initiative"
-date: "Last modified: 2022-09-16"
+date: "Last modified: 2022-09-23"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -21,15 +21,16 @@ header-includes:
 # Introduction {-}
 
 <center>
-![Caption for the picture.](images/EFI_Logo-1.jpg){width=25%} 
+![](images/EFI_Logo-1.jpg){width=25%} 
 </center>
 
 
-The EFI [Methods](https://ecoforecast.org/methods-tools/) and [Cyberinfrastructure](https://ecoforecast.org/cyberinfrastructure/) EFI Working Groups are compiling common tasks in ecological forecasting and methods and tools to help with tasks commonly used in ecological forecasting for the following categories. 
+The EFI [Methods](https://ecoforecast.org/methods-tools/){target="_blank"} and [Cyberinfrastructure](https://ecoforecast.org/cyberinfrastructure/){target="_blank"} EFI Working Groups are compiling common tasks in ecological forecasting and methods and tools to help with tasks commonly used in ecological forecasting for the following categories. 
 
-* Reproducible Forecasting Workflows
-* Modeling & Statistical resources, including Uncertainty Quantification & Propagation 
-* Data Ingest, Cleaning, and Management
-* Visualization, Decision Support, and User Interfaces.  
+* [Reproducible Forecasting Workflows](https://projects.ecoforecast.org/taskviews/reproducible-forecasting-workflows.html){target="_blank"}
+* [Uncertainty quantification, Data assimilation, Modeling & Statistics](https://projects.ecoforecast.org/taskviews/uncertainty-quantification-data-assimilation-modeling-statistics.html){target="_blank"}
+* [Visualization, Decision Support, and User Interfaces](https://projects.ecoforecast.org/taskviews/visualization.html){target="_blank"}  
+* Data Ingest, Cleaning, and Management (forthcoming)
 
-These Resources and tools listed in the four categories of tasks are meant to be living documents.  This list is not meant to be a comprehensive overview of all possible resources, as there are some tasks where there are hundreds of different tools available. Instead we focus on commonly used tools.  However, if there are often used tools and resources we are missing,  we welcome input from anyone — suggestions can be shared as Issues to the [eco4cast/taskview GitHub repository](https://github.com/eco4cast/taskviews).
+These Resources and tools listed in the four categories of tasks are meant to be living documents.  This list is not meant to be a comprehensive overview of all possible resources, as there are some tasks where there are hundreds of different tools available. Instead we focus on commonly used tools.  However, if there are often used tools and resources we are missing,  we welcome input from anyone — suggestions can be shared as Issues or Pull Requests to the [eco4cast/taskview GitHub repository](https://github.com/eco4cast/taskviews){target="_blank"}.
+If you want to contribute as a pull request, 1) Fork the repository, 2) Modify the Rmd files(s) in the top level directory, and 3) Submit a pull request.
